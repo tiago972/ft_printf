@@ -1,13 +1,13 @@
 CC = clang 
-CFLAGS = -Wall -Wextra -Werror -I $(INCL)
+CFLAGS = -I $(INCL)
 OBJDIR = objs
 SRCDIR = ./srcs
-SRC = 
+SRC = main.c ft_printf.c
 INCL = ./includes
 LIBCREATOR = $(addprefix $(LIBDIR)/, $(LIB))
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))
 OBJ = $(addprefix $(OBJDIR)/, $(addsuffix .o, $(basename $(SRC))))
-NAME = libftprintf.a
+NAME = libftprintf
 include libft/Makefile
 
 all: $(NAME)

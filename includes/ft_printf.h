@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/01 13:50:57 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/02 14:06:09 by edbaudou         ###   ########.fr       */
+/*   Created: 2019/04/02 11:59:30 by edbaudou          #+#    #+#             */
+/*   Updated: 2019/04/02 15:30:55 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-size_t	ft_strlcat(char *dst, char *src, size_t size)
-{
-	size_t	i;
-	size_t	j;
-	char	*s;
-	char	*d;
+# include <stdarg.h>
+# include "../libft/includes/libft.h"
+# define BUFF_SIZE 1024
 
-	i = ft_strlen(dst);
-	j = ft_strlen(src);
-	s = src;
-	if (size <= i)
-		return (size + j);
-	d = dst + i;
-	while (size - 1 > i && *s)
-	{
-		*d++ = *s++;
-		size--;
-	}
-	*d = '\0';
-	return (i + j);
-}
+int		ft_printf(const char *str, ...);
+
+# endif
