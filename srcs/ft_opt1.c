@@ -31,13 +31,15 @@ void	ft_opt_s(t_printf *v_printf, va_list *ap)
 	v_printf->ret_to_do = ft_strlen(var);
 	while (v_printf->ret_to_do + v_printf->ret_progress > BUFF_SIZE)
 	{
-		tmp = BUFF_SIZE - v_printf->ret_progress;
-		ft_strncat(v_printf->buff, var, tmp);
-		ret_progress += tmp;
-		ft_flush(v_printf);
-		v_printf->ret_to_do -= tmp;
-		if (v_printf->ret_to_do == 0)
-			return ;
+		if (v_printf->ret_to_do > BUFF_SIZE)
+		{
+			tmp = BUFF_SIZE - v_print->ret_progress;
+			ft_strncat(v_printf->buff, var, tmp);
+			var = var + tmp;
+			v_printf->progess += tmp;
+			ft_flush(v_printf);
+			v_printf->ret_to_do -= tmp;
+		}
 	}
 	ft_strcat(v_printf->buff, var);
 	v_printf->ret_progress += v_printf->ret_to_do;
