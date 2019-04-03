@@ -46,7 +46,7 @@ void	ft_dispatch(t_printf *v_printf, va_list *ap, char **str)
 				|| !ft_strncmp(*str, "aq aq", 5)))
 			break ;
 		i = 0;
-		while (i < 1)
+		while (i < 2)
 		{
 			if (ft_strncmp(array[i].opt, *str, 1) == 0)
 				array[i].f(v_printf, ap);

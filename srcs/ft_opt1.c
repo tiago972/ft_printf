@@ -14,12 +14,7 @@
 
 void	ft_opt_c(t_printf *v_printf, va_list *ap)
 {
-	char	tmp[2];
-
-	tmp[0] = va_arg(*ap, int);
-	tmp[1] = '\0';
-	if (v_printf->ret_progress + 1 <= BUFF_SIZE)
-		ft_strcat(v_printf->buff , tmp);
+	v_printf->buff[(v_printf->ret_progress)++] = va_arg(*ap, int);
 }
 
 void	ft_opt_s(t_printf *v_printf, va_list *ap)
