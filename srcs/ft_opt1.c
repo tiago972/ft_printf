@@ -29,31 +29,16 @@ void	ft_opt_s(t_printf *v_printf, va_list *ap)
 
 	var = va_arg(*ap, char *);
 	v_printf->ret_to_do = ft_strlen(var);
-/*	if (v_printf->ret_to_do + v_printf->ret_progress > BUFF_SIZE)
+	while (v_printf->ret_to_do + v_printf->ret_progress > BUFF_SIZE)
 	{
+		tmp = BUFF_SIZE - v_printf->ret_progress;
+		ft_strncat(v_printf->buff, var, tmp);
+		ret_progress += tmp;
 		ft_flush(v_printf);
-		ft_memmove(&(v_printf->buff), var, BUFF_SIZE);
-		v_printf->ret_to_do -= BUFF_SIZE;
-		v_printf->progess = BUFF_SIZE;
-		while (v_printf->ret_to_do > 0)
-		{
-			tmp = v_printf->progress;
-			ft_flush(v_printf);
-			if (v_printf->ret_to_do > BUFF_SIZE)
-			{
-				ft_memmove(&(v_printf->buff), var + BUFF_SIZE, BUFF_SIZE);
-				v_printf->ret_to_do -= BUFF_SIZE;
-				v_printf->progess = BUFF_SIZE;
-			else
-			{
-				ft_memmove(&(v_printf->buff), var + tmp_prog, BUFF_SIZE);
-
-			}
-		}
+		v_printf->ret_to_do -= tmp;
+		if (v_printf->ret_to_do == 0)
+			return ;
 	}
-	else
-	{*/
-		ft_strcat(v_printf->buff, var);
-		v_printf->ret_progress += v_printf->ret_to_do;
-	//}
+	ft_strcat(v_printf->buff, var);
+	v_printf->ret_progress += v_printf->ret_to_do;
 }
