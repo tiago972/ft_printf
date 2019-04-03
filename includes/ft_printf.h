@@ -15,7 +15,7 @@
 
 # include <stdarg.h>
 # include "../libft/includes/libft.h"
-# define BUFF_SIZE 1024
+# define BUFF_SIZE 2048
 
 int				ft_printf(const char *str, ...);
 typedef struct	s_printf 

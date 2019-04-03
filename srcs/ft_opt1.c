@@ -29,7 +29,15 @@ void	ft_opt_s(t_printf *v_printf, va_list *ap)
 
 	var = va_arg(*ap, char *);
 	v_printf->ret_to_do = ft_strlen(var);
-
+	while (v_printf->ret_to_do > (BUFF_SIZE - v_printf->ret_progress))
+	{
+		tmp = BUFF_SIZE - v_printf->ret_progress;
+		ft_strncat(v_printf->buff, var, tmp);
+		var = var + tmp;
+		v_printf->ret_to_do -= tmp;
+		v_printf->ret_progress += tmp;
+		ft_flush(v_printf);
+	}
 	ft_strcat(v_printf->buff, var);
 	v_printf->ret_progress += v_printf->ret_to_do;
 }
