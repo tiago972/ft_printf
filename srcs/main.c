@@ -6,12 +6,14 @@ int		main()
 {
 	char *test;
 	char test2 = '\0';
-	int	d = 42;
+	int	i;
+	int	j;
+
 	test = ft_strnew(500);
 	ft_strcpy(test, "test a la con");
-	//d = ft_printf("ceci est un %#s\n", test);
-	//printf("N = %d\n", d);
-	printf("test %5s", test);
+	i = ft_printf("ceci est un %50s\n", test);
+	j = printf("ceci est un %50s\n", test);
+	printf("EUX = %d, MOI %d\n", j, i);
 	ft_strdel(&test);
 	return (0);
 }

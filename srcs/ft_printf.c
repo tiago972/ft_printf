@@ -6,11 +6,12 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 13:00:09 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/05 20:33:28 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/05 21:18:35 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+int	g_tour = 0;
 
 void	ft_buff(t_printf *v_printf, char *str, int n)
 {
@@ -19,7 +20,7 @@ void	ft_buff(t_printf *v_printf, char *str, int n)
 	if (v_printf->ret_progress == BUFF_SIZE)
 		ft_flush(v_printf);
 	while (n > (BUFF_SIZE - v_printf->ret_progress))
-	{
+	{	
 		tmp = BUFF_SIZE - v_printf->ret_progress;
 		ft_strncat(v_printf->buff, str, tmp);
 		str += tmp;
@@ -29,6 +30,7 @@ void	ft_buff(t_printf *v_printf, char *str, int n)
 	}
 	ft_strncat(v_printf->buff, str, n);
 	v_printf->ret_progress += n;
+	g_tour++;
 }
 
 int		ft_printf(const char *str, ...)

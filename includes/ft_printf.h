@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 11:59:30 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/05 20:33:42 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/05 21:06:22 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct	s_printf
 	int			width;
 	char		buff[BUFF_SIZE];
 	int			curr_len;
-	char		*var_char;
+	char		*var_c;
 	int			var_int;
 	float		var_float;
 	int			tmp;
@@ -57,5 +57,6 @@ void			ft_parse_opt(t_printf *v_printf);
 void			ft_pf_putstr(t_printf *v_printf);
 void			ft_parse_conv(t_printf *v_printf);
 void			ft_parse_width(t_printf *v_printf);
+void			ft_pad(t_printf *v_printf);
 
 # endif
