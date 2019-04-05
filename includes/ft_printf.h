@@ -16,17 +16,16 @@
 # include <stdarg.h>
 # include "../libft/includes/libft.h"
 # define BUFF_SIZE 2048
-
+# define 
 typedef struct	s_printf
 {
 	int			flags;
 	int			field_width;
 	int			prec;
 	int			len_modifier;
-	char		conv;
-	int			ret_tot;
-	int			ret_done;
-	int			ret_to_do;
+	va_list		ap;
+	char		*str;
+	int			ret_progress;
 }				t_printf;
 int				ft_printf(const char *str, ...);
 

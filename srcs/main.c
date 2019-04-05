@@ -9,7 +9,7 @@ int		main()
 	int	d = 15;
 	test = ft_strnew(5);
 	ft_strcpy(test, "12345");
-	printf("% d", d);
+	printf("%.2s", test);
 	ft_strdel(&test);
 	return (0);
 }
