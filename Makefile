@@ -40,5 +40,3 @@ debug:
 
 sanitize:
 	$(CC) -fsanitize=address -fno-omit-frame-pointer -g3 $(CFLAGS) -o $(NAME) $(OBJ) $(NAME_LIB) 
-
-

@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 11:59:30 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/04 13:11:58 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/05 11:27:15 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct	s_printf
 	va_list		ap;
 	char		*str;
 	int			ret_progress;
+	int			ret_tot;
 }				t_printf;
 int				ft_printf(const char *str, ...);
 
