@@ -21,6 +21,5 @@ int		ft_power(int n, int b)
 		n /= b;
 		power++;
 	}
-	power++;
 	return (power);
 }

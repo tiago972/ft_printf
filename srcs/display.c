@@ -25,6 +25,7 @@ void	ft_pad(t_printf *v_printf)
 	char	*pad;
 
 	v_printf->curr_len = ft_strlen(v_printf->var_c);
+	printf("TRUE, len = %d width = %d\n", v_printf->width, v_printf->curr_len);
 	if (v_printf->width > v_printf->curr_len)
 	{
 		v_printf->curr_len = v_printf->width - v_printf->curr_len;

@@ -30,6 +30,7 @@ void	ft_parse_width(t_printf *v_printf)
 		width = ft_atoi(v_printf->str);
 		width = (width < 0) ? -width : width;
 		v_printf->width = width;
+		printf("power %d\n", ft_power(v_printf->width, 10));
 		v_printf->str += ft_power(v_printf->width, 10);
 	}
 }
@@ -38,6 +39,7 @@ void	ft_parse_conv(t_printf *v_printf)
 {
 	if (*(v_printf->str) == 's' && v_printf->str++)
 	{
+		printf("in int\n");
 		v_printf->var_c = va_arg(v_printf->ap, char *);
 		ft_pad(v_printf);
 	}
