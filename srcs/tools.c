@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   dispay.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/01 13:40:20 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/05 18:26:38 by edbaudou         ###   ########.fr       */
+/*   Created: 2019/04/05 11:54:54 by edbaudou          #+#    #+#             */
+/*   Updated: 2019/04/05 16:56:43 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/ft_printf.h"
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_write(t_printf *v_printf)
 {
-	const char		*cpys1;
-	const char		*cpys2;
-	unsigned char	c1;
-	unsigned char	c2;
+	write(1, v_printf->buff, v_printf->ret_progress);
+}
 
-	cpys1 = (const char*)s1;
-	cpys2 = (const char*)s2;
-	c1 = 0;
-	c2 = 0;
-	while (n--)
-	{
-		c1 = *cpys1;
-		c2 = *cpys2;
-		if (c1 != c2)
-			return (c1 - c2);
-		cpys1++;
-		cpys2++;
-	}
-	return (c1 - c2);
+void	ft_flush(t_printf *v_printf)
+{
+	ft_write(v_printf);
+	ft_bzero(&(v_printf->buff), BUFF_SIZE);
+	v_printf->ret_tot += v_printf->ret_progress;
+	v_printf->ret_progress = 0;
 }

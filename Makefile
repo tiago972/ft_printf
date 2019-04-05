@@ -2,7 +2,10 @@ CC = clang
 CFLAGS = -I $(INCL)
 OBJDIR = objs
 SRCDIR = ./srcs
-SRC = main.c ft_printf.c 
+SRC = main.c ft_printf.c \
+	  parse.c \
+	  tools.c \
+	  display.c
 INCL = ./includes
 LIBCREATOR = $(addprefix $(LIBDIR)/, $(LIB))
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))

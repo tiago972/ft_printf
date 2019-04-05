@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/01 13:40:20 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/05 18:26:38 by edbaudou         ###   ########.fr       */
+/*   Created: 2019/04/05 18:11:31 by edbaudou          #+#    #+#             */
+/*   Updated: 2019/04/05 20:37:01 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/ft_printf.h"
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_pf_putstr(t_printf *v_printf)
 {
-	const char		*cpys1;
-	const char		*cpys2;
-	unsigned char	c1;
-	unsigned char	c2;
+	char	*str;
 
-	cpys1 = (const char*)s1;
-	cpys2 = (const char*)s2;
-	c1 = 0;
-	c2 = 0;
-	while (n--)
-	{
-		c1 = *cpys1;
-		c2 = *cpys2;
-		if (c1 != c2)
-			return (c1 - c2);
-		cpys1++;
-		cpys2++;
-	}
-	return (c1 - c2);
+	str = va_arg(v_printf->ap, char *);
+	ft_buff(v_printf, str, ft_strlen(str));
+}
+
+void	ft_pad(t_printf *v_printf)
+{
+	v_printf->var_char = va_arg(v_printf->ap, char *);
+		v_printf->curr_len = ft_strlen(v_printf->var_char);
+		if (v_printf->width > v_printf->curr_len)
+		{
+			if (v_printf->flags &= MINUS)
+			else
+		}
 }
