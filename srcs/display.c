@@ -39,8 +39,7 @@ void	ft_pad(t_printf *v_printf)
 		else
 		{
 			ft_buff(v_printf, v_printf->str, ft_strlen(v_printf->var_c));
-			ft_buff(v_printf, pad, v_printf->curr_len);
-		}
+			ft_buff(v_printf, pad, v_printf->curr_len);		}
 		ft_strdel(&pad);
 	}
 	else

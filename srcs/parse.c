@@ -30,8 +30,10 @@ void	ft_parse_width(t_printf *v_printf)
 		width = ft_atoi(v_printf->str);
 		width = (width < 0) ? -width : width;
 		v_printf->width = width;
-		printf("power %d\n", ft_power(v_printf->width, 10));
+	//	printf("power %d\n", ft_power(v_printf->width, 10));
+		printf("STrr poweer = %d avant '%s'\n", ft_power(v_printf->width, 10),  v_printf->str);
 		v_printf->str += ft_power(v_printf->width, 10);
+		printf("STrr apres '%s'\n", v_printf->str);
 	}
 }
 
