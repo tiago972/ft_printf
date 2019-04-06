@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 11:59:30 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/05 21:06:22 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/06 16:01:25 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdarg.h>
 # include <stdio.h>
+# include <stdint.h>
 # include "../libft/includes/libft.h"
 # define BUFF_SIZE 2048
 # define HASH_TAG (1 << 0)
@@ -23,9 +24,8 @@
 # define SPACE (1 << 3)
 # define PLUS (1 << 4)
 # define F_WIDTH (1 << 5)
-# define F_STAR (1 << 6)
 # define N_PRECISE (1 << 7)
-# define N_STAR (1 << 8)
+# define STAR (1 << 8)
 # define H (1 << 9)
 # define HH (1 << 10)
 # define L (1 << 11)
@@ -45,7 +45,8 @@ typedef struct	s_printf
 	char			buff[BUFF_SIZE];
 	int				curr_len;
 	char			*var_c;
-	int				var_int;
+	intmax_t		var_i;
+	uintmax_t		var_ui;
 	float			var_float;
 	int				tmp;
 }				t_printf;
@@ -57,6 +58,9 @@ void			ft_parse_opt(t_printf *v_printf);
 void			ft_pf_putstr(t_printf *v_printf);
 void			ft_parse_conv(t_printf *v_printf);
 void			ft_parse_width(t_printf *v_printf);
-void			ft_pad(t_printf *v_printf);
+void			ft_pad_str(t_printf *v_printf);
+void			ft_pad_i(t_printf *v_printf);
+intmax_t		ft_get_arg_i(t_printf *v_printf);
+uintmax_t		ft_get_arg_ui(t_printf *v_printf);
 
 # endif

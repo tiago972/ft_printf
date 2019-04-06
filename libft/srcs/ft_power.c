@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/05 19:54:10 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/05 19:59:21 by edbaudou         ###   ########.fr       */
+/*   Created: 2019/04/06 15:16:11 by edbaudou          #+#    #+#             */
+/*   Updated: 2019/04/06 15:17:36 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ int		ft_power(int n, int b)
 {
 	int		power;
 
-	while (n >= b)
+	power = 0;
+	while (n != 0)
 	{
-		n /= b;
 		power++;
+		n /= b;
 	}
 	return (power);
 }

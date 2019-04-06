@@ -6,22 +6,22 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 17:10:07 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/05 17:14:43 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/06 12:01:04 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-int		ft_strlen_c(char *str, char c)
+size_t		ft_strlen_c(const char *str, char c)
 {
-	 char *cpy;
+	char *cpy;
 
-	 cpy = str;
-	 while (*cpy)
-	 {
-		 if (*cpy == c)
-			 return (cpy - str);
-		 cpy++;
-	 }
-	 return (-1);
+	cpy = (char *)str;
+	while (*cpy)
+	{
+		if (*cpy == c)
+			return (cpy - str);
+		cpy++;
+	}
+	return (-1);
 }

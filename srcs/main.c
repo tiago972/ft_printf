@@ -5,14 +5,14 @@
 int		main()
 {
 	char *test;
-	char test2 = '\0';
+	//char test2 = '\0';
 	int	i;
-	int	j;
+	//int	j;
 
 	test = ft_strnew(500);
 	ft_strcpy(test, "test a la con");
-	i = ft_printf("ceci est un % 50s\n", test);
-	//j = printf("ceci est un %-50s\n", test);
+	i = ft_printf("ceci est un %-50d\n", 42);
+	//j = printf("ceci est un %-50d\n", 42);
 	//printf("EUX = %d, MOI %d\n", j, i);
 	ft_strdel(&test);
 	return (0);
