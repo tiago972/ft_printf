@@ -33,21 +33,21 @@
 
 typedef struct	s_printf
 {
-	int			flags;
-	int			field_width;
-	int			prec;
-	int			len_modifier;
-	va_list		ap;
-	char		*str;
-	int			ret_progress;
-	int			ret_tot;
-	int			width;
-	char		buff[BUFF_SIZE];
-	int			curr_len;
-	char		*var_c;
-	int			var_int;
-	float		var_float;
-	int			tmp;
+	int				flags;
+	int				field_width;
+	int				prec;
+	int				len_modifier;
+	va_list			ap;
+	char			*str;
+	int				ret_progress;
+	int				ret_tot;
+	long int		width;
+	char			buff[BUFF_SIZE];
+	int				curr_len;
+	char			*var_c;
+	int				var_int;
+	float			var_float;
+	int				tmp;
 }				t_printf;
 int				ft_printf(const char *str, ...);
 void			ft_buff(t_printf *v_printf, char *str, int n);

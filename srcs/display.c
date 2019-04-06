@@ -22,25 +22,24 @@ void	ft_pf_putstr(t_printf *v_printf)
 */
 void	ft_pad(t_printf *v_printf)
 {
-	char	*pad;
 
 	v_printf->curr_len = ft_strlen(v_printf->var_c);
-	printf("TRUE, len = %d width = %d\n", v_printf->width, v_printf->curr_len);
 	if (v_printf->width > v_printf->curr_len)
 	{
 		v_printf->curr_len = v_printf->width - v_printf->curr_len;
-		pad = ft_strnew(v_printf->curr_len);
-		memset(pad, ' ', v_printf->curr_len);
 		if (v_printf->flags &= MINUS)
 		{
+			printf("TRuE\n");
 			ft_buff(v_printf, v_printf->var_c, ft_strlen(v_printf->var_c));
-			ft_buff(v_printf, pad, v_printf->curr_len);
+			while (v_printf->curr_len--)
+				ft_buff(v_printf, " ", 1);
 		}
 		else
 		{
-			ft_buff(v_printf, v_printf->str, ft_strlen(v_printf->var_c));
-			ft_buff(v_printf, pad, v_printf->curr_len);		}
-		ft_strdel(&pad);
+			while (v_printf->curr_len--)
+				ft_buff(v_printf, " ", 1);
+			ft_buff(v_printf, v_printf->var_c, ft_strlen(v_printf->var_c));
+		}
 	}
 	else
 		ft_buff(v_printf, v_printf->var_c, v_printf->curr_len);

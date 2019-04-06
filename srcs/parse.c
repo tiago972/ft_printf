@@ -15,33 +15,32 @@
 void 	ft_parse_opt(t_printf *v_printf)
 {
 	while ((v_printf->tmp = ft_strlen_c("#0- +", *(v_printf->str)) > -1)
-				&& (v_printf->str)++)
+			&& (v_printf->str)++)
 		v_printf->flags |= v_printf->tmp;
+	printf("flags = %d, tmp = %d\n", v_printf->flags, v_printf->tmp);
 	ft_parse_width(v_printf);
 	ft_parse_conv(v_printf);
 }
 
 void	ft_parse_width(t_printf *v_printf)
 {
-	long	width;
-
-	if (*(v_printf->str) >= '1' && *(v_printf->str) <= '9')
+	if ((*(v_printf->str) >= '1' && *(v_printf->str) <= '9')
+			|| *(v_printf->str) == '-')
 	{
-		width = ft_atoi(v_printf->str);
-		width = (width < 0) ? -width : width;
-		v_printf->width = width;
-	//	printf("power %d\n", ft_power(v_printf->width, 10));
-		printf("STrr poweer = %d avant '%s'\n", ft_power(v_printf->width, 10),  v_printf->str);
-		v_printf->str += ft_power(v_printf->width, 10);
-		printf("STrr apres '%s'\n", v_printf->str);
+		v_printf->width = ft_atoi(v_printf->str);
+		if (v_printf->width < 0)
+		{
+			v_printf->width = -v_printf->width;
+			v_printf->str++;
+		}
 	}
+	v_printf->str += ft_power(v_printf->width, 10);
 }
 
 void	ft_parse_conv(t_printf *v_printf)
 {
 	if (*(v_printf->str) == 's' && v_printf->str++)
 	{
-		printf("in int\n");
 		v_printf->var_c = va_arg(v_printf->ap, char *);
 		ft_pad(v_printf);
 	}
