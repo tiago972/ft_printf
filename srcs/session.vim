@@ -40,10 +40,11 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 ft_printf.c
-badd +0 parse.c
-badd +0 display.c
-badd +0 tools.c
+badd +1 ft_printf.c
+badd +1 parse.c
+badd +1 display.c
+badd +1 tools.c
+badd +0 numbers.c
 argglobal
 silent! argdel *
 argadd ft_printf.c
@@ -59,13 +60,20 @@ vsplit
 wincmd w
 wincmd w
 wincmd w
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
 set nosplitbelow
 wincmd t
 set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 89 + 180) / 360)
-exe 'vert 2resize ' . ((&columns * 90 + 180) / 360)
-exe 'vert 3resize ' . ((&columns * 89 + 180) / 360)
-exe 'vert 4resize ' . ((&columns * 89 + 180) / 360)
+exe 'vert 1resize ' . ((&columns * 89 + 181) / 362)
+exe 'vert 2resize ' . ((&columns * 91 + 181) / 362)
+exe 'vert 3resize ' . ((&columns * 90 + 181) / 362)
+exe '4resize ' . ((&lines * 36 + 37) / 75)
+exe 'vert 4resize ' . ((&columns * 89 + 181) / 362)
+exe '5resize ' . ((&lines * 36 + 37) / 75)
+exe 'vert 5resize ' . ((&columns * 89 + 181) / 362)
 argglobal
 setlocal autoindent
 setlocal backupcopy=
@@ -169,12 +177,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 36 - ((35 * winheight(0) + 36) / 73)
+let s:l = 44 - ((43 * winheight(0) + 36) / 73)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-36
-normal! 039|
+44
+normal! 09|
 wincmd w
 argglobal
 edit tools.c
@@ -280,11 +288,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 18 - ((17 * winheight(0) + 36) / 73)
+let s:l = 26 - ((25 * winheight(0) + 36) / 73)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-18
+26
 normal! 0
 wincmd w
 argglobal
@@ -391,12 +399,123 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 20 - ((19 * winheight(0) + 36) / 73)
+let s:l = 45 - ((44 * winheight(0) + 36) / 73)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-20
-normal! 043|
+45
+normal! 05|
+wincmd w
+argglobal
+edit numbers.c
+setlocal autoindent
+setlocal backupcopy=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+set colorcolumn=80
+setlocal colorcolumn=80
+setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal noexpandtab
+if &filetype != 'c'
+setlocal filetype=c
+endif
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=0
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=ccomplete#Complete
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal smartindent
+setlocal softtabstop=4
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'c'
+setlocal syntax=c
+endif
+setlocal tabstop=4
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal undolevels=-123456
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 14 - ((13 * winheight(0) + 18) / 36)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+14
+normal! 0
 wincmd w
 argglobal
 edit display.c
@@ -502,18 +621,21 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 36) / 73)
+let s:l = 44 - ((21 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+44
+normal! 09|
 wincmd w
-3wincmd w
-exe 'vert 1resize ' . ((&columns * 89 + 180) / 360)
-exe 'vert 2resize ' . ((&columns * 90 + 180) / 360)
-exe 'vert 3resize ' . ((&columns * 89 + 180) / 360)
-exe 'vert 4resize ' . ((&columns * 89 + 180) / 360)
+4wincmd w
+exe 'vert 1resize ' . ((&columns * 89 + 181) / 362)
+exe 'vert 2resize ' . ((&columns * 91 + 181) / 362)
+exe 'vert 3resize ' . ((&columns * 90 + 181) / 362)
+exe '4resize ' . ((&lines * 36 + 37) / 75)
+exe 'vert 4resize ' . ((&columns * 89 + 181) / 362)
+exe '5resize ' . ((&lines * 36 + 37) / 75)
+exe 'vert 5resize ' . ((&columns * 89 + 181) / 362)
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

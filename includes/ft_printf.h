@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 11:59:30 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/06 16:01:25 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/06 18:21:31 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct	s_printf
 	int				curr_len;
 	char			*var_c;
 	intmax_t		var_i;
-	uintmax_t		var_ui;
+	uintmax_t		var_u;
 	float			var_float;
 	int				tmp;
 }				t_printf;
@@ -59,8 +59,14 @@ void			ft_pf_putstr(t_printf *v_printf);
 void			ft_parse_conv(t_printf *v_printf);
 void			ft_parse_width(t_printf *v_printf);
 void			ft_pad_str(t_printf *v_printf);
-void			ft_pad_i(t_printf *v_printf);
+void			ft_pad_i(t_printf *v_printf, int b_size, char *base);
 intmax_t		ft_get_arg_i(t_printf *v_printf);
-uintmax_t		ft_get_arg_ui(t_printf *v_printf);
-
+intmax_t		ft_power_i(intmax_t nb, int b_size);
+uintmax_t		ft_power_u(uintmax_t nb, unsigned b_size);
+void			ft_pf_putnbr_i(t_printf *v_printf, intmax_t nb, int b_size,
+				char *base);
+uintmax_t		ft_get_arg_u(t_printf *v_printf);
+void			ft_pad_u(t_printf *v_printf, int b_size, char *base);
+void			ft_pf_putnbr_u(t_printf *v_printf, uintmax_t nb, int b_size,
+				char *base);
 # endif

@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 11:54:54 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/06 15:49:33 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/06 18:09:14 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,28 @@ void		ft_flush(t_printf *v_printf)
 	v_printf->ret_progress = 0;
 }
 
-intmax_t	ft_get_arg_i(t_printf *v_printf)
+intmax_t	ft_power_i(intmax_t nb, int b_size)
 {
-	if (v_printf->flags & H)
-		return ((short)va_arg(v_printf->ap, int));
-	else if (v_printf->flags & HH)
-		return ((char)va_arg(v_printf->ap,  int));
-	else if (v_printf->flags & L)
-		return (va_arg(v_printf->ap, long int));
-	else if (v_printf->flags & LL)
-		return (va_arg(v_printf->ap, long long int));
-	else
-		return (va_arg(v_printf->ap, int));
+	intmax_t	power;
+
+	power = 0;
+	while (nb != b_size)
+	{
+		nb /= b_size;
+		power++;
+	}
+	return (power);
+}
+
+uintmax_t	ft_power_u(uintmax_t nb, unsigned b_size)
+{
+	uintmax_t	power;
+
+	power = 0;
+	while (nb != b_size)
+	{
+		nb /= b_size;
+		power++;
+	}
+	return (power);
 }

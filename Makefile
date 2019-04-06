@@ -5,7 +5,8 @@ SRCDIR = ./srcs
 SRC = main.c ft_printf.c \
 	  parse.c \
 	  tools.c \
-	  display.c
+	  display.c \
+	  numbers.c
 INCL = ./includes
 LIBCREATOR = $(addprefix $(LIBDIR)/, $(LIB))
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))

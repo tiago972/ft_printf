@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 11:46:14 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/06 15:47:11 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/06 18:29:07 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,15 @@ void	ft_parse_conv(t_printf *v_printf)
 		v_printf->var_c = va_arg(v_printf->ap, char *);
 		ft_pad_str(v_printf);
 	}
-	else if (*(v_printf->str) == 'd' && v_printf->str++)
+	else if ((*(v_printf->str) == 'd' || (*(v_printf->str) == 'i'))
+			&& v_printf->str++)
 	{
-		printf("flags 0 %d\n", v_printf->flags);
 		v_printf->var_i = ft_get_arg_i(v_printf);
-		printf("flags 1 %d\n", v_printf->flags);
-		v_printf->var_c = ft_itoa(v_printf->var_i);
-		ft_pad_str(v_printf);
+		ft_pad_i(v_printf, 10, "0123456789");
+	}
+	else if (*(v_printf->str) == 'u' && v_printf->str++)
+	{
+		v_printf->var_u = ft_get_arg_u(v_printf);
+		ft_pad_u(v_printf, 10, "0123456789");
 	}
 }
