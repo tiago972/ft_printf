@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 16:05:15 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/06 18:26:51 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/07 12:42:36 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,13 @@ void	ft_pf_putnbr_i(t_printf *v_printf, intmax_t nb, int b_size,
 	if (v_printf->var_i < 0)
 	{
 		ft_buff(v_printf, "-", 1);
-		nb = -nb;
+		if (nb == LLONG_MIN)
+		{
+			ft_buff(v_printf, "9", 1);
+			ft_pf_putnbr_i(v_printf, 223372036854775808, b_size, base);
+		}
+		else
+			nb = -nb;
 	}
 	if (nb >= b_size)
 		ft_pf_putnbr_i(v_printf, nb / b_size, b_size, base);
