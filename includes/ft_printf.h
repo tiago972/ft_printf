@@ -49,6 +49,7 @@ typedef struct	s_printf
 	intmax_t		var_i;
 	uintmax_t		var_u;
 	char			var_c;
+	uintptr_t		var_p;
 	float			var_float;
 	int				tmp;
 }				t_printf;
@@ -73,5 +74,5 @@ void			ft_pf_putnbr_u(t_printf *v_printf, uintmax_t nb, int b_size,
 				char *base);
 void			ft_parse_arg_size(t_printf *v_printf);
 void			ft_pad_c(t_printf *v_printf);
-
+void			ft_pad_p(t_printf *v_printf);
 # endif
