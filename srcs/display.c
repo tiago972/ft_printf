@@ -12,14 +12,9 @@
 
 #include "../includes/ft_printf.h"
 
-void	ft_fill(t_printf *v_printf)
+void	ft_pad_p(t_printf *v_printf)
 {
-	if (v_printf->flags & ZERO)
-		while (v_printf->curr_len--)
-			ft_buff(v_printf, "0", 1);
-	else
-		while (v_printf->curr_len--)
-			ft_buff(v_printf, " ", 1);
+	v_prinf->var_p = (uintptr_t)va_arg(v_printf->ap, void *);
 }
 
 void	ft_pad_c(t_printf *v_printf)

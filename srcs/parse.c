@@ -72,4 +72,16 @@ void	ft_parse_conv(t_printf *v_printf)
 		ft_pad_u(v_printf, 16, "0123456789ABCDEF");
 	else if (*(v_printf->str) == 'c' && v_printf->str++)
 		ft_pad_c(v_printf);
+	else if (*(v_printf->str) == 'p' && v_printf->str++)
+		ft_pad_p(v_printf);
+}
+
+void	ft_fill(t_printf *v_printf)
+{
+	if (v_printf->flags & ZERO)
+		while (v_printf->curr_len--)
+			ft_buff(v_printf, "0", 1);
+	else
+		while (v_printf->curr_len--)
+			ft_buff(v_printf, " ", 1);
 }
