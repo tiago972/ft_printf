@@ -14,7 +14,7 @@
 
 void	ft_pad_p(t_printf *v_printf)
 {
-	v_prinf->var_p = (uintptr_t)va_arg(v_printf->ap, void *);
+	v_printf->var_p = (uintptr_t)va_arg(v_printf->ap, void *);
 }
 
 void	ft_pad_c(t_printf *v_printf)
