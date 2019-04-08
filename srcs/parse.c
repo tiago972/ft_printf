@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 11:46:14 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/07 18:23:48 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/08 11:55:12 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,17 @@ void	ft_parse_conv(t_printf *v_printf)
 			&& v_printf->str++)
 		ft_pad_i(v_printf, 10, "0123456789");
 	else if (*(v_printf->str) == 'u' && v_printf->str++)
-		ft_pad_u(v_printf, 10, "0123456789");
+		ft_pad_u(v_printf, 10, "0123456789", 1);
 	else if (*(v_printf->str) == 'x' && v_printf->str++)
-		ft_pad_u(v_printf, 16, "0123456789abcdef");
+		ft_pad_u(v_printf, 16, "0123456789abcdef", 1);
 	else if (*(v_printf->str) == 'X' && v_printf->str++)
-		ft_pad_u(v_printf, 16, "0123456789ABCDEF");
+		ft_pad_u(v_printf, 16, "0123456789ABCDEF", 1);
 	else if (*(v_printf->str) == 'c' && v_printf->str++)
 		ft_pad_c(v_printf);
 	else if (*(v_printf->str) == 'p' && v_printf->str++)
-		ft_pad_p(v_printf);
+		ft_pad_u(v_printf, 16, "0123456789abcdef", 0);
+	else if (*(v_printf->str) == 'f' && v_printf->str++)
+		ft_pad_f(v_printf);
 }
 
 void	ft_fill(t_printf *v_printf)

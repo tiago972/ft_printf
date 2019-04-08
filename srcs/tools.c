@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 11:54:54 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/06 18:09:14 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/08 11:39:40 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,23 @@ uintmax_t	ft_power_u(uintmax_t nb, unsigned b_size)
 		power++;
 	}
 	return (power);
+}
+
+int	ft_iterative_power(int nb, int power)
+{
+	int		count;
+	int		res;
+
+	res = 1;
+	if (power == 0)
+		return (1);
+	if (nb == 0 || power < 0)
+		return (0);
+	count = 0;
+	while (count < power)
+	{
+		res *= nb;
+		count++;
+	}
+	return (res);
 }
