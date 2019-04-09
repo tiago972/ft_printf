@@ -73,18 +73,18 @@ void	ft_pf_putnbr_u(t_printf *v_printf, uintmax_t nb, int b_size,
 
 void	ft_pf_putfloat(t_printf *v_printf)
 {
-	int		integer;
-	float	f_part;
-	int		i;
+	int			integer;
+	long double	f_part;
+	int			i;
 
 	i = 0;
 	integer = (int)v_printf->var_float;
 	v_printf->var_i = integer;
-	f_part = v_printf->var_float - (float)integer;
+	f_part = v_printf->var_float - (long double)integer;
 	ft_pf_putnbr_i(v_printf, integer, 10 ,"0123456789");
 	ft_buff(v_printf, ".", 1);
 	/*TMP a CHANGER*/
-	v_printf->precision = 6;
+	v_printf->precision = 10;
 	//while (i < v_printf->precision)
 	//{
 		f_part = f_part * ft_iterative_power(10, v_printf->precision);

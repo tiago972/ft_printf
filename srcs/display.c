@@ -14,7 +14,7 @@
 
 void	ft_pad_f(t_printf *v_printf)
 {
-	v_printf->var_float = (float)va_arg(v_printf->ap, double);
+	v_printf->var_float = va_arg(v_printf->ap, double);
 	ft_pf_putfloat(v_printf);
 
 }

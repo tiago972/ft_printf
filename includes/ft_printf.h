@@ -49,7 +49,7 @@ typedef struct	s_printf
 	intmax_t		var_i;
 	uintmax_t		var_u;
 	char			var_c;
-	float			var_float;
+	long double		var_float;
 	int				tmp;
 	int				precision;
 }				t_printf;
