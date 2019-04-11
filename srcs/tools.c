@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 11:54:54 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/08 11:39:40 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/11 20:39:57 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,14 @@ int	ft_iterative_power(int nb, int power)
 		count++;
 	}
 	return (res);
+}
+
+void	ft_fill(t_printf *v_printf)
+{
+	if (v_printf->flags & ZERO)
+		while (v_printf->curr_len--)
+			ft_buff(v_printf, "0", 1);
+	else
+		while (v_printf->curr_len--)
+			ft_buff(v_printf, " ", 1);
 }

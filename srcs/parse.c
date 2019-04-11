@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 11:46:14 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/11 20:31:46 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/11 21:43:16 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,14 @@ void 	ft_parse_opt(t_printf *v_printf)
 	ft_parse_width(v_printf);
 	ft_parse_arg_size(v_printf);
 	ft_parse_conv(v_printf);
+}
+
+void	ft_parse_precision(t_print *v_printf)
+{
+	if (v_printf->str == '.' && v_printf->str++)
+	{
+		
+	}
 }
 
 void	ft_parse_width(t_printf *v_printf)
@@ -76,14 +84,6 @@ void	ft_parse_conv(t_printf *v_printf)
 		ft_pad_u(v_printf, 16, "0123456789abcdef", 0);
 	else if (*(v_printf->str) == 'f' && v_printf->str++)
 		ft_pad_f(v_printf);
-}
-
-void	ft_fill(t_printf *v_printf)
-{
-	if (v_printf->flags & ZERO)
-		while (v_printf->curr_len--)
-			ft_buff(v_printf, "0", 1);
-	else
-		while (v_printf->curr_len--)
-			ft_buff(v_printf, " ", 1);
+	else if (*(printf->str) == 'o' && v_printf->str++)
+		ft_pad_u(v_printf, 8, "01234567");
 }

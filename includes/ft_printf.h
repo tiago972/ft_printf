@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 11:59:30 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/08 11:50:49 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/11 21:43:07 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,7 @@
 typedef struct	s_printf
 {
 	int				flags;
-	int				field_width;
 	int				prec;
-	int				len_modifier;
 	va_list			ap;
 	char			*str;
 	int				ret_progress;
