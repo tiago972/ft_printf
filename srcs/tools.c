@@ -30,7 +30,7 @@ intmax_t	ft_power_i(intmax_t nb, int b_size)
 	intmax_t	power;
 
 	power = 0;
-	while (nb != b_size)
+	while (nb != 0)
 	{
 		nb /= b_size;
 		power++;
@@ -43,7 +43,7 @@ uintmax_t	ft_power_u(uintmax_t nb, unsigned b_size)
 	uintmax_t	power;
 
 	power = 0;
-	while (nb != b_size)
+	while (nb != 0)
 	{
 		nb /= b_size;
 		power++;

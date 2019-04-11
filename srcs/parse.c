@@ -26,15 +26,15 @@ void 	ft_parse_opt(t_printf *v_printf)
 	ft_parse_conv(v_printf);
 }
 
-void	ft_parse_precision(t_print *v_printf)
+void	ft_parse_precision(t_printf *v_printf)
 {
-	if (v_printf->str == '.' && v_printf->str++)
+	if (*(v_printf->str) == '.' && v_printf->str++)
 	{
 		/*if (v_printf->str == '*' && v_printf->str++)
 			//ft_do_something about it*/
 		v_printf->prec = ft_atoi(v_printf->str);
 	}
-	v_printf->str += ft_power_i(v_printf->prec);
+	v_printf->str += ft_power_i(v_printf->prec, 10);
 
 }
 
@@ -88,6 +88,6 @@ void	ft_parse_conv(t_printf *v_printf)
 		ft_pad_u(v_printf, 16, "0123456789abcdef", 0);
 	else if (*(v_printf->str) == 'f' && v_printf->str++)
 		ft_pad_f(v_printf);
-	else if (*(printf->str) == 'o' && v_printf->str++)
-		ft_pad_u(v_printf, 8, "01234567");
+	else if (*(v_printf->str) == 'o' && v_printf->str++)
+		ft_pad_u(v_printf, 8, "01234567", 1);
 }
