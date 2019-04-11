@@ -30,8 +30,12 @@ void	ft_parse_precision(t_print *v_printf)
 {
 	if (v_printf->str == '.' && v_printf->str++)
 	{
-		
+		/*if (v_printf->str == '*' && v_printf->str++)
+			//ft_do_something about it*/
+		v_printf->prec = ft_atoi(v_printf->str);
 	}
+	v_printf->str += ft_power_i(v_printf->prec);
+
 }
 
 void	ft_parse_width(t_printf *v_printf)
