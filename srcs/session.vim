@@ -44,7 +44,7 @@ badd +1 ft_printf.c
 badd +1 parse.c
 badd +1 display.c
 badd +1 tools.c
-badd +0 numbers.c
+badd +1 numbers.c
 argglobal
 silent! argdel *
 argadd ft_printf.c
@@ -67,13 +67,13 @@ wincmd w
 set nosplitbelow
 wincmd t
 set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 89 + 181) / 362)
-exe 'vert 2resize ' . ((&columns * 91 + 181) / 362)
-exe 'vert 3resize ' . ((&columns * 90 + 181) / 362)
-exe '4resize ' . ((&lines * 36 + 37) / 75)
-exe 'vert 4resize ' . ((&columns * 89 + 181) / 362)
-exe '5resize ' . ((&lines * 36 + 37) / 75)
-exe 'vert 5resize ' . ((&columns * 89 + 181) / 362)
+exe 'vert 1resize ' . ((&columns * 43 + 112) / 224)
+exe 'vert 2resize ' . ((&columns * 36 + 112) / 224)
+exe 'vert 3resize ' . ((&columns * 80 + 112) / 224)
+exe '4resize ' . ((&lines * 26 + 36) / 72)
+exe 'vert 4resize ' . ((&columns * 62 + 112) / 224)
+exe '5resize ' . ((&lines * 43 + 36) / 72)
+exe 'vert 5resize ' . ((&columns * 62 + 112) / 224)
 argglobal
 setlocal autoindent
 setlocal backupcopy=
@@ -177,7 +177,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 44 - ((43 * winheight(0) + 36) / 73)
+let s:l = 44 - ((28 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -288,7 +288,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 26 - ((25 * winheight(0) + 36) / 73)
+let s:l = 26 - ((25 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -399,12 +399,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 45 - ((44 * winheight(0) + 36) / 73)
+let s:l = 41 - ((7 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-45
-normal! 05|
+41
+normal! 051|
 wincmd w
 argglobal
 edit numbers.c
@@ -510,11 +510,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 14 - ((13 * winheight(0) + 18) / 36)
+let s:l = 36 - ((25 * winheight(0) + 13) / 26)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-14
+36
 normal! 0
 wincmd w
 argglobal
@@ -621,21 +621,21 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 44 - ((21 * winheight(0) + 18) / 36)
+let s:l = 102 - ((30 * winheight(0) + 21) / 43)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-44
-normal! 09|
+102
+normal! 022|
 wincmd w
-4wincmd w
-exe 'vert 1resize ' . ((&columns * 89 + 181) / 362)
-exe 'vert 2resize ' . ((&columns * 91 + 181) / 362)
-exe 'vert 3resize ' . ((&columns * 90 + 181) / 362)
-exe '4resize ' . ((&lines * 36 + 37) / 75)
-exe 'vert 4resize ' . ((&columns * 89 + 181) / 362)
-exe '5resize ' . ((&lines * 36 + 37) / 75)
-exe 'vert 5resize ' . ((&columns * 89 + 181) / 362)
+5wincmd w
+exe 'vert 1resize ' . ((&columns * 43 + 112) / 224)
+exe 'vert 2resize ' . ((&columns * 36 + 112) / 224)
+exe 'vert 3resize ' . ((&columns * 80 + 112) / 224)
+exe '4resize ' . ((&lines * 26 + 36) / 72)
+exe 'vert 4resize ' . ((&columns * 62 + 112) / 224)
+exe '5resize ' . ((&lines * 43 + 36) / 72)
+exe 'vert 5resize ' . ((&columns * 62 + 112) / 224)
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

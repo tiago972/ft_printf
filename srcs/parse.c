@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 11:46:14 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/08 11:55:12 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/11 20:31:46 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_parse_width(t_printf *v_printf)
 			v_printf->str++;
 		}
 	}
-	v_printf->str += ft_power(v_printf->width, 10);
+	v_printf->str += ft_power_i(v_printf->width, 10);
 }
 
 void	ft_parse_arg_size(t_printf *v_printf)

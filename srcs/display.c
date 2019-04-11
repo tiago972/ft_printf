@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 18:11:31 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/08 11:51:13 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/11 20:32:26 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	ft_pad_i(t_printf *v_printf, int b_size, char *base)
 	intmax_t	power;
 
 	v_printf->var_i = ft_get_arg_i(v_printf);
-	power = ft_power(v_printf->var_i, b_size);
+	power = ft_power_i(v_printf->var_i, b_size);
 	power = v_printf->var_i < 0 ? power++ : power;
 	if (v_printf->width > power)
 	{
@@ -99,7 +99,7 @@ void	ft_pad_u(t_printf *v_printf, int b_size, char *base, int opt)
 		v_printf->flags |= HASH_TAG;
 		v_printf->var_u = (uintmax_t)va_arg(v_printf->ap, void *);
 	}
-	power = ft_power(v_printf->var_i, b_size);
+	power = ft_power_u(v_printf->var_i, b_size);
 	power = v_printf->var_i < 0 ? power++ : power;
 	if ((uintmax_t)(v_printf->width) > power)
 	{
