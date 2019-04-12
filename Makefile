@@ -1,5 +1,6 @@
 CC = clang 
 CFLAGS = -Wall -Wextra -Werror -I $(INCL)
+NAME = libftprintf.a
 OBJDIR = objs
 SRCDIR = ./srcs
 SRC = ft_printf.c \
@@ -7,21 +8,22 @@ SRC = ft_printf.c \
 	 numbers.c \
 	 parse.c \
 	 tools.c
-CLFLAGS_DEBOG = -g3 -I $(INCL)
-DEBUG_SRC = main.c
-DEBUG_OBJ = $(addsuffix .o, $(basename $(DEBUG_SRC)))
-DEBUG = debug
 INCL = ./includes
 LIBCREATOR = $(addprefix $(LIBDIR)/, $(LIB))
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))
 OBJ = $(addprefix $(OBJDIR)/, $(addsuffix .o, $(basename $(SRC))))
-NAME = libftprintf.a
+DEBUG = debug
+CLFLAGS_DEBUG = -g3 -I $(INCL)
+DEBUG_FOLDER = debug
+DEBUG_SRC = $(DEBUG_FOLDER)/main.c
+DEBUG_OBJS_FOLDER = objs
+DEBUG_OBJ = $(addprefix $(DEBUG_FOLDER)/$(OBJS_DEBUG_FOLDER), $(addsuffix .o, $(basename $(DEBUG_SRC))))
 include libft/Makefile_lib
 
 all: $(NAME)
 
 $(NAME): $(OBJ) $(NAME_LIB) 
-	@ar rc $(NAME) $(NAME_LIB) $<
+	ar rc $(NAME) $(OBJ_LIB) $<
 	@ranlib $(NAME)
 	@echo "\n\033[38;5;4;1;4m$(NAME)\033[0m compiled successfully\n" 
 
@@ -45,8 +47,12 @@ fclean_all: fclean_lib fclean
 re_all: fclean_lib re
 
 $(DEBUG): $(DEBUG_OBJ) $(NAME)
-	@$(CC) $(CLFLAGS) -o $@ $< -L. -lftprintf
+	@$(CC) $(CLFLAGS) -o $@ $(DEBUG_OBJ) -L. -lftprintf
 	@echo "\n\033[38;1;25m READY to debug man\033[0m\n"
+
+$(DEBUG_OBJ): $(DEBUG_SRC)
+	@mkdir -p $(DEBUG_FOLDER)/$(DEBUG_OBJS_FOLDER)
+	$(CC) $(CLAGS_DEBUG) -o $@ -c $<
 
 clean_deb:
 	@rm -rf $(DEBUG_OBJ)
@@ -54,8 +60,5 @@ fclean_deb: clean_deb
 	@rm -rf $(DEBUG)
 
 re_debug: fclean_deb $(DEBUG)
-	
-$(DEBUG_OBJ): $(DEBUG_SRC)
-	$(CC) $(CLAGS_DEBOG) -o $@ -c $<
 
 .PHONY: clean fclean all

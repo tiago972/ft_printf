@@ -30,8 +30,6 @@ OBJ_LIB = $(addprefix $(OBJDIR_LIB)/, $(addsuffix .o, $(basename $(SRC_LIB))))
 all: $(NAME_LIB)
 
 $(NAME_LIB): $(OBJ_LIB)
-	@ar rc $(NAME_LIB) $?
-	@ranlib $(NAME_LIB)
 	@echo "\n\033[38;5;4;1;4m$(NAME_LIB)\033[0m compiled successfully\n" 
 
 $(OBJDIR_LIB)/%.o : $(SRCDIR_LIB)/%.c
