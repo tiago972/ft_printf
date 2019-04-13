@@ -12,25 +12,25 @@ INCL = ./includes
 LIBCREATOR = $(addprefix $(LIBDIR)/, $(LIB))
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))
 OBJ = $(addprefix $(OBJDIR)/, $(addsuffix .o, $(basename $(SRC))))
-DEBUG = debug
+DEBUG = test
 CLFLAGS_DEBUG = -g3 -I $(INCL)
-DEBUG_FOLDER = debug
-DEBUG_SRC = $(DEBUG_FOLDER)/main.c
-DEBUG_OBJS_FOLDER = objs
-DEBUG_OBJ = $(addprefix $(DEBUG_FOLDER)/$(OBJS_DEBUG_FOLDER), $(addsuffix .o, $(basename $(DEBUG_SRC))))
+DEBUG_FOLDER = ./debug
+DEBUG_SRC = $(addprefix $(DEBUG_FOLDER)/, main.c)
+DEBUG_OBJS_FOLDER = $(addprefix $(DEBUG_FOLDER)/, objs)
+DEBUG_OBJ = $(addprefix $(DEBUG_OBJS_FOLDER)/, $(addsuffix .o, $(basename $(notdir $(DEBUG_SRC)))))
 include libft/Makefile_lib
 
 all: $(NAME)
-
-$(NAME): $(OBJ) $(NAME_LIB) 
-	ar rc $(NAME) $(OBJ_LIB) $<
+	echo $(DEBUG_OBJS_FOLDER)/%.o:
+$(NAME): $(OBJ) $(OBJ_LIB)
+	@ar rc $(NAME) $^ 
 	@ranlib $(NAME)
 	@echo "\n\033[38;5;4;1;4m$(NAME)\033[0m compiled successfully\n" 
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.c  
 	@mkdir -p $(OBJDIR)
+	@$(CC) -o $@ -c $< $(CFLAGS) 
 	@echo "\033[38;5;82m$@\033[0m has been created" 
-	@$(CC) -o $@ -c $? $(CFLAGS)
 
 clean: 
 	@rm -rf $(OBJDIR)
@@ -47,18 +47,19 @@ fclean_all: fclean_lib fclean
 re_all: fclean_lib re
 
 $(DEBUG): $(DEBUG_OBJ) $(NAME)
-	@$(CC) $(CLFLAGS) -o $@ $(DEBUG_OBJ) -L. -lftprintf
-	@echo "\n\033[38;1;25m READY to debug man\033[0m\n"
+	@$(CC) $(CLFLAGS_DEBUG) -o $@ $(DEBUG_OBJ) -L. -lftprintf
+	@echo "\n\033[38;5;208m READY to debug man\033[0m\n"
 
-$(DEBUG_OBJ): $(DEBUG_SRC)
-	@mkdir -p $(DEBUG_FOLDER)/$(DEBUG_OBJS_FOLDER)
-	$(CC) $(CLAGS_DEBUG) -o $@ -c $<
+$(DEBUG_OBJS_FOLDER)/%.o: $(DEBUG_SRC)
+	@mkdir -p $(DEBUG_OBJS_FOLDER)
+	@$(CC) $(CLFLAGS_DEBUG) -o $@ -c $<
 
 clean_deb:
-	@rm -rf $(DEBUG_OBJ)
+	@rm -f $(DEBUG_OBJ)
+
 fclean_deb: clean_deb
-	@rm -rf $(DEBUG)
+	@rm -f $(DEBUG)
 
 re_debug: fclean_deb $(DEBUG)
 
-.PHONY: clean fclean all
+.PHONY: clean fclean all clean_deb fclean_deb re_debug
