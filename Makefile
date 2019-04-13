@@ -48,7 +48,7 @@ re_all: fclean_lib re
 
 $(DEBUG): $(DEBUG_OBJ) $(NAME)
 	@$(CC) $(CLFLAGS_DEBUG) -o $@ $(DEBUG_OBJ) -L. -lftprintf
-	@echo "\n\033[38;5;208m READY to debug man\033[0m\n"
+	@echo "\n\033[38;5;208m READY to debug bro\033[0m\n"
 
 $(DEBUG_OBJS_FOLDER)/%.o: $(DEBUG_SRC)
 	@mkdir -p $(DEBUG_OBJS_FOLDER)
