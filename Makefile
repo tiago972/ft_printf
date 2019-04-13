@@ -21,7 +21,7 @@ DEBUG_OBJ = $(addprefix $(DEBUG_OBJS_FOLDER)/, $(addsuffix .o, $(basename $(notd
 include libft/Makefile_lib
 
 all: $(NAME)
-	echo $(DEBUG_OBJS_FOLDER)/%.o:
+
 $(NAME): $(OBJ) $(OBJ_LIB)
 	@ar rc $(NAME) $^ 
 	@ranlib $(NAME)
