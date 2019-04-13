@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 11:46:14 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/11 21:43:16 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/13 15:01:22 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void 	ft_parse_opt(t_printf *v_printf)
 	if (v_printf->flags & MINUS && v_printf->flags & SPACE)
 		v_printf->flags &= ~SPACE;
 	ft_parse_width(v_printf);
+	ft_parse_precision(v_printf);
 	ft_parse_arg_size(v_printf);
 	ft_parse_conv(v_printf);
 }
@@ -32,6 +33,7 @@ void	ft_parse_precision(t_printf *v_printf)
 	{
 		/*if (v_printf->str == '*' && v_printf->str++)
 			//ft_do_something about it*/
+		v_printf->flags |= DOT;
 		v_printf->prec = ft_atoi(v_printf->str);
 	}
 	v_printf->str += ft_power_i(v_printf->prec, 10);

@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 11:54:54 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/11 20:39:57 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/13 14:14:33 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,12 @@ int	ft_iterative_power(int nb, int power)
 	return (res);
 }
 
-void	ft_fill(t_printf *v_printf)
+void	ft_fill(t_printf *v_printf, int len)
 {
 	if (v_printf->flags & ZERO)
-		while (v_printf->curr_len--)
+		while (len--)
 			ft_buff(v_printf, "0", 1);
 	else
-		while (v_printf->curr_len--)
+		while (len--)
 			ft_buff(v_printf, " ", 1);
 }

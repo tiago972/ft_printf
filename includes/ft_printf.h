@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 11:59:30 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/11 21:43:07 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/13 14:40:31 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,22 @@
 # define HH (1 << 9)
 # define L (1 << 10)
 # define LL (1 << 11)
+# define C (1 << 0)
+# define S (1 << 1)
+# define U (1 << 2)
+# define I (1 << 3)
+# define D (1 << 4)
+# define X (1 << 5)
+# define XX (1 << 6)
+# define O (1 << 7)
+# define P (1 << 8)
+# define F (1 << 9)
 
 typedef struct	s_printf
 {
 	int				flags;
 	int				prec;
+	int				conv_type;
 	va_list			ap;
 	char			*str;
 	int				ret_progress;
@@ -72,8 +83,10 @@ void			ft_pf_putnbr_u(t_printf *v_printf, uintmax_t nb, int b_size,
 				char *base);
 void			ft_parse_arg_size(t_printf *v_printf);
 void			ft_pad_c(t_printf *v_printf);
-void			ft_fill(t_printf *v_printf);
+void			ft_fill(t_printf *v_printf, int len);
 void			ft_pad_f(t_printf *v_printf);
 int				ft_iterative_power(int nb, int power);
 void			ft_pf_putfloat(t_printf *v_printf);
+void			ft_parse_precision(t_printf *v_printf);
+
 # endif

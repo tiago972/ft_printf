@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 16:05:15 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/08 12:02:17 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/13 13:05:29 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,8 @@ void	ft_pf_putfloat(t_printf *v_printf)
 	f_part = v_printf->var_float - (long double)integer;
 	ft_pf_putnbr_i(v_printf, integer, 10 ,"0123456789");
 	ft_buff(v_printf, ".", 1);
-	/*TMP a CHANGER*/
-	v_printf->precision = 10;
-	//while (i < v_printf->precision)
-	//{
-		f_part = f_part * ft_iterative_power(10, v_printf->precision);
-	//	i++;
-	//}
+	if (!(v_printf->flags & DOT))
+		v_printf->prec = 6;
+	f_part = f_part * ft_iterative_power(10, v_printf->precision);
 	ft_pf_putnbr_i(v_printf, (int)f_part, 10, "0123456789");
 }
