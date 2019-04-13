@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 11:59:30 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/13 14:40:31 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/13 15:46:03 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,12 @@
 # define C (1 << 0)
 # define S (1 << 1)
 # define U (1 << 2)
-# define I (1 << 3)
-# define D (1 << 4)
-# define X (1 << 5)
-# define XX (1 << 6)
-# define O (1 << 7)
-# define P (1 << 8)
-# define F (1 << 9)
+# define D (1 << 3)
+# define X (1 << 4)
+# define XX (1 << 5)
+# define O (1 << 6)
+# define P (1 << 7)
+# define F (1 << 8)
 
 typedef struct	s_printf
 {
@@ -53,7 +52,7 @@ typedef struct	s_printf
 	int				ret_tot;
 	long int		width;
 	char			buff[BUFF_SIZE];
-	int				curr_len;
+	intmax_t		curr_len;
 	char			*var_str;
 	intmax_t		var_i;
 	uintmax_t		var_u;

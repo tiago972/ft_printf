@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 11:46:14 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/13 15:01:22 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/13 15:08:47 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,22 +74,23 @@ void	ft_parse_arg_size(t_printf *v_printf)
 void	ft_parse_conv(t_printf *v_printf)
 {
 	if (*(v_printf->str) == 's' && v_printf->str++)
-		ft_pad_str(v_printf);
+		v_printf->conv_type |= S;
 	else if ((*(v_printf->str) == 'd' || (*(v_printf->str) == 'i'))
 			&& v_printf->str++)
-		ft_pad_i(v_printf, 10, "0123456789");
+			v_printf->conv_type |= D;
 	else if (*(v_printf->str) == 'u' && v_printf->str++)
-		ft_pad_u(v_printf, 10, "0123456789", 1);
+		v_printf->conv_type |= U;
 	else if (*(v_printf->str) == 'x' && v_printf->str++)
-		ft_pad_u(v_printf, 16, "0123456789abcdef", 1);
+		v_printf->conv_type |= X;
 	else if (*(v_printf->str) == 'X' && v_printf->str++)
-		ft_pad_u(v_printf, 16, "0123456789ABCDEF", 1);
+		v_printf->conv_type |= XX;
 	else if (*(v_printf->str) == 'c' && v_printf->str++)
-		ft_pad_c(v_printf);
+		v_printf->conv_type |= C;
 	else if (*(v_printf->str) == 'p' && v_printf->str++)
-		ft_pad_u(v_printf, 16, "0123456789abcdef", 0);
+		v_printf->conv_type |= P;
 	else if (*(v_printf->str) == 'f' && v_printf->str++)
-		ft_pad_f(v_printf);
+		v_printf->conv_type |= F;
 	else if (*(v_printf->str) == 'o' && v_printf->str++)
-		ft_pad_u(v_printf, 8, "01234567", 1);
+		v_printf->conv_type |= O;
+	ft_gen_pad(v_printf);
 }
