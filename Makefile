@@ -3,11 +3,8 @@ CFLAGS = -Wall -Wextra -Werror -I $(INCL)
 NAME = libftprintf.a
 OBJDIR = objs
 SRCDIR = ./srcs
-SRC = ft_printf.c \
-	  display.c \
-	 numbers.c \
-	 parse.c \
-	 tools.c
+SRC = ft_printf.c 
+
 INCL = ./includes
 LIBCREATOR = $(addprefix $(LIBDIR)/, $(LIB))
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))
