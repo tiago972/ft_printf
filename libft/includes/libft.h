@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 14:26:40 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/06 12:00:43 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/14 14:35:43 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,5 @@ void				*ft_realloc(void *ptr, size_t new_size);
 void				ft_putchar_err(const char c);
 void				ft_putstr_err(const char *s);
 size_t				ft_strlen_c(const char *s, char c);
-int					ft_power(int n, int b);
 
 #endif

@@ -6,13 +6,14 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 13:00:09 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/14 12:32:44 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/14 17:56:51 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../libft/includes/libft.h"
 
-void		ft_flush(t_printf *v_printf)
+static void		ft_flush(t_printf *v_printf)
 {
 	write(1, v_printf->buff, v_printf->ret_progress);
 	ft_bzero(&(v_printf->buff), BUFF_SIZE);
@@ -20,13 +21,13 @@ void		ft_flush(t_printf *v_printf)
 	v_printf->ret_progress = 0;
 }
 
-void	ft_buff(t_printf *v_printf, char *str, int n)
+void			ft_buff(t_printf *v_printf, char *str, int n)
 {
 	int		tmp;
 	
 	if (v_printf->ret_progress == BUFF_SIZE)
 		ft_flush(v_printf);
-	while (n > (BUFF_SIZE - v_printf->ret_progress))
+	while (str && n > (BUFF_SIZE - v_printf->ret_progress))
 	{	
 		tmp = BUFF_SIZE - v_printf->ret_progress;
 		ft_strncat(v_printf->buff, str, tmp);
@@ -39,11 +40,13 @@ void	ft_buff(t_printf *v_printf, char *str, int n)
 	v_printf->ret_progress += n;
 }
 
-int		ft_printf(const char *str, ...)
+int			ft_printf(const char *str, ...)
 {
 	t_printf	v_printf;
+	t_funptr	funptr[10];
 
 	ft_memset(&v_printf, 0, sizeof(t_printf));
+	ft_inifunptr(funptr);
 	va_start(v_printf.ap, str);
 	v_printf.str = (char *)str;
 	while (*(v_printf.str))
@@ -51,7 +54,7 @@ int		ft_printf(const char *str, ...)
 		if (*(v_printf.str) == '%')
 		{
 			v_printf.str++;
-			ft_parse_opt(&v_printf);
+			ft_get_info(&v_printf, funptr);
 		}
 		else
 		{

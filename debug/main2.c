@@ -2,5 +2,6 @@
 
 int		main()
 {
-	printf("%#x", 42);
+	printf("%15.20d", 17);
+	return (0);
 }
