@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 13:28:40 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/14 20:58:59 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/17 19:59:18 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ void	ft_inifunptr(t_funptr funptr[10])
 	funptr[8].conv = 'X';
 	funptr[8].f = &pad_u;
 	funptr[9].conv = 'o';
-	funptr[9].f = &pad_u;*/
+	funptr[9].f = &pad_u;
+	funptr[10].conv = 'z';
+	funptr[10].f = &ft_pad_i;*/ //NPO de rajouter pour j et ju (fonction de tri supp)
 }
 
 uintmax_t	ft_power(uintmax_t nb, uintmax_t base)
@@ -41,7 +43,7 @@ uintmax_t	ft_power(uintmax_t nb, uintmax_t base)
 	uintmax_t	power;
 
 	power = 0;
-	while (nb > base)
+	while (nb >= base)
 	{
 		nb /= base;
 		power++;
@@ -58,4 +60,9 @@ int		ft_min(int a, int b)
 int		ft_max(int a, int b)
 {
 	return (a > b ? a : b);
+}
+
+uintmax_t	ft_abs(intmax_t a)
+{
+	return (a < 0 ? -a : a);
 }

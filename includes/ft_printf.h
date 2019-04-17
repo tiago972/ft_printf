@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 11:59:30 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/14 21:04:51 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/17 19:33:12 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,7 @@ int				ft_max(int a, int b);
 intmax_t		ft_get_arg_i(t_printf *v_printf);
 void			ft_putnbr_pf(t_printf *v_printf, intmax_t n);
 void			ft_get_precision(t_printf *v_printf);
+uintmax_t		ft_abs(intmax_t a);
+
 # include <stdio.h>
 # endif

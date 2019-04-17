@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 15:14:29 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/14 20:49:49 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/17 19:54:53 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,11 @@ void	ft_pad_i(t_printf *v_printf)
 {
 	intmax_t	int_arg;
 	uintmax_t	len;
+	uintmax_t	power;
 
 	int_arg = ft_get_arg_i(v_printf);
-	len = int_arg;
-	len = int_arg < 0 ? -len : len;
-	len = ft_power(len, 10);
-	len = int_arg < 0 ? len++ : len;
+	power = ft_power(ft_abs(int_arg), 10);
+	power = int_arg < 0 ? power++ : power;
 	if (v_printf->flags & PLUS || v_printf->flags & SP)
 		if (int_arg >= 0)
 		{
@@ -64,16 +63,20 @@ void	ft_pad_i(t_printf *v_printf)
 			v_printf->flags & PLUS ? ft_buff(v_printf, "+", 1)
 				: ft_buff(v_printf, " ", 1);
 		}
-	v_printf->width -= v_printf->prec;
-	while ((v_printf->flags & ZERO) && v_printf->width--)
+	if (v_printf->flags & DOT)
+		len = ft_max(power, v_printf->prec);
+	else
+		len = power;
+	v_printf->width -= len;
+	while ((v_printf->flags & ZERO) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, "0", 1);
-	while ((v_printf->flags & MINUS) && v_printf->width--)
+	while (!(v_printf->flags & MINUS) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, " ", 1);
-	v_printf->prec -= (int)len - 1;
+	v_printf->prec -= power;
 	while (--(v_printf->prec) >= 0)
 		ft_buff(v_printf, "0", 1);
 	ft_putnbr_pf(v_printf, int_arg);
-	while (!(v_printf->flags & MINUS) && v_printf->width--)
+	while ((v_printf->flags & MINUS) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, " ", 1);
 }
 /*

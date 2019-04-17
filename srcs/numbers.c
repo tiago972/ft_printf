@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 20:13:52 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/14 20:54:44 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/17 19:31:10 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,6 @@ void	ft_putnbr_pf(t_printf *v_printf, intmax_t n)
 	{
         ft_buff(v_printf, "-", 1);
 		n = -n;
-		if (n == LLONG_MIN)
-		{
-			ft_buff(v_printf, "9", 1);
-			n = 223372036854775808;
-		}
 	}
     nb2 = n;
     order = 1;
