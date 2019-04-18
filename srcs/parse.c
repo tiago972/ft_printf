@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 13:51:03 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/17 20:05:06 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/18 16:59:21 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_get_info(t_printf *v_printf, t_funptr funptr[10])
 	while ((v_printf->tmp = ft_strlen_c("-+0 #", *(v_printf->str))) > -1
 			&& v_printf->str++)
 		v_printf->flags |= (1 << v_printf->tmp);
-	if (*(v_printf->str)  == '*' && v_printf->str++)
+	if (*(v_printf->str) == '*' && v_printf->str++)
 		v_printf->width = va_arg(v_printf->ap, int);
 	else
 	{
@@ -60,7 +60,7 @@ void	ft_get_precision(t_printf *v_printf)
 void	ft_dispatch(t_printf *v_printf, t_funptr funptr[10])
 {
 	int		i;
-	
+
 	i = -1;
 	ft_get_precision(v_printf);
 	if (v_printf->flags & ZERO && v_printf->flags & MINUS)

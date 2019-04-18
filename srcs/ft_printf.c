@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 13:00:09 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/14 17:56:51 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/18 16:55:56 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ static void		ft_flush(t_printf *v_printf)
 void			ft_buff(t_printf *v_printf, char *str, int n)
 {
 	int		tmp;
-	
+
 	if (v_printf->ret_progress == BUFF_SIZE)
 		ft_flush(v_printf);
 	while (str && n > (BUFF_SIZE - v_printf->ret_progress))
-	{	
+	{
 		tmp = BUFF_SIZE - v_printf->ret_progress;
 		ft_strncat(v_printf->buff, str, tmp);
 		str += tmp;
@@ -40,7 +40,7 @@ void			ft_buff(t_printf *v_printf, char *str, int n)
 	v_printf->ret_progress += n;
 }
 
-int			ft_printf(const char *str, ...)
+int				ft_printf(const char *str, ...)
 {
 	t_printf	v_printf;
 	t_funptr	funptr[10];

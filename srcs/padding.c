@@ -6,12 +6,13 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 15:14:29 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/17 19:54:53 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/18 17:56:01 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include "../libft/includes/libft.h"
+#include <limits.h>
 
 void	ft_pad_c(t_printf *v_printf)
 {
@@ -50,29 +51,18 @@ void	ft_pad_s(t_printf *v_printf)
 void	ft_pad_i(t_printf *v_printf)
 {
 	intmax_t	int_arg;
-	uintmax_t	len;
-	uintmax_t	power;
 
 	int_arg = ft_get_arg_i(v_printf);
-	power = ft_power(ft_abs(int_arg), 10);
-	power = int_arg < 0 ? power++ : power;
-	if (v_printf->flags & PLUS || v_printf->flags & SP)
-		if (int_arg >= 0)
-		{
-			v_printf->width--;
-			v_printf->flags & PLUS ? ft_buff(v_printf, "+", 1)
-				: ft_buff(v_printf, " ", 1);
-		}
-	if (v_printf->flags & DOT)
-		len = ft_max(power, v_printf->prec);
-	else
-		len = power;
-	v_printf->width -= len;
+	if (int_arg == LLONG_MIN)
+	{
+		ft_llong_min(v_printf, int_arg);
+		return ;
+	}
+	ft_fill_nb_i(v_printf, int_arg, 1);
 	while ((v_printf->flags & ZERO) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, "0", 1);
 	while (!(v_printf->flags & MINUS) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, " ", 1);
-	v_printf->prec -= power;
 	while (--(v_printf->prec) >= 0)
 		ft_buff(v_printf, "0", 1);
 	ft_putnbr_pf(v_printf, int_arg);
@@ -80,9 +70,34 @@ void	ft_pad_i(t_printf *v_printf)
 		ft_buff(v_printf, " ", 1);
 }
 /*
-void	ft_pad_p()
+   void	ft_pad_p()
+   {
+   }*/
+void	ft_pad_x(t_printf *v_printf)
 {
+	uintmax_t	uintarg;
+	uintmax_t	power;
+	uintmax_t	len;
+
+	uintarg = ft_get_arg_u(v_printf);
+	if (v_printf->flags & POUND)
+	{
+		ft_buff(v_printf, "0x", 2);
+		v_printf->width -= 2;
+	
+	}
+	power = ft_power(uintarg, 16);
+	if (v_printf->flags & DOT)
+		len = ft_max(power, v_printf->prec);
+	else
+		len = power;
+	v_printf->width -= len;
+	v_printf->prec -= power;
+	while (!(v_printf->flags & MINUS) && --(v_printf->width) >= 0)
+		ft_buff(v_printf, " ", 1);
+	while (--(v_printf->prec) >= 0)
+		ft_buff(v_printf, "0", 1);
+	ft_putnbr_pf_u(v_printf, uintarg, "0123456789abcdef", power, 16);
+	while ((v_printf->flags & MINUS) && --(v_printf->width) >= 0)
+		ft_buff(v_printf, " ", 1);
 }
-void	ft_pad_u()
-{
-}*/
