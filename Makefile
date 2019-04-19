@@ -8,7 +8,8 @@ SRC = ft_printf.c \
 	  tools.c \
 	  padding.c \
 	  numbers.c \
-	  numbers2.c
+	  numbers2.c \
+	  tools2.c
 INCL = ./includes
 LIBCREATOR = $(addprefix $(LIBDIR)/, $(LIB))
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))

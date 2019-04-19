@@ -24,18 +24,22 @@ void			ft_inifunptr(t_funptr funptr[10])
 	funptr[3].f = &ft_pad_i;
 	funptr[4].conv = 'x';
 	funptr[4].f = &ft_pad_x;
+	funptr[5].conv = 'X';
+	funptr[5].f = &ft_pad_X;
+	funptr[6].conv = 'o';
+	funptr[6].f = &ft_pad_o;
+	funptr[7].conv = 'j';
+	funptr[7].f = &ft_dispatch_j;
+	funptr[8].conv = 'u';
+	funptr[8].f = &ft_pad_u;
+	funptr[9].conv = 'p';
+	funptr[9].f = &ft_pad_p;
+	funptr[10].conv = '%';
+	funptr[10].f = &ft_pad_escape;
 	/*funptr[4].conv = 'f';
 	  funptr[4].f = &pad_f;
-	  funptr[5].conv = 'p';
-	  funptr[5].f = &pad_p;
-	  funptr[6].conv = 'u';
-	  funptr[6].f = &pad_u;
-	  	  funptr[8].conv = 'X';
-	  funptr[8].f = &pad_u;
-	  funptr[9].conv = 'o';
-	  funptr[9].f = &pad_u;
 	  funptr[10].conv = 'z';
-	  funptr[10].f = &ft_pad_i;*/ //NPO de rajouter pour j et ju (fonction de tri supp)
+	  funptr[10].f = &ft_pad_i;*/
 }
 
 uintmax_t		ft_power(uintmax_t nb, uintmax_t base)

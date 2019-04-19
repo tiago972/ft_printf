@@ -43,7 +43,7 @@ void			ft_buff(t_printf *v_printf, char *str, int n)
 int				ft_printf(const char *str, ...)
 {
 	t_printf	v_printf;
-	t_funptr	funptr[10];
+	t_funptr	funptr[12];
 
 	ft_memset(&v_printf, 0, sizeof(t_printf));
 	ft_inifunptr(funptr);

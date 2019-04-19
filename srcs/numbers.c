@@ -24,7 +24,7 @@ intmax_t	ft_get_arg_i(t_printf *v_printf)
 	else if (v_printf->flags & LL)
 		return (va_arg(v_printf->ap, long long int));
 	else
-		return (va_arg(v_printf->ap, int));
+		return ((intmax_t)va_arg(v_printf->ap, int));
 }
 
 uintmax_t	ft_get_arg_u(t_printf *v_printf)
@@ -38,7 +38,7 @@ uintmax_t	ft_get_arg_u(t_printf *v_printf)
 	else if (v_printf->flags & LL)
 		return (va_arg(v_printf->ap, unsigned long long int));
 	else
-		return (va_arg(v_printf->ap, unsigned int));
+		return ((uintmax_t)va_arg(v_printf->ap, unsigned int));
 }
 
 void		ft_fill_nb_i(t_printf *v_printf, intmax_t int_arg, int opt)
@@ -67,7 +67,7 @@ void		ft_fill_nb_i(t_printf *v_printf, intmax_t int_arg, int opt)
 
 void		ft_putnbr_pf(t_printf *v_printf, intmax_t n)
 {
-	int			order;
+	intmax_t	order;
 	char		tmp;
 	intmax_t	nb2;
 

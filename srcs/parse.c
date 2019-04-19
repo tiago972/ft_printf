@@ -67,7 +67,7 @@ void	ft_dispatch(t_printf *v_printf, t_funptr funptr[10])
 		v_printf->flags &= ~ZERO;
 	if (v_printf->flags & PLUS && v_printf->flags & SP)
 		v_printf->flags &= ~PLUS;
-	while (v_printf->str && ++i < 10)
+	while (v_printf->str && ++i < 11)
 	{
 		if (funptr[i].conv == *(v_printf->str) && v_printf->str++)
 			funptr[i].f(v_printf);
