@@ -2,6 +2,8 @@
 
 int		main()
 {
-	printf("%#5x", 42);
+	char *test = "fuck";
+
+	printf("%p", test);
 	return (0);
 }

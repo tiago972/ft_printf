@@ -3,7 +3,10 @@
 
 int		main()
 {
-	ft_printf("%x\n", 42);
-	printf("%x\n", 42);
+
+	intmax_t test = 42;
+
+	ft_printf("%%\n");
+	printf("%%\n");
 	return (0);
 }
