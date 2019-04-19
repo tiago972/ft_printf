@@ -30,15 +30,21 @@ void	ft_pad_c(t_printf *v_printf)
 
 void	ft_pad_escape(t_printf *v_printf)
 {
-	char l;
+	char	l;
+	int		len;
 
 	l = '%';
-	if (v_printf->flags & MINUS)
-		while (v_printf->width--)
-			ft_buff(v_printf, " ", 1);
-	ft_buff(v_printf, &l, 1);
+	if (v_printf->flags & DOT)
+		len = ft_min(v_printf->prec, 1);
+	else
+		len = 1;
+	v_printf->width -= len;
 	if (!(v_printf->flags & MINUS))
-		while (v_printf->width--)
+		while (--(v_printf->width) >= 0)
+			ft_buff(v_printf, " ", 1);
+	ft_buff(v_printf, &l, len);
+	if (v_printf->flags & MINUS)
+		while (--(v_printf->width) >= 0)
 			ft_buff(v_printf, " ", 1);
 }
 
