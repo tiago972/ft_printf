@@ -14,6 +14,7 @@
 
 void	ft_dispatch_j(t_printf *v_printf)
 {
+	v_printf->flags |= J;
 	if (*(v_printf->str) == 'u' && v_printf->str++)
 		ft_pad_u(v_printf);
 	else if (*(v_printf->str) == 'x' && v_printf->str++)

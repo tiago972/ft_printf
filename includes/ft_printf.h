@@ -27,6 +27,7 @@
 # define HH (1 << 7)
 # define L (1 << 8)
 # define LL (1 << 9)
+# define J (1 << 10)
 
 typedef struct	s_printf
 {

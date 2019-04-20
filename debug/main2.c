@@ -1,9 +1,11 @@
 #include <stdio.h>
+#include <limits.h>
+#include <stdint.h>
 
 int		main()
 {
-	char *test = "fuck";
+	//char *test = "fuck";
 
-	printf("%p", test);
+	printf("%lu", sizeof(uintmax_t));
 	return (0);
 }

@@ -23,6 +23,8 @@ intmax_t	ft_get_arg_i(t_printf *v_printf)
 		return (va_arg(v_printf->ap, long int));
 	else if (v_printf->flags & LL)
 		return (va_arg(v_printf->ap, long long int));
+	else if (v_printf->flags & J)
+		return (va_arg(v_printf->ap, intmax_t));
 	else
 		return ((intmax_t)va_arg(v_printf->ap, int));
 }
@@ -37,6 +39,8 @@ uintmax_t	ft_get_arg_u(t_printf *v_printf)
 		return (va_arg(v_printf->ap, unsigned long int));
 	else if (v_printf->flags & LL)
 		return (va_arg(v_printf->ap, unsigned long long int));
+	else if (v_printf->flags & J)
+		return (va_arg(v_printf->ap, uintmax_t));
 	else
 		return ((uintmax_t)va_arg(v_printf->ap, unsigned int));
 }
