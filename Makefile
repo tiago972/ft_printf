@@ -7,9 +7,10 @@ SRC = ft_printf.c \
 	  parse.c \
 	  tools.c \
 	  padding.c \
-	  numbers.c \
-	  numbers2.c \
-	  tools2.c
+	  numbers_joker.c \
+	  padd_nbr.c \
+	  tools2.c \
+	  putnbr_pf.c
 INCL = ./includes
 LIBCREATOR = $(addprefix $(LIBDIR)/, $(LIB))
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))

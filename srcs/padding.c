@@ -34,10 +34,8 @@ void	ft_pad_escape(t_printf *v_printf)
 	int		len;
 
 	l = '%';
-	if (v_printf->flags & DOT)
-		len = ft_min(v_printf->prec, 1);
-	else
-		len = 1;
+
+	len = 1;
 	v_printf->width -= len;
 	if (!(v_printf->flags & MINUS))
 		while (--(v_printf->width) >= 0)
@@ -86,33 +84,6 @@ void	ft_pad_i(t_printf *v_printf)
 	while (--(v_printf->prec) >= 0)
 		ft_buff(v_printf, "0", 1);
 	ft_putnbr_pf(v_printf, int_arg);
-	while ((v_printf->flags & MINUS) && --(v_printf->width) >= 0)
-		ft_buff(v_printf, " ", 1);
-}
-
-void	ft_pad_x(t_printf *v_printf)
-{
-	uintmax_t	uintarg;
-	uintmax_t	power;
-	uintmax_t	len;
-
-	uintarg = ft_get_arg_u(v_printf);
-	power = ft_power(uintarg, 16);
-	if (v_printf->flags & POUND)
-		v_printf->width -= 2;	
-	if (v_printf->flags & DOT)
-		len = ft_max(power, v_printf->prec);
-	else
-		len = power;
-	v_printf->width -= len;
-	v_printf->prec -= power;
-	while (!(v_printf->flags & MINUS) && --(v_printf->width) >= 0)
-		ft_buff(v_printf, " ", 1);
-	if (v_printf->flags & POUND)
-		ft_buff(v_printf, "0x", 2);	
-	while (--(v_printf->prec) >= 0)
-		ft_buff(v_printf, "0", 1);
-	ft_putnbr_pf_u(v_printf, uintarg, "0123456789abcdef", 16);
 	while ((v_printf->flags & MINUS) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, " ", 1);
 }

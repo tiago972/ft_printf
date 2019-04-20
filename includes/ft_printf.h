@@ -71,7 +71,7 @@ void			ft_llong_min(t_printf *v_printf, intmax_t int_arg);
 void			ft_fill_nb_i(t_printf *v_printf, intmax_t int_arg, int opt);
 uintmax_t		ft_get_arg_u(t_printf *v_printf);
 void			ft_putnbr_pf_u(t_printf *v_printf, uintmax_t nb, char *base,
-				uintmax_t size_b);
+				uintmax_t size_b, uintmax_t power);
 
 # include <stdio.h>
 # endif

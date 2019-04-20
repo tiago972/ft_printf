@@ -65,30 +65,6 @@ void		ft_fill_nb_i(t_printf *v_printf, intmax_t int_arg, int opt)
 	v_printf->prec -= power;
 }
 
-void		ft_putnbr_pf(t_printf *v_printf, intmax_t n)
-{
-	intmax_t	order;
-	char		tmp;
-	intmax_t	nb2;
-
-	if (n < 0)
-	{
-		ft_buff(v_printf, "-", 1);
-		n = -n;
-	}
-	nb2 = n;
-	order = 1;
-	while ((nb2 >= 10 || nb2 <= -10) && (nb2 /= 10))
-		order = order * 10;
-	while (order > 0)
-	{
-		tmp = '0' + n / order;
-		ft_buff(v_printf, &tmp, 1);
-		n = n % order;
-		order = order / 10;
-	}
-}
-
 void		ft_llong_min(t_printf *v_printf, intmax_t int_arg)
 {
 	ft_fill_nb_i(v_printf, int_arg, 0);

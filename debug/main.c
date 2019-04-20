@@ -3,10 +3,8 @@
 
 int		main()
 {
-
-	intmax_t test = 42;
-
-	ft_printf("%%\n");
-	printf("%%\n");
+	//ft_printf("%x\n", 42);
+	printf("%jx", 4294967296);
+	//printf("%x\n", 42);
 	return (0);
 }

@@ -51,10 +51,10 @@ int				ft_printf(const char *str, ...)
 	v_printf.str = (char *)str;
 	while (*(v_printf.str))
 	{
-		if (*(v_printf.str) == '%')
+		if (*(v_printf.str) == '%' && v_printf.str++)
 		{
-			v_printf.str++;
-			ft_get_info(&v_printf, funptr);
+			if (*(v_printf.str))
+				ft_get_info(&v_printf, funptr);
 		}
 		else
 		{
