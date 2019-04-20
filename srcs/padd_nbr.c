@@ -28,10 +28,12 @@ void	ft_pad_X(t_printf *v_printf)
 		len = power;
 	v_printf->width -= len;
 	v_printf->prec -= power;
-	while (!(v_printf->flags & MINUS) && --(v_printf->width) >= 0)
+	while (!(v_printf->flags & ZERO) &&!(v_printf->flags & MINUS) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, " ", 1);
-	if (v_printf->flags & POUND)
-		ft_buff(v_printf, "0x", 2);	
+	if (uintarg > 0 && v_printf->flags & POUND)
+		ft_buff(v_printf, "0X", 2);
+	while ((v_printf->flags & ZERO) && --(v_printf->width) >= 0)
+		ft_buff(v_printf, "0", 1);
 	while (--(v_printf->prec) >= 0)
 		ft_buff(v_printf, "0", 1);
 	ft_putnbr_pf_u(v_printf, uintarg, "0123456789ABCDEF", 16, power);
@@ -55,10 +57,12 @@ void	ft_pad_o(t_printf *v_printf)
 		len = power;
 	v_printf->width -= len;
 	v_printf->prec -= power;
-	while (!(v_printf->flags & MINUS) && --(v_printf->width) >= 0)
+	while (!(v_printf->flags & ZERO) && !(v_printf->flags & MINUS) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, " ", 1);
-	if (v_printf->flags & POUND)
-		ft_buff(v_printf, "0", 2);	
+	if (uintarg > 0 && v_printf->flags & POUND)
+		ft_buff(v_printf, "0", 2);
+	while ((v_printf->flags & ZERO) && --(v_printf->width) >= 0)
+		ft_buff(v_printf, "0", 1);
 	while (--(v_printf->prec) >= 0)
 		ft_buff(v_printf, "0", 1);
 	ft_putnbr_pf_u(v_printf, uintarg, "01234567", 8, power);
@@ -80,8 +84,10 @@ void	ft_pad_u(t_printf *v_printf)
 		len = power;
 	v_printf->width -= len;
 	v_printf->prec -= power;
-	while (!(v_printf->flags & MINUS) && --(v_printf->width) >= 0)
+	while (!(v_printf->flags & ZERO) && !(v_printf->flags & MINUS) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, " ", 1);
+	while ((v_printf->flags & ZERO) && --(v_printf->width) >= 0)
+		ft_buff(v_printf, "0", 1);
 	while (--(v_printf->prec) >= 0)
 		ft_buff(v_printf, "0", 1);
 	ft_putnbr_pf_u(v_printf, uintarg, "0123456789", 10, power);
@@ -122,10 +128,12 @@ void	ft_pad_x(t_printf *v_printf)
 		len = power;
 	v_printf->width -= len;
 	v_printf->prec -= power;
-	while (!(v_printf->flags & MINUS) && --(v_printf->width) >= 0)
+	while (!(v_printf->flags & ZERO) && !(v_printf->flags & MINUS) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, " ", 1);
-	if (v_printf->flags & POUND)
-		ft_buff(v_printf, "0x", 2);	
+	if (uintarg > 0 && v_printf->flags & POUND)
+		ft_buff(v_printf, "0x", 2);
+	while ((v_printf->flags & ZERO) && --(v_printf->width) >= 0)
+		ft_buff(v_printf, "0", 1);
 	while (--(v_printf->prec) >= 0)
 		ft_buff(v_printf, "0", 1);
 	ft_putnbr_pf_u(v_printf, uintarg, "0123456789abcdef", 16, power);
