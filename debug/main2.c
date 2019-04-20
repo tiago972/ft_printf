@@ -6,6 +6,6 @@ int		main()
 {
 	//char *test = "fuck";
 
-	printf("%lu", sizeof(uintmax_t));
+	printf("%45.0d", 0);
 	return (0);
 }

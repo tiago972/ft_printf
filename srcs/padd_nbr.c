@@ -122,10 +122,7 @@ void	ft_pad_x(t_printf *v_printf)
 	power = ft_power(uintarg, 16);
 	if (v_printf->flags & POUND)
 		v_printf->width -= 2;	
-	if (v_printf->flags & DOT)
-		len = ft_max(power, v_printf->prec);
-	else
-		len = power;
+	len = v_printf->flags & DOT ? ft_max(power, v_printf->prec) : power;
 	v_printf->width -= len;
 	v_printf->prec -= power;
 	while (!(v_printf->flags & ZERO) && !(v_printf->flags & MINUS) && --(v_printf->width) >= 0)
@@ -134,9 +131,11 @@ void	ft_pad_x(t_printf *v_printf)
 		ft_buff(v_printf, "0x", 2);
 	while ((v_printf->flags & ZERO) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, "0", 1);
+	if (v_printf->prec == 0 && v_printf->width == 0)
+		return ;
 	while (--(v_printf->prec) >= 0)
 		ft_buff(v_printf, "0", 1);
 	ft_putnbr_pf_u(v_printf, uintarg, "0123456789abcdef", 16, power);
 	while ((v_printf->flags & MINUS) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, " ", 1);
-}
+}//ne pas oublier de rajouter la condition de width = 0 & valeur à convertir dans les autres
