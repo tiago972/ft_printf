@@ -1,6 +1,6 @@
 
 #include "../includes/ft_printf.h"
-/*
+
 void		ft_putnbr_pf_u(t_printf *v_printf, uintmax_t nb, char *base,
 			uintmax_t size_b, uintmax_t power)
 {
@@ -17,7 +17,7 @@ void		ft_putnbr_pf_u(t_printf *v_printf, uintmax_t nb, char *base,
 		power--;
 	}
 }
-*/
+/*
 void		ft_putnbr_pf_u(t_printf *v_printf, uintmax_t nb, char *base,
 			uintmax_t size_b, uintmax_t power)
 {
@@ -26,7 +26,7 @@ void		ft_putnbr_pf_u(t_printf *v_printf, uintmax_t nb, char *base,
 		ft_putnbr_pf_u(v_printf, nb / size_b, base, size_b, power);
 	ft_buff(v_printf, &base[nb % size_b], 1);
 }
-
+*/
 void		ft_putnbr_pf(t_printf *v_printf, intmax_t n)
 {
 	intmax_t	order;
