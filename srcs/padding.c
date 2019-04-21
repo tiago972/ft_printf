@@ -95,7 +95,7 @@ void	ft_pad_u(t_printf *v_printf)
 
 	uintarg = ft_get_arg_u(v_printf);
 	power = ft_power_dispatch(v_printf, uintarg);
-	if (v_printf->flags & POUND)
+	if (v_printf->flags & POUND && uintarg > 0)
 		v_printf->width -= 2;	
 	len = v_printf->flags & DOT ? ft_max(power, v_printf->prec) : power;
 	v_printf->width -= len;
