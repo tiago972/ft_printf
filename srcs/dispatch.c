@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-void			ft_inifunptr(t_funptr funptr[10])
+void			ft_inifunptr(t_funptr funptr[12])
 {
 	funptr[0].conv |= C;
 	funptr[0].f = &ft_pad_c;

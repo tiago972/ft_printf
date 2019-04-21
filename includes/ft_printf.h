@@ -60,7 +60,7 @@ typedef struct	s_funptr
 }				t_funptr;
 int				ft_printf(const char *str, ...);
 void			ft_buff(t_printf *v_printf, char *str, int n);
-void			ft_inifunptr(t_funptr funptr[10]);
+void			ft_inifunptr(t_funptr funptr[12]);
 void			ft_get_info(t_printf *v_printf, t_funptr funptr[12]);
 void			ft_get_size(t_printf *v_printf);
 void			ft_dispatch(t_printf *v_printf, t_funptr funptr[12]);

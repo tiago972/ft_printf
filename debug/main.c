@@ -3,8 +3,7 @@
 
 int		main()
 {
-	//ft_printf("%x\n", 42);
 	//printf("%x\n", 42);
-	ft_printf("@moulitest: %#.x %#.0x", 0, 0);
+	ft_printf("%%", "test");
 	return (0);
 }
