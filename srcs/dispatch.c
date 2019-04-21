@@ -58,9 +58,9 @@ uintmax_t	ft_power_dispatch(t_printf *v_printf, uintmax_t uintarg)
 
 void	ft_dispatch_j(t_printf *v_printf)
 {
-	if (v_printf->conv & U && v_printf->str++)
+	if (*(v_printf->str) == 'u' && v_printf->str++ && (v_printf->conv |= U))
 		ft_pad_u(v_printf);
-	else if (v_printf->conv & X && v_printf->str++)
+	else if (*(v_printf->str) == 'x' && v_printf->str++ && (v_printf->conv |= X))
 		ft_pad_u(v_printf);
 	else
 		ft_pad_i(v_printf);

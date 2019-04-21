@@ -34,7 +34,6 @@ void	ft_pad_escape(t_printf *v_printf)
 	int		len;
 
 	l = '%';
-
 	len = 1;
 	v_printf->width -= len;
 	if (!(v_printf->flags & MINUS))
