@@ -3,6 +3,6 @@
 
 int		main()
 {
-	ft_printf("%%", "test");
+	ft_printf("@moulitest: %#.0x", 0);
 	return (0);
 }

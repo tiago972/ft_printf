@@ -101,7 +101,7 @@ void	ft_pad_u(t_printf *v_printf)
 	v_printf->width -= len;
 	v_printf->prec -= power;
 	ft_pad_nbr(v_printf, uintarg);
-	if (v_printf->prec == -1 && uintarg == 0 && v_printf->flags & DOT)
+	if (v_printf->prec <= -1 && uintarg == 0 && v_printf->flags & DOT)
 		return ;
 	if (v_printf->conv & X)
 		ft_putnbr_pf_u(v_printf, uintarg, "0123456789abcdef", 16, power);

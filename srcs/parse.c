@@ -15,18 +15,12 @@
 
 void	ft_get_size(t_printf *v_printf)
 {
-	if (*(v_printf->str) == 'l')
-	{
-		v_printf->flags |= (v_printf->str++
-				&& v_printf->str[0] == 'l') ? LL : L;
-		(v_printf->flags & LL) ? v_printf->str++ : v_printf->str;
-	}
-	else if (*(v_printf->str) == 'h')
-	{
-		v_printf->flags |= (v_printf-> str++
-				&& v_printf->str[0] == 'h') ? HH : H;
-		(v_printf->flags & HH) ? v_printf->str++ : v_printf->str;
-	}
+	if (*(v_printf->str) == 'l' && v_printf->str++)
+		v_printf->flags |= (v_printf->str[0] == 'l'
+				&& v_printf->str++) ? LL : L;
+	else if (*(v_printf->str) == 'h' && v_printf->str++)
+		v_printf->flags |= (v_printf->str[0] == 'h'
+				&& v_printf->str++) ? HH : H;
 }
 
 void	ft_get_precision(t_printf *v_printf)
