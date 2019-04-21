@@ -13,6 +13,49 @@
 #include "../libft/includes/libft.h"
 #include "../includes/ft_printf.h"
 
+void	ft_get_size(t_printf *v_printf)
+{
+	if (*(v_printf->str) == 'l')
+	{
+		v_printf->flags |= (v_printf->str++
+				&& v_printf->str[0] == 'l') ? LL : L;
+		(v_printf->flags & LL) ? v_printf->str++ : v_printf->str;
+	}
+	else if (*(v_printf->str) == 'h')
+	{
+		v_printf->flags |= (v_printf-> str++
+				&& v_printf->str[0] == 'h') ? HH : H;
+		(v_printf->flags & HH) ? v_printf->str++ : v_printf->str;
+	}
+}
+
+void	ft_get_precision(t_printf *v_printf)
+{
+	int		tmp;
+
+	tmp = ft_strlen_c("csdiouxXpjz%", *(v_printf)->str);
+	v_printf->conv |= (1 << tmp);
+	v_printf->str++;
+	if (v_printf->flags & ZERO && v_printf->flags & MINUS)
+		v_printf->flags &= ~ZERO;
+	if (v_printf->flags & PLUS && v_printf->flags & SP)
+	v_printf->flags &= ~PLUS;
+}
+
+void	ft_dispatch(t_printf *v_printf, t_funptr funptr[12])
+{
+	int		i;
+
+	i = -1;
+	ft_get_size(v_printf);
+	ft_get_precision(v_printf);
+	while (v_printf->str && ++i < 12)
+	{
+		if (funptr[i].conv & v_printf->conv)
+			funptr[i].f(v_printf);
+	}
+}
+
 void	ft_get_info(t_printf *v_printf, t_funptr funptr[10])
 {
 	while ((v_printf->tmp = ft_strlen_c("-+0 #", *(v_printf->str))) > -1
@@ -39,37 +82,4 @@ void	ft_get_info(t_printf *v_printf, t_funptr funptr[10])
 		}
 	}
 	ft_dispatch(v_printf, funptr);
-}
-
-void	ft_get_precision(t_printf *v_printf)
-{
-	if (*(v_printf->str) == 'l')
-	{
-		v_printf->flags |= (v_printf->str++
-				&& v_printf->str[0] == 'l') ? LL : L;
-		(v_printf->flags & LL) ? v_printf->str++ : v_printf->str;
-	}
-	else if (*(v_printf->str) == 'h')
-	{
-		v_printf->flags |= (v_printf-> str++
-				&& v_printf->str[0] == 'h') ? HH : H;
-		(v_printf->flags & HH) ? v_printf->str++ : v_printf->str;
-	}
-}
-
-void	ft_dispatch(t_printf *v_printf, t_funptr funptr[10])
-{
-	int		i;
-
-	i = -1;
-	ft_get_precision(v_printf);
-	if (v_printf->flags & ZERO && v_printf->flags & MINUS)
-		v_printf->flags &= ~ZERO;
-	if (v_printf->flags & PLUS && v_printf->flags & SP)
-		v_printf->flags &= ~PLUS;
-	while (v_printf->str && ++i < 11)
-	{
-		if (funptr[i].conv == *(v_printf->str) && v_printf->str++)
-			funptr[i].f(v_printf);
-	}
 }

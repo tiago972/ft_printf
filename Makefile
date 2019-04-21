@@ -5,12 +5,12 @@ OBJDIR = objs
 SRCDIR = ./srcs
 SRC = ft_printf.c \
 	  parse.c \
-	  tools.c \
+	  dispatch.c \
 	  padding.c \
 	  numbers_joker.c \
 	  padd_nbr.c \
-	  tools2.c \
-	  putnbr_pf.c
+	  putnbr_pf.c \
+	  math_tools.c
 INCL = ./includes
 LIBCREATOR = $(addprefix $(LIBDIR)/, $(LIB))
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))

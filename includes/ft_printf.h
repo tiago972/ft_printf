@@ -27,7 +27,18 @@
 # define HH (1 << 7)
 # define L (1 << 8)
 # define LL (1 << 9)
-# define J (1 << 10)
+# define C (1 << 0)
+# define S (1 << 1)
+# define D (1 << 2)
+# define I (1 << 3)
+# define O (1 << 4)
+# define U (1 << 5)
+# define X (1 << 6)
+# define XX (1 << 7)
+# define P (1 << 8)
+# define J (1 << 9)
+# define Z (1 << 10)
+# define POURCENT (1 << 11)
 
 typedef struct	s_printf
 {
@@ -35,6 +46,7 @@ typedef struct	s_printf
 	int			flags;
 	int			width;
 	int			prec;
+	int			conv;
 	char		buff[BUFF_SIZE + 1];
 	int			ret_progress;
 	int			ret_tot;
@@ -43,25 +55,24 @@ typedef struct	s_printf
 }				t_printf;
 typedef struct	s_funptr
 {
-	char	conv;
+	int		conv;
 	void	(*f)(t_printf *);
 }				t_funptr;
 int				ft_printf(const char *str, ...);
 void			ft_buff(t_printf *v_printf, char *str, int n);
 void			ft_inifunptr(t_funptr funptr[10]);
-void			ft_get_info(t_printf *v_printf, t_funptr funptr[10]);
-void			ft_dispatch(t_printf *v_printf, t_funptr funptr[10]);
+void			ft_get_info(t_printf *v_printf, t_funptr funptr[12]);
+void			ft_get_size(t_printf *v_printf);
+void			ft_dispatch(t_printf *v_printf, t_funptr funptr[12]);
 uintmax_t		ft_power(uintmax_t nb, uintmax_t base);
 void			ft_pad_c(t_printf *v_printf);
 void			ft_pad_s(t_printf *v_printf);
 void			ft_pad_i(t_printf *v_printf);
-void			ft_pad_x(t_printf *v_printf);
-void			ft_pad_X(t_printf *v_printf);
-void			ft_pad_o(t_printf *v_printf);
-void			ft_pad_u(t_printf *v_printf);
 void			ft_pad_p(t_printf *v_printf);
+void			ft_pad_u(t_printf *v_printf);
 void			ft_pad_escape(t_printf *v_printf);
 void			ft_dispatch_j(t_printf *v_printf);
+uintmax_t		ft_power_dispatch(t_printf *v_printf, uintmax_t uintarg);
 int				ft_min(int a, int b);
 int				ft_max(int a, int b);
 intmax_t		ft_get_arg_i(t_printf *v_printf);
@@ -73,6 +84,7 @@ void			ft_fill_nb_i(t_printf *v_printf, intmax_t int_arg, int opt);
 uintmax_t		ft_get_arg_u(t_printf *v_printf);
 void			ft_putnbr_pf_u(t_printf *v_printf, uintmax_t nb, char *base,
 				uintmax_t size_b, uintmax_t power);
+void			ft_pad_nbr(t_printf *v_printf, uintmax_t uintarg);
 
 # include <stdio.h>
 # endif

@@ -12,87 +12,20 @@
 
 #include "../includes/ft_printf.h"
 
-void	ft_pad_X(t_printf *v_printf)
+void	ft_pad_nbr(t_printf *v_printf, uintmax_t uintarg)
 {
-	uintmax_t	uintarg;
-	uintmax_t	power;
-	uintmax_t	len;
-
-	uintarg = ft_get_arg_u(v_printf);
-	power = ft_power(uintarg, 16);
-	if (v_printf->flags & POUND)
-		v_printf->width -= 2;	
-	if (v_printf->flags & DOT)
-		len = ft_max(power, v_printf->prec);
-	else
-		len = power;
-	v_printf->width -= len;
-	v_printf->prec -= power;
-	while (!(v_printf->flags & ZERO) &&!(v_printf->flags & MINUS) && --(v_printf->width) >= 0)
+	while (!(v_printf->flags & ZERO) && !(v_printf->flags & MINUS) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, " ", 1);
-	if (uintarg > 0 && v_printf->flags & POUND)
+	if (uintarg > 0 && (v_printf->flags & POUND) && (v_printf->conv & X))
+		ft_buff(v_printf, "0x", 2);
+	else if (uintarg > 0 && (v_printf->flags & POUND) && (v_printf->conv & XX))
 		ft_buff(v_printf, "0X", 2);
+	else if (uintarg > 0 && (v_printf->flags & POUND) && (v_printf->conv & O))
+		ft_buff(v_printf, "0", 1);
 	while ((v_printf->flags & ZERO) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, "0", 1);
 	while (--(v_printf->prec) >= 0)
 		ft_buff(v_printf, "0", 1);
-	ft_putnbr_pf_u(v_printf, uintarg, "0123456789ABCDEF", 16, power);
-	while ((v_printf->flags & MINUS) && --(v_printf->width) >= 0)
-		ft_buff(v_printf, " ", 1);
-}
-
-void	ft_pad_o(t_printf *v_printf)
-{
-	uintmax_t	uintarg;
-	uintmax_t	power;
-	uintmax_t	len;
-
-	uintarg = ft_get_arg_u(v_printf);
-	power = ft_power(uintarg, 8);
-	if (v_printf->flags & POUND)
-		v_printf->width -= 1;	
-	if (v_printf->flags & DOT)
-		len = ft_max(power, v_printf->prec);
-	else
-		len = power;
-	v_printf->width -= len;
-	v_printf->prec -= power;
-	while (!(v_printf->flags & ZERO) && !(v_printf->flags & MINUS) && --(v_printf->width) >= 0)
-		ft_buff(v_printf, " ", 1);
-	if (uintarg > 0 && v_printf->flags & POUND)
-		ft_buff(v_printf, "0", 2);
-	while ((v_printf->flags & ZERO) && --(v_printf->width) >= 0)
-		ft_buff(v_printf, "0", 1);
-	while (--(v_printf->prec) >= 0)
-		ft_buff(v_printf, "0", 1);
-	ft_putnbr_pf_u(v_printf, uintarg, "01234567", 8, power);
-	while ((v_printf->flags & MINUS) && --(v_printf->width) >= 0)
-		ft_buff(v_printf, " ", 1);
-}
-
-void	ft_pad_u(t_printf *v_printf)
-{
-	uintmax_t	uintarg;
-	uintmax_t	power;
-	uintmax_t	len;
-
-	uintarg = ft_get_arg_u(v_printf);
-	power = ft_power(uintarg, 10);
-	if (v_printf->flags & DOT)
-		len = ft_max(power, v_printf->prec);
-	else
-		len = power;
-	v_printf->width -= len;
-	v_printf->prec -= power;
-	while (!(v_printf->flags & ZERO) && !(v_printf->flags & MINUS) && --(v_printf->width) >= 0)
-		ft_buff(v_printf, " ", 1);
-	while ((v_printf->flags & ZERO) && --(v_printf->width) >= 0)
-		ft_buff(v_printf, "0", 1);
-	while (--(v_printf->prec) >= 0)
-		ft_buff(v_printf, "0", 1);
-	ft_putnbr_pf_u(v_printf, uintarg, "0123456789", 10, power);
-	while ((v_printf->flags & MINUS) && --(v_printf->width) >= 0)
-		ft_buff(v_printf, " ", 1);
 }
 
 void	ft_pad_p(t_printf *v_printf)
@@ -112,30 +45,3 @@ void	ft_pad_p(t_printf *v_printf)
 		ft_buff(v_printf, " ", 1);
 }
 
-void	ft_pad_x(t_printf *v_printf)
-{
-	uintmax_t	uintarg;
-	uintmax_t	power;
-	uintmax_t	len;
-
-	uintarg = ft_get_arg_u(v_printf);
-	power = ft_power(uintarg, 16);
-	if (v_printf->flags & POUND)
-		v_printf->width -= 2;	
-	len = v_printf->flags & DOT ? ft_max(power, v_printf->prec) : power;
-	v_printf->width -= len;
-	v_printf->prec -= power;
-	while (!(v_printf->flags & ZERO) && !(v_printf->flags & MINUS) && --(v_printf->width) >= 0)
-		ft_buff(v_printf, " ", 1);
-	if (uintarg > 0 && v_printf->flags & POUND)
-		ft_buff(v_printf, "0x", 2);
-	while ((v_printf->flags & ZERO) && --(v_printf->width) >= 0)
-		ft_buff(v_printf, "0", 1);
-	if (v_printf->prec == -1 && uintarg == 0 && v_printf->flags & DOT)
-		return ;
-	while (--(v_printf->prec) >= 0)
-		ft_buff(v_printf, "0", 1);
-	ft_putnbr_pf_u(v_printf, uintarg, "0123456789abcdef", 16, power);
-	while ((v_printf->flags & MINUS) && --(v_printf->width) >= 0)
-		ft_buff(v_printf, " ", 1);
-}//ne pas oublier de rajouter la condition de width = 0 & valeur à convertir dans les autres
