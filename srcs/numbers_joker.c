@@ -55,7 +55,7 @@ void		ft_fill_nb_i(t_printf *v_printf, intmax_t int_arg, int opt)
 	if (!opt)
 		power = 20;
 	power = ft_power(ft_abs(int_arg), 10);
-	power = int_arg < 0 ? power++ : power;
+	power = int_arg < 0 ? power + 1 : power;
 	if (v_printf->flags & PLUS || v_printf->flags & SP)
 		if (int_arg >= 0)
 		{

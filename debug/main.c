@@ -3,8 +3,8 @@
 
 int		main()
 {
-	ft_printf("@moulitest: %#.o %#.0o", 0, 0); 
+	ft_printf("%5d", -42);
 	printf("\n");
-	printf("@moulitest: %#.o %#.0o", 0, 0); 
+	printf("%5d", -42);
 	return (0);
 }
