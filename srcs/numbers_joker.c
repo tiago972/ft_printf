@@ -67,7 +67,8 @@ void		ft_fill_nb_i(t_printf *v_printf, intmax_t int_arg, int opt)
 		len = ft_max(power, v_printf->prec);
 	else
 		len = power;
-	v_printf->width -= len;
+	if (int_arg != 0)
+		v_printf->width -= len;
 	v_printf->prec -= power;
 }
 
@@ -84,4 +85,16 @@ void		ft_llong_min(t_printf *v_printf, intmax_t int_arg)
 	ft_buff(v_printf, "-9223372036854775808", 20);
 	while ((v_printf->flags & MINUS) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, " ", 1);
+}
+
+void	ft_print_u(t_printf *v_printf, uintmax_t uintarg, uintmax_t power)
+{
+	if (v_printf->conv & X)
+		ft_putnbr_pf_u(v_printf, uintarg, "0123456789abcdef", 16, power);
+	else if (v_printf->conv & XX)
+		ft_putnbr_pf_u(v_printf, uintarg, "0123456789ABCDEF", 16, power);
+	else if (v_printf->conv & O)
+		ft_putnbr_pf_u(v_printf, uintarg, "01234567", 8, power);
+	else if (v_printf->conv & U)
+		ft_putnbr_pf_u(v_printf, uintarg, "0123456789", 10, power);
 }

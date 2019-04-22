@@ -38,6 +38,8 @@ void			ft_buff(t_printf *v_printf, char *str, int n)
 	}
 	ft_strncat(v_printf->buff, str, n);
 	v_printf->ret_progress += n;
+	if (*str == 0)
+		ft_flush(v_printf);
 }
 
 int				ft_printf(const char *str, ...)
@@ -46,6 +48,7 @@ int				ft_printf(const char *str, ...)
 	static t_funptr	funptr[12];
 
 	ft_memset(&v_printf, 0, sizeof(t_printf));
+	v_printf.prec = -1;
 	ft_inifunptr(funptr);
 	va_start(v_printf.ap, str);
 	v_printf.str = (char *)str;

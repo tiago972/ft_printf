@@ -34,7 +34,7 @@ void	ft_get_precision(t_printf *v_printf)
 	if (v_printf->flags & ZERO && v_printf->flags & MINUS)
 		v_printf->flags &= ~ZERO;
 	if (v_printf->flags & PLUS && v_printf->flags & SP)
-	v_printf->flags &= ~PLUS;
+		v_printf->flags &= ~PLUS;
 }
 
 void	ft_dispatch(t_printf *v_printf, t_funptr funptr[12])
@@ -71,10 +71,11 @@ void	ft_get_info(t_printf *v_printf, t_funptr funptr[10])
 		if (*(v_printf->str) == '*' && v_printf->str++)
 			v_printf->prec = va_arg(v_printf->ap, int);
 		else
-		{
-			v_printf->prec = ft_atoi(v_printf->str);
-			v_printf->str += (int)ft_power(v_printf->prec, 10);
-		}
+			if (*(v_printf->str) >= '0' && *(v_printf->str) <= '9')
+			{
+				v_printf->prec = ft_atoi(v_printf->str);
+				v_printf->str += (int)ft_power(v_printf->prec, 10);
+			}
 	}
 	ft_dispatch(v_printf, funptr);
 }

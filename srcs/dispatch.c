@@ -37,7 +37,7 @@ void			ft_inifunptr(t_funptr funptr[12])
 	funptr[10].conv |= Z;
 	funptr[10].f = &ft_pad_u;
 	funptr[11].conv |= POURCENT;
-	funptr[11].f = &ft_pad_escape;
+	funptr[11].f = &ft_pad_c;
 
 	/*funptr[4].conv = 'f';
 	  funptr[4].f = &pad_f;
@@ -51,7 +51,7 @@ uintmax_t	ft_power_dispatch(t_printf *v_printf, uintmax_t uintarg)
 		return (ft_power(uintarg, 16));
 	else if (v_printf->conv & U || v_printf->conv & Z)
 		return (ft_power(uintarg, 10));
-	else if (v_printf->conv & 0)
+	else if (v_printf->conv & O)
 		return (ft_power(uintarg, 8));
 	return (0);
 }
