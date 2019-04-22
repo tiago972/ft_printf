@@ -34,7 +34,7 @@ void	ft_get_precision(t_printf *v_printf)
 	if (v_printf->flags & ZERO && v_printf->flags & MINUS)
 		v_printf->flags &= ~ZERO;
 	if (v_printf->flags & PLUS && v_printf->flags & SP)
-		v_printf->flags &= ~PLUS;
+		v_printf->flags &= ~SP;
 }
 
 void	ft_dispatch(t_printf *v_printf, t_funptr funptr[12])
