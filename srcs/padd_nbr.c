@@ -44,11 +44,14 @@ void		ft_fill_nb_i(t_printf *v_printf, intmax_t int_arg, int opt)
 	if (int_arg != 0)
 		v_printf->width -= len;
 	v_printf->prec -= power;
-	while (!(v_printf->flags & MINUS) && !(v_printf->flags & ZERO)
-			&& --(v_printf->width) >= 0)
-		ft_buff(v_printf, " ", 1);
-	if (v_printf->flags & PLUS || v_printf->flags & SP)
-		if (int_arg >= 0)
+	if (!(v_printf->flags & MINUS) && !(v_printf->flags & ZERO))
+	{
+		if ((v_printf->flags & PLUS || v_printf->flags & SP) && int_arg >= 0)
+			v_printf->width--;
+		while (--(v_printf->width) >= 0)
+			ft_buff(v_printf, " ", 1);
+	}
+	if ((v_printf->flags & PLUS || v_printf->flags & SP) && int_arg >= 0)
 		{
 			v_printf->width--;
 			v_printf->flags & PLUS ? ft_buff(v_printf, "+", 1)

@@ -51,19 +51,27 @@ void	ft_dispatch(t_printf *v_printf, t_funptr funptr[13])
 	}
 }
 
+void	ft_get_width(t_printf *v_printf)
+{
+	if (*(v_printf->str) == '*' && v_printf->str++)
+		v_printf->width = va_arg(v_printf->ap, int);
+	else
+	{
+		if (*(v_printf->str) >= '0' && *(v_printf->str) <= '9')
+		{
+			v_printf->width = ft_atoi(v_printf->str);
+			if (v_printf->width > 0 || *(v_printf->str) == '0')
+				v_printf->str += (int)ft_power(v_printf->width, 10);
+		}
+	}
+}
+
 void	ft_get_info(t_printf *v_printf, t_funptr funptr[13])
 {
 	while ((v_printf->tmp = ft_strlen_c("-+0 #", *(v_printf->str))) > -1
 			&& v_printf->str++)
 		v_printf->flags |= (1 << v_printf->tmp);
-	if (*(v_printf->str) == '*' && v_printf->str++)
-		v_printf->width = va_arg(v_printf->ap, int);
-	else
-	{
-		v_printf->width = ft_atoi(v_printf->str);
-		if (v_printf->width > 0 || *(v_printf->str) == '0')
-			v_printf->str += (int)ft_power(v_printf->width, 10);
-	}
+	ft_get_width(v_printf);
 	if (*(v_printf->str) == '.' && v_printf->str++ && (v_printf->flags |= DOT))
 	{
 		if (v_printf->flags & ZERO)

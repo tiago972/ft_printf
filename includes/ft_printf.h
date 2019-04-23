@@ -87,5 +87,6 @@ void			ft_putnbr_pf_u(t_printf *v_printf, uintmax_t nb, char *base,
 				uintmax_t size_b, uintmax_t power);
 void			ft_pad_nbr(t_printf *v_printf, uintmax_t uintarg);
 void			ft_print_u(t_printf *v_printf, uintmax_t uintarg, uintmax_t power);
+void			ft_get_width(t_printf *v_printf);
 # include <stdio.h>
 # endif
