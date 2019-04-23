@@ -39,6 +39,7 @@
 # define J (1 << 9)
 # define Z (1 << 10)
 # define POURCENT (1 << 11)
+# define UU (1 << 12)
 
 typedef struct	s_printf
 {
@@ -60,10 +61,10 @@ typedef struct	s_funptr
 }				t_funptr;
 int				ft_printf(const char *str, ...);
 void			ft_buff(t_printf *v_printf, char *str, int n);
-void			ft_inifunptr(t_funptr funptr[12]);
-void			ft_get_info(t_printf *v_printf, t_funptr funptr[12]);
+void			ft_inifunptr(t_funptr funptr[13]);
+void			ft_get_info(t_printf *v_printf, t_funptr funptr[13]);
 void			ft_get_size(t_printf *v_printf);
-void			ft_dispatch(t_printf *v_printf, t_funptr funptr[12]);
+void			ft_dispatch(t_printf *v_printf, t_funptr funptr[13]);
 uintmax_t		ft_power(uintmax_t nb, uintmax_t base);
 void			ft_pad_c(t_printf *v_printf);
 void			ft_pad_s(t_printf *v_printf);
@@ -71,13 +72,13 @@ void			ft_pad_i(t_printf *v_printf);
 void			ft_pad_p(t_printf *v_printf);
 void			ft_pad_u(t_printf *v_printf);
 void			ft_pad_escape(t_printf *v_printf);
-void			ft_dispatch_j(t_printf *v_printf);
+void			ft_dispatch_jz(t_printf *v_printf);
 uintmax_t		ft_power_dispatch(t_printf *v_printf, uintmax_t uintarg);
 int				ft_min(int a, int b);
 int				ft_max(int a, int b);
 intmax_t		ft_get_arg_i(t_printf *v_printf);
 void			ft_putnbr_pf(t_printf *v_printf, intmax_t n);
-void			ft_get_precision(t_printf *v_printf);
+void			ft_get_conversion(t_printf *v_printf);
 uintmax_t		ft_abs(intmax_t a);
 void			ft_llong_min(t_printf *v_printf, intmax_t int_arg);
 void			ft_fill_nb_i(t_printf *v_printf, intmax_t int_arg, int opt);

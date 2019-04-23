@@ -33,11 +33,7 @@ void		ft_putnbr_pf(t_printf *v_printf, intmax_t n)
 	char		tmp;
 	intmax_t	nb2;
 
-	if (n < 0)
-	{
-		ft_buff(v_printf, "-", 1);
-		n = -n;
-	}
+	n = ft_abs(n);
 	nb2 = n;
 	order = 1;
 	while ((nb2 >= 10 || nb2 <= -10) && (nb2 /= 10))

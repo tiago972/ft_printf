@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-void			ft_inifunptr(t_funptr funptr[12])
+void			ft_inifunptr(t_funptr funptr[13])
 {
 	funptr[0].conv |= C;
 	funptr[0].f = &ft_pad_c;
@@ -33,12 +33,13 @@ void			ft_inifunptr(t_funptr funptr[12])
 	funptr[8].conv |= P;
 	funptr[8].f = &ft_pad_p;
 	funptr[9].conv |= J;
-	funptr[9].f = &ft_dispatch_j;
+	funptr[9].f = &ft_dispatch_jz;
 	funptr[10].conv |= Z;
-	funptr[10].f = &ft_pad_u;
+	funptr[10].f = &ft_dispatch_jz;
 	funptr[11].conv |= POURCENT;
 	funptr[11].f = &ft_pad_c;
-
+	funptr[12].conv |= UU;
+	funptr[12].f = &ft_pad_u;
 	/*funptr[4].conv = 'f';
 	  funptr[4].f = &pad_f;
 	  funptr[10].conv = 'z';
@@ -49,19 +50,19 @@ uintmax_t	ft_power_dispatch(t_printf *v_printf, uintmax_t uintarg)
 {
 	if (v_printf->conv & X || v_printf->conv & XX)
 		return (ft_power(uintarg, 16));
-	else if (v_printf->conv & U || v_printf->conv & Z)
+	else if (v_printf->conv & U || v_printf->conv & Z || v_printf->conv & UU)
 		return (ft_power(uintarg, 10));
 	else if (v_printf->conv & O)
 		return (ft_power(uintarg, 8));
 	return (0);
 }
 
-void	ft_dispatch_j(t_printf *v_printf)
+void	ft_dispatch_jz(t_printf *v_printf)
 {
 	if (*(v_printf->str) == 'u' && v_printf->str++ && (v_printf->conv |= U))
 		ft_pad_u(v_printf);
 	else if (*(v_printf->str) == 'x' && v_printf->str++ && (v_printf->conv |= X))
 		ft_pad_u(v_printf);
-	else
+	else if (*(v_printf->str) == 'd' && v_printf->str++ && (v_printf->conv |= D))
 		ft_pad_i(v_printf);
 }

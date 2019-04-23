@@ -23,11 +23,11 @@ void	ft_get_size(t_printf *v_printf)
 				&& v_printf->str++) ? HH : H;
 }
 
-void	ft_get_precision(t_printf *v_printf)
+void	ft_get_conversion(t_printf *v_printf)
 {
 	int		tmp;
 
-	tmp = ft_strlen_c("csdiouxXpjz%", *(v_printf)->str);
+	tmp = ft_strlen_c("csdiouxXpjz%U", *(v_printf)->str);
 	if (tmp != -1)
 		v_printf->conv |= (1 << tmp);
 	v_printf->str++;
@@ -37,21 +37,21 @@ void	ft_get_precision(t_printf *v_printf)
 		v_printf->flags &= ~SP;
 }
 
-void	ft_dispatch(t_printf *v_printf, t_funptr funptr[12])
+void	ft_dispatch(t_printf *v_printf, t_funptr funptr[13])
 {
 	int		i;
 
 	i = -1;
 	ft_get_size(v_printf);
-	ft_get_precision(v_printf);
-	while (++i < 12)
+	ft_get_conversion(v_printf);
+	while (++i < 13)
 	{
 		if (funptr[i].conv & v_printf->conv)
 			funptr[i].f(v_printf);
 	}
 }
 
-void	ft_get_info(t_printf *v_printf, t_funptr funptr[10])
+void	ft_get_info(t_printf *v_printf, t_funptr funptr[13])
 {
 	while ((v_printf->tmp = ft_strlen_c("-+0 #", *(v_printf->str))) > -1
 			&& v_printf->str++)
