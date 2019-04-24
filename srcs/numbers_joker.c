@@ -56,10 +56,11 @@ void		ft_llong_min(t_printf *v_printf, intmax_t int_arg)
 	if ((v_printf->flags & DOT) && v_printf->prec == -1)
 		v_printf->prec = 1;
 	ft_fill_nb_i(v_printf, int_arg, 1);
+	ft_buff(v_printf, "-", 1);
+	while (--(v_printf->prec) >= 0)
+		ft_buff(v_printf, "0", 1);
 	while ((v_printf->flags & ZERO) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, "0", 1);
-	if (v_printf->prec <= -1 && int_arg == 0 && (v_printf->flags & DOT))
-		return ;
 	ft_buff(v_printf, "9223372036854775808", 19);
 	while ((v_printf->flags & MINUS) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, " ", 1);

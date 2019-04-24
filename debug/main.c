@@ -3,6 +3,6 @@
 
 int		main()
 {
-	ft_printf("%d", -42);
+	ft_printf("%10x", 42);
 	return (0);
 }

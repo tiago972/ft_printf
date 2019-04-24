@@ -12,7 +12,39 @@ uintmax_t		ft_power(uintmax_t nb, uintmax_t base)
 	}
 	power++;
 	return (power);
+}/*
+uintmax_t	ft_leading_zero(uintmax_t nb)
+{
+	unsigned long	i;
+	uintmax_t		count;
+
+	count = 0;
+	i = 63;
+	while (i > 0)
+	{
+		if (1 & (nb >> i))
+			count++;
+		i--;
+	}
+	return (count);
 }
+uintmax_t	ft_power(uintmax_t nb, uintmax_t base)
+{
+	double		ln;
+	uintmax_t	res;
+
+	ln = 0.0;
+	if (base == 16)
+		ln = LOG16;
+	else if (base == 8)
+		ln = LOG8;
+	else if (base == 10)
+		ln = LOG10;
+	ln = ft_leading_zero(nb)/ln;
+	ln += 1;
+	res = (uintmax_t)ln;
+	return (res);
+}*/
 
 int				ft_min(int a, int b)
 {

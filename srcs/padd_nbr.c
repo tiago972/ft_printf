@@ -51,14 +51,7 @@ void		ft_fill_nb_i(t_printf *v_printf, intmax_t int_arg, int opt)
 		while (--(v_printf->width) >= 0)
 			ft_buff(v_printf, " ", 1);
 	}
-	if ((v_printf->flags & PLUS || v_printf->flags & SP) && int_arg >= 0)
-		{
-			v_printf->width--;
+	if ((v_printf->flags & PLUS || v_printf->flags & SP) && int_arg >= 0 && v_printf->width--)
 			v_printf->flags & PLUS ? ft_buff(v_printf, "+", 1)
 				: ft_buff(v_printf, " ", 1);
-		}
-	if (int_arg < 0)
-		ft_buff(v_printf, "-", 1);
-	while (--(v_printf->prec) >= 0)
-		ft_buff(v_printf, "0", 1);
 }

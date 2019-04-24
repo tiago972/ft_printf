@@ -73,6 +73,10 @@ void	ft_pad_i(t_printf *v_printf)
 		return ;
 	}
 	ft_fill_nb_i(v_printf, int_arg, 1);
+	if (int_arg < 0)
+		ft_buff(v_printf, "-", 1);
+	while (--(v_printf->prec) >= 0)
+		ft_buff(v_printf, "0", 1);
 	while ((v_printf->flags & ZERO) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, "0", 1);
 	if (v_printf->prec < -1 && int_arg == 0 && (v_printf->flags & DOT))

@@ -40,7 +40,9 @@
 # define Z (1 << 10)
 # define POURCENT (1 << 11)
 # define UU (1 << 12)
-
+# define LOG10  2.30258509299
+# define LOG16 2.77258872224
+# define LOG8 2.07944154168
 typedef struct	s_printf
 {
 	char		*str;
@@ -89,5 +91,7 @@ void			ft_putnbr_pf_u(t_printf *v_printf, uintmax_t nb, char *base,
 void			ft_pad_nbr(t_printf *v_printf, uintmax_t uintarg);
 void			ft_print_u(t_printf *v_printf, uintmax_t uintarg, uintmax_t power);
 void			ft_get_width(t_printf *v_printf);
+uintmax_t		ft_leading_zero(uintmax_t nb);
+
 # include <stdio.h>
 # endif
