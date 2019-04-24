@@ -38,10 +38,17 @@ void	ft_pad_s(t_printf *v_printf)
 {
 	char	*str_arg;
 	int		len;
+	int		tmp;
 
+	tmp = 0;
 	str_arg = (char *)va_arg(v_printf->ap, char *);
 	if (!str_arg)
-		str_arg = "(null)";
+	{
+		if (!(str_arg = ft_strnew(6)))
+			return ;
+		ft_memmove(str_arg, "(null)", 6);
+		tmp = 1;
+	}
 	if (v_printf->flags & DOT)
 	{
 		if (v_printf->prec == -1)
@@ -58,6 +65,8 @@ void	ft_pad_s(t_printf *v_printf)
 	if (v_printf->flags & MINUS)
 		while (--(v_printf->width) >= 0)
 			ft_buff(v_printf, " ", 1);
+	if (tmp == 1)
+		free(str_arg);
 }
 
 void	ft_pad_i(t_printf *v_printf)
