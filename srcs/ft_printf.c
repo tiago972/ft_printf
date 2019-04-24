@@ -42,6 +42,17 @@ void			ft_buff(t_printf *v_printf, char *str, int n)
 		ft_flush(v_printf);
 }
 
+static void		ft_reinit_struct(t_printf *v_printf)
+{
+
+	v_printf->flags = 0;
+	v_printf->width = 0;
+	v_printf->prec = -2;
+	v_printf->conv = 0;
+	v_printf->tmp = 0;
+	v_printf->power = 0;
+}
+
 int				ft_printf(const char *str, ...)
 {
 	t_printf		v_printf;
@@ -56,6 +67,7 @@ int				ft_printf(const char *str, ...)
 	{
 		if (*(v_printf.str) == '%' && v_printf.str++)
 		{
+			ft_reinit_struct(&v_printf);
 			if (*(v_printf.str))
 				ft_get_info(&v_printf, funptr);
 		}
