@@ -92,6 +92,6 @@ void			ft_pad_nbr(t_printf *v_printf, uintmax_t uintarg);
 void			ft_print_u(t_printf *v_printf, uintmax_t uintarg, uintmax_t power);
 void			ft_get_width(t_printf *v_printf);
 uintmax_t		ft_leading_zero(uintmax_t nb);
-
+int				ft_particular_octal(t_printf *v_printf);
 # include <stdio.h>
 # endif

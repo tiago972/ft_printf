@@ -2,7 +2,9 @@
 #include <stdio.h>
 
 int		main()
-{
-	printf("%#o", 0);
+{	
+	printf("@moulitest: %#.o %#.0o", 0, 0);
+	printf("\n");
+	ft_printf("@moulitest: %#.o %#.0o", 0, 0);
 	return (0);
 }

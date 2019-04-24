@@ -65,7 +65,7 @@ void	ft_pad_i(t_printf *v_printf)
 	intmax_t	int_arg;
 
 	int_arg = ft_get_arg_i(v_printf);
-	if ((v_printf->flags & DOT) && v_printf->prec == -1)
+	if ((v_printf->flags & DOT) && v_printf->prec == -2 && int_arg != 0)
 		v_printf->prec = 1;
 	if (int_arg == LLONG_MIN)
 	{
@@ -79,7 +79,7 @@ void	ft_pad_i(t_printf *v_printf)
 		ft_buff(v_printf, "0", 1);
 	while ((v_printf->flags & ZERO) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, "0", 1);
-	if (v_printf->prec < -1 && int_arg == 0 && (v_printf->flags & DOT))
+	if (v_printf->prec <= -2 && int_arg == 0 && (v_printf->flags & DOT))
 		return ;
 	ft_putnbr_pf(v_printf, ft_abs(int_arg), v_printf->power);
 	while ((v_printf->flags & MINUS) && --(v_printf->width) >= 0)
@@ -93,8 +93,10 @@ void	ft_pad_u(t_printf *v_printf)
 	uintmax_t	len;
 
 	uintarg = ft_get_arg_u(v_printf);
+	if (ft_particular_octal(v_printf) == 1)
+		return ;
 	power = ft_power_dispatch(v_printf, uintarg);
-	if ((v_printf->flags & DOT) && v_printf->prec == -1)
+	if ((v_printf->flags & DOT) && v_printf->prec == -2 && uintarg > 0)
 		v_printf->prec = 1;
 	if (v_printf->flags & POUND && uintarg > 0)
 		v_printf->width = v_printf->conv & O ? v_printf->width - 1
@@ -104,7 +106,7 @@ void	ft_pad_u(t_printf *v_printf)
 		v_printf->width -= len;
 	v_printf->prec -= power;
 	ft_pad_nbr(v_printf, uintarg);
-	if (v_printf->prec < -1 && uintarg == 0 && (v_printf->flags & DOT))
+	if (v_printf->prec <= -2 && uintarg == 0 && (v_printf->flags & DOT))
 		return ;
 	ft_print_u(v_printf, uintarg, power);
 	while ((v_printf->flags & MINUS) && --(v_printf->width) >= 0)
