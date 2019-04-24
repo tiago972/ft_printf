@@ -75,9 +75,9 @@ void	ft_pad_i(t_printf *v_printf)
 	ft_fill_nb_i(v_printf, int_arg, 1);
 	while ((v_printf->flags & ZERO) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, "0", 1);
-	if (v_printf->prec <= -1 && int_arg == 0 && (v_printf->flags & DOT))
+	if (v_printf->prec < -1 && int_arg == 0 && (v_printf->flags & DOT))
 		return ;
-	ft_putnbr_pf(v_printf, int_arg);
+	ft_putnbr_pf(v_printf, ft_abs(int_arg), v_printf->power);
 	while ((v_printf->flags & MINUS) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, " ", 1);
 }
@@ -100,7 +100,7 @@ void	ft_pad_u(t_printf *v_printf)
 		v_printf->width -= len;
 	v_printf->prec -= power;
 	ft_pad_nbr(v_printf, uintarg);
-	if (v_printf->prec <= -1 && uintarg == 0 && (v_printf->flags & DOT))
+	if (v_printf->prec < -1 && uintarg == 0 && (v_printf->flags & DOT))
 		return ;
 	ft_print_u(v_printf, uintarg, power);
 	while ((v_printf->flags & MINUS) && --(v_printf->width) >= 0)

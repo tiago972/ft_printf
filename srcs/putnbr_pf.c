@@ -27,22 +27,20 @@ void		ft_putnbr_pf_u(t_printf *v_printf, uintmax_t nb, char *base,
 	ft_buff(v_printf, &base[nb % size_b], 1);
 }
 */
-void		ft_putnbr_pf(t_printf *v_printf, intmax_t n)
+void		ft_putnbr_pf(t_printf *v_printf, intmax_t nb, uintmax_t power)
 {
-	intmax_t	order;
-	char		tmp;
-	intmax_t	nb2;
-
-	n = ft_abs(n);
-	nb2 = n;
-	order = 1;
-	while ((nb2 >= 10 || nb2 <= -10) && (nb2 /= 10))
-		order = order * 10;
-	while (order > 0)
+	uintmax_t	power_cpy;
+	uintmax_t	nb_cpy;
+	static char	base[11] = "0123456789";
+	
+	while (power > 0)
 	{
-		tmp = '0' + n / order;
-		ft_buff(v_printf, &tmp, 1);
-		n = n % order;
-		order = order / 10;
+		power_cpy = power;
+		nb_cpy = nb;
+		while (--power_cpy > 0)
+			nb_cpy /= 10;
+		ft_buff(v_printf, &base[nb_cpy % 10], 1);
+		power--;
 	}
+
 }

@@ -48,7 +48,7 @@ int				ft_printf(const char *str, ...)
 	static t_funptr	funptr[13];
 
 	ft_memset(&v_printf, 0, sizeof(t_printf));
-	v_printf.prec = -1;
+	v_printf.prec = -2;
 	ft_inifunptr(funptr);
 	va_start(v_printf.ap, str);
 	v_printf.str = (char *)str;

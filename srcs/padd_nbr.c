@@ -31,22 +31,22 @@ void	ft_pad_nbr(t_printf *v_printf, uintmax_t uintarg)
 void		ft_fill_nb_i(t_printf *v_printf, intmax_t int_arg, int opt)
 {
 	uintmax_t	len;
-	uintmax_t	power;
 
 	if (!opt)
-		power = 20;
-	power = ft_power(ft_abs(int_arg), 10);
-	power = int_arg < 0 ? power + 1 : power;
+		v_printf->power = 20;
+	v_printf->power = ft_power(ft_abs(int_arg), 10);
 	if (v_printf->flags & DOT)
-		len = ft_max(power, v_printf->prec);
+		len = ft_max(v_printf->power, v_printf->prec);
 	else
-		len = power;
-	if (int_arg != 0)
+		len = v_printf->power;
+	if (int_arg != 0 || v_printf->prec > 0)
 		v_printf->width -= len;
-	v_printf->prec -= power;
+	v_printf->prec -= v_printf->power;
+	if (int_arg < 0)
+		v_printf->width--;
 	if (!(v_printf->flags & MINUS) && !(v_printf->flags & ZERO))
 	{
-		if ((v_printf->flags & PLUS || v_printf->flags & SP) && int_arg != 0)
+		if ((v_printf->flags & PLUS || v_printf->flags & SP) && int_arg >= 0)
 			v_printf->width--;
 		while (--(v_printf->width) >= 0)
 			ft_buff(v_printf, " ", 1);
@@ -58,10 +58,7 @@ void		ft_fill_nb_i(t_printf *v_printf, intmax_t int_arg, int opt)
 				: ft_buff(v_printf, " ", 1);
 		}
 	if (int_arg < 0)
-	{
 		ft_buff(v_printf, "-", 1);
-		v_printf->prec++;
-	}
 	while (--(v_printf->prec) >= 0)
 		ft_buff(v_printf, "0", 1);
 }

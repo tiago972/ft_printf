@@ -53,6 +53,7 @@ typedef struct	s_printf
 	int			ret_tot;
 	va_list		ap;
 	int			tmp;
+	uintmax_t	power;
 }				t_printf;
 typedef struct	s_funptr
 {
@@ -77,7 +78,7 @@ uintmax_t		ft_power_dispatch(t_printf *v_printf, uintmax_t uintarg);
 int				ft_min(int a, int b);
 int				ft_max(int a, int b);
 intmax_t		ft_get_arg_i(t_printf *v_printf);
-void			ft_putnbr_pf(t_printf *v_printf, intmax_t n);
+void			ft_putnbr_pf(t_printf *v_printf, intmax_t n, uintmax_t power);
 void			ft_get_conversion(t_printf *v_printf);
 uintmax_t		ft_abs(intmax_t a);
 void			ft_llong_min(t_printf *v_printf, intmax_t int_arg);
