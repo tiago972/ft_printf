@@ -27,6 +27,7 @@
 # define HH (1 << 7)
 # define L (1 << 8)
 # define LL (1 << 9)
+# define LF (1 << 10)
 # define C (1 << 0)
 # define S (1 << 1)
 # define D (1 << 2)

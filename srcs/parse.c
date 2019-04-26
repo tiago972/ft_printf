@@ -16,7 +16,7 @@
 void	ft_get_size(t_printf *v_printf)
 {
 	if (*(v_printf->str) == 'L' && v_printf->str++)
-		v_printf->flags |= L;
+		v_printf->flags |= LF;
 	else if (*(v_printf->str) == 'l' && v_printf->str++)
 		v_printf->flags |= (v_printf->str[0] == 'l'
 				&& v_printf->str++) ? LL : L;

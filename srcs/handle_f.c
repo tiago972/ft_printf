@@ -3,9 +3,11 @@
 
 long double	ft_get_arg_f(t_printf *v_printf)
 {
-	if (v_printf->flags & L)
+	if (v_printf->flags & LF)
 		return ((long double)va_arg(v_printf->ap, long double));
-	else
+	else if (v_printf->flags & L)
+		return ((double)va_arg(v_printf->ap, double));
+	else 
 		return ((float)va_arg(v_printf->ap, double));
 }
 
