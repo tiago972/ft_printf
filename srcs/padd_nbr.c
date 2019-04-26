@@ -34,7 +34,7 @@ void		ft_fill_nb_i(t_printf *v_printf, intmax_t int_arg, int opt)
 
 	if (!opt)
 		v_printf->power = 20;
-	v_printf->power = ft_power(ft_abs(int_arg), 10);
+	v_printf->power = ft_log(ft_abs(int_arg), 10);
 	if (v_printf->flags & DOT)
 		len = ft_max(v_printf->power, v_printf->prec);
 	else

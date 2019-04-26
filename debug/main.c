@@ -3,8 +3,7 @@
 
 int		main()
 {	
-	printf("@moulitest: %#.o %#.0o", 0, 0);
-	printf("\n");
-	ft_printf("@moulitest: %#.o %#.0o", 0, 0);
+	float f = 14.45;
+	printf("%.1f\n", f);
 	return (0);
 }

@@ -83,7 +83,8 @@ void	ft_print_u(t_printf *v_printf, uintmax_t uintarg, uintmax_t power)
 int		ft_particular_octal(t_printf *v_printf)
 {
 	if ((v_printf->conv & O) && (v_printf->flags & DOT)
-			&& (v_printf->prec == -2 || v_printf->prec == 0) && (v_printf->flags & POUND))
+			&& (v_printf->prec == -2 || v_printf->prec == 0)
+			&& (v_printf->flags & POUND))
 	{
 		ft_buff(v_printf, "0", 1);
 		return (1);

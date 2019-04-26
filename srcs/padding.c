@@ -128,7 +128,7 @@ void	ft_pad_p(t_printf *v_printf)
 	uintmax_t	len;
 
 	uintarg = (uintmax_t)va_arg(v_printf->ap, void *);
-	len = ft_power(uintarg, 16);
+	len = ft_log(uintarg, 16);
 	v_printf->width -= 2;	
 	v_printf->width -= len;
 	while (!(v_printf->flags & MINUS) && --(v_printf->width) >= 0)

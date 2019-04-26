@@ -40,9 +40,8 @@
 # define Z (1 << 10)
 # define POURCENT (1 << 11)
 # define UU (1 << 12)
-# define LOG10  2.30258509299
-# define LOG16 2.77258872224
-# define LOG8 2.07944154168
+# define F (1 << 13)
+
 typedef struct	s_printf
 {
 	char		*str;
@@ -68,12 +67,13 @@ void			ft_inifunptr(t_funptr funptr[13]);
 void			ft_get_info(t_printf *v_printf, t_funptr funptr[13]);
 void			ft_get_size(t_printf *v_printf);
 void			ft_dispatch(t_printf *v_printf, t_funptr funptr[13]);
-uintmax_t		ft_power(uintmax_t nb, uintmax_t base);
+uintmax_t		ft_log(uintmax_t nb, uintmax_t base);
 void			ft_pad_c(t_printf *v_printf);
 void			ft_pad_s(t_printf *v_printf);
 void			ft_pad_i(t_printf *v_printf);
 void			ft_pad_p(t_printf *v_printf);
 void			ft_pad_u(t_printf *v_printf);
+void			ft_pad_f(t_printf *v_printf);
 void			ft_pad_escape(t_printf *v_printf);
 void			ft_dispatch_jz(t_printf *v_printf);
 uintmax_t		ft_power_dispatch(t_printf *v_printf, uintmax_t uintarg);

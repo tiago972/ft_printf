@@ -56,7 +56,7 @@ static void		ft_reinit_struct(t_printf *v_printf)
 int				ft_printf(const char *str, ...)
 {
 	t_printf		v_printf;
-	static t_funptr	funptr[13];
+	static t_funptr	funptr[14];
 
 	ft_memset(&v_printf, 0, sizeof(t_printf));
 	v_printf.prec = -2;

@@ -15,7 +15,9 @@
 
 void	ft_get_size(t_printf *v_printf)
 {
-	if (*(v_printf->str) == 'l' && v_printf->str++)
+	if (*(v_printf->str) == 'L' && v_printf->str++)
+		v_printf->flags |= L;
+	else if (*(v_printf->str) == 'l' && v_printf->str++)
 		v_printf->flags |= (v_printf->str[0] == 'l'
 				&& v_printf->str++) ? LL : L;
 	else if (*(v_printf->str) == 'h' && v_printf->str++)
@@ -27,7 +29,7 @@ void	ft_get_conversion(t_printf *v_printf)
 {
 	int		tmp;
 
-	tmp = ft_strlen_c("csdiouxXpjz%U", *(v_printf)->str);
+	tmp = ft_strlen_c("csdiouxXpjz%Uf", *(v_printf)->str);
 	if (tmp != -1)
 		v_printf->conv |= (1 << tmp);
 	v_printf->str++;
@@ -37,14 +39,14 @@ void	ft_get_conversion(t_printf *v_printf)
 		v_printf->flags &= ~SP;
 }
 
-void	ft_dispatch(t_printf *v_printf, t_funptr funptr[13])
+void	ft_dispatch(t_printf *v_printf, t_funptr funptr[14])
 {
 	int		i;
 
 	i = -1;
 	ft_get_size(v_printf);
 	ft_get_conversion(v_printf);
-	while (++i < 13)
+	while (++i < 14)
 	{
 		if (funptr[i].conv & v_printf->conv)
 			funptr[i].f(v_printf);
@@ -61,12 +63,12 @@ void	ft_get_width(t_printf *v_printf)
 		{
 			v_printf->width = ft_atoi(v_printf->str);
 			if (v_printf->width > 0 || *(v_printf->str) == '0')
-				v_printf->str += (int)ft_power(v_printf->width, 10);
+				v_printf->str += (int)ft_log(v_printf->width, 10);
 		}
 	}
 }
 
-void	ft_get_info(t_printf *v_printf, t_funptr funptr[13])
+void	ft_get_info(t_printf *v_printf, t_funptr funptr[14])
 {
 	while ((v_printf->tmp = ft_strlen_c("-+0 #", *(v_printf->str))) > -1
 			&& v_printf->str++)
@@ -82,7 +84,7 @@ void	ft_get_info(t_printf *v_printf, t_funptr funptr[13])
 			if (*(v_printf->str) >= '0' && *(v_printf->str) <= '9')
 			{
 				v_printf->prec = ft_atoi(v_printf->str);
-				v_printf->str += (int)ft_power(v_printf->prec, 10);
+				v_printf->str += (int)ft_log(v_printf->prec, 10);
 			}
 	}
 	ft_dispatch(v_printf, funptr);
