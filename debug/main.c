@@ -3,7 +3,6 @@
 
 int		main()
 {	
-	float f = 14.45;
-	printf("%.1f\n", f);
+	printf("%lu\n", sizeof(long double));
 	return (0);
 }

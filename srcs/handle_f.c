@@ -1,4 +1,5 @@
 #include "../includes/ft_printf.h"
+#include <limits.h>
 
 long double	ft_get_arg_f(t_printf *v_printf)
 {
@@ -12,7 +13,8 @@ void		ft_pad_f(t_printf *v_printf)
 {
 	long double		int_arg;
 	long double		f_part;
-	uintmax_t		
+	
+	(void)f_part;
 	int_arg = ft_get_arg_f(v_printf);
 	if ((v_printf->flags & DOT) && v_printf->prec == -2 && int_arg != 0)
 		v_printf->prec = 6;
