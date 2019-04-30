@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 15:14:29 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/18 17:56:01 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/04/30 12:28:42 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	ft_pad_u(t_printf *v_printf)
 	uintarg = ft_get_arg_u(v_printf);
 	if (ft_particular_octal(v_printf) == 1)
 		return ;
-	power = ft_power_dispatch(v_printf, uintarg);
+	power = ft_log_dispatch(v_printf, uintarg);
 	if ((v_printf->flags & DOT) && v_printf->prec == -2 && uintarg > 0)
 		v_printf->prec = 1;
 	if (v_printf->flags & POUND && uintarg > 0)
