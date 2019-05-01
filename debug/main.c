@@ -85,11 +85,9 @@ char * dtoa(char *s, double n) {
 int main() 
 {
     char s[MAX_NUMBER_STRING_SIZE];
-	float f = NAN;
-	ft_printf("%15f\n", f);
-	printf("%15f\n", f);
-	/*int	ret, ret2;
-	ret = printf("|%c|\n", 0);
-	ret2 = ft_printf("|%c|\n", 0);
-	printf("%d || %d\n", ret, ret2);*/
+	float f = 0.032;
+	int	ret, ret2;
+	ret = ft_printf("%.4f\n", f);
+	ret2 = printf("%.4f\n", f);
+	printf("%d || %d\n", ret, ret2);
 }
