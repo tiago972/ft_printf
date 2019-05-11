@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 13:00:09 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/18 16:55:56 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/05/11 17:57:02 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int				ft_printf(const char *str, ...)
 	static t_funptr	funptr[14];
 
 	ft_memset(&v_printf, 0, sizeof(t_printf));
+	ft_bzero(&(v_printf.buff), BUFF_SIZE);
 	v_printf.prec = -2;
 	ft_inifunptr(funptr);
 	va_start(v_printf.ap, str);

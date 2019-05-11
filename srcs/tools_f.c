@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 12:23:26 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/05/11 16:09:26 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/05/11 19:45:36 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ long double		ft_magnitude(t_float *f)
 		mag--;
 		return (-mag);
 	}
-	else
+	else 
 		mag = ft_log(n, 10);
 	mag--;
 	return (mag);

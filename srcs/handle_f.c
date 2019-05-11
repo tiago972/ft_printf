@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 12:07:51 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/05/11 17:25:47 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/05/11 20:32:30 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <limits.h>
 #include "../libft/includes/libft.h"
 #include <math.h>
-
+int	g_debog = 0;
 long double	ft_get_arg_f(t_printf *v_printf)
 {
 	if (v_printf->flags & LF)
@@ -34,23 +34,28 @@ void		ft_ftoa_2(t_float *f)
 		f->m--;
 	while (f->prec < 1 || f->m >= 0)
 	{
+		g_debog++;
+		printf("debog %d ", g_debog);
 		weight = ft_iterative_power_f(f->m, 10.0);
 		if (weight >= 0 && weight != INFINITY)
 		{
 			nbr = ft_floor(f->f_arg / weight);
+			printf("nbr %d, f_arg %.10Lf, weight %lf, m = %d, prec = %Lf\n", nbr, f->f_arg, weight, f->m, f->prec);
 			f->f_arg -= (nbr * weight);
+			printf("apres soustraction %.10Lf\n", f->f_arg);
 			*(f->res++) = '0' + nbr;
 		}
 		if (f->m == 0)
 			*(f->res++) = '.';
+		if (f->m < 0)
+			f->prec *= 10;
 		f->m--;
-		f->prec *= 10;
 	}
 }
 void		ft_ftoa(t_float *f, t_printf *v_printf)
 {
 	f->prec = ft_iterative_power_f(-(v_printf->prec + 1), 10.0);
-	f->sign = ft_sign_f(f);
+	printf("prec = %.8Lf\n", f->prec);
 	while ((v_printf->flags & ZERO) && --(v_printf->width) > 0)
 		*(f->res++) = '0';
 	if (f->m >= 14 || (f->sign && f->m >= 9) || f->m <= -9)
@@ -72,9 +77,12 @@ void		ft_round(t_float *f, t_printf *v_printf)
 	if (v_printf->prec == 0)
 		return ;
 	f->res--;
-	while (*(f->res) && *(f->res) != '.' && *(f->res) == '9')
+	while (*(f->res) && *(f->res) != '.' && *(f->res) >= '5')
 	{
-		*(f->res) = '0';
+		if (*(f->res) == '9')
+			*(f->res) = '0';
+		else 
+			(*f->res)++;
 		f->res--;
 		if (*(f->res) < '9')
 			(*f->res)++;
@@ -87,7 +95,8 @@ void		ft_pad_f(t_printf *v_printf)
 	char		*cpy_res;
 
 	ft_memset(&f, 0, sizeof(t_float));
-	f.f_arg = ft_get_arg_f(v_printf);	
+	f.f_arg = ft_get_arg_f(v_printf);
+	printf("recup arg %.10Lf\n", f.f_arg);
 	if (ft_isinf(&f, v_printf) || ft_isna(&f, v_printf))
 		return ;
 	if (!(f.res = ft_strnew(F_SIZE)))
@@ -95,6 +104,7 @@ void		ft_pad_f(t_printf *v_printf)
 	cpy_res = f.res;
 	if (!(v_printf->flags & DOT) || v_printf->prec == -2)
 		v_printf->prec = 6;
+	f.sign = ft_sign_f(&f);
 	f.m = (int)ft_magnitude(&f);
 	v_printf->width -= (v_printf->prec + f.m);
 	if (f.sign == 1)

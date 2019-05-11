@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 11:59:30 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/05/11 17:16:19 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/05/11 18:33:21 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@
 # define SP (1 << 3)
 # define POUND (1 << 4)
 # define DOT (1 << 5)
-# define H (1 << 6)
-# define HH (1 << 7)
-# define L (1 << 8)
-# define LL (1 << 9)
-# define LF (1 << 10)
+# define STAR (1 << 6)
+# define H (1 << 7)
+# define HH (1 << 8)
+# define L (1 << 9)
+# define LL (1 << 10)
+# define LF (1 << 11)
 # define C (1 << 0)
 # define S (1 << 1)
 # define D (1 << 2)

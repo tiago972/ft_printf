@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 15:14:29 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/30 12:28:42 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/05/11 18:59:00 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,10 @@ void	ft_pad_s(t_printf *v_printf)
 	}
 	if (v_printf->flags & DOT)
 	{
-		if (v_printf->prec == -1)
+		if (v_printf->prec < 0 && (v_printf->flags & STAR))
 			v_printf->prec = ft_strlen(str_arg);
+		else if (v_printf->prec == -2)
+			v_printf->prec = 0;
 		len = ft_min(v_printf->prec, ft_strlen(str_arg));
 	}
 	else
@@ -111,7 +113,7 @@ void	ft_pad_u(t_printf *v_printf)
 		v_printf->width = v_printf->conv & O ? v_printf->width - 1
 			: v_printf->width - 2;
 	len = v_printf->flags & DOT ? ft_max(power, v_printf->prec) : power;
-	if (uintarg != 0)
+	if (v_printf->prec != 0)
 		v_printf->width -= len;
 	v_printf->prec -= power;
 	ft_pad_nbr(v_printf, uintarg);

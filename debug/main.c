@@ -3,8 +3,6 @@
 #include <math.h>
 #include <string.h>
 #include <stdlib.h>
-#include "../libft/includes/libft.h"
-#include <limits.h>
 
 // For printf
 
@@ -86,27 +84,10 @@ char * dtoa(char *s, double n) {
     return s;
 }
 
-void	ft_print_bits(long double n) 
-{ 
-
-	unsigned char *test = (unsigned char *)&n;
-	unsigned i = CHAR_BIT * sizeof(n);
-	while (--i + 1 > 0)
-	{
-		if (test[i/CHAR_BIT] & (1U << (i % CHAR_BIT)))
-		{
-			printf("i = %u\n", i);
-			ft_putstr("1");
-		}
-		else
-			ft_putstr("0");
-		if (i % 8 == 0)
-			ft_putstr(" ");
-	}
-	ft_putstr("\n");
-}
 int		main(void)
 {
+	char *str;
+	int i = 0;
 	unsigned long long int lon = 1234567890123456789;
 	double	doub;
 	double	doub2;
@@ -124,14 +105,52 @@ int		main(void)
 	doub5 *= doub5 * doub5;
 	doub5 *= doub5 * doub5;
 	doub4 = -10;
-	doub3 = -56461.6551616465;
+	doub3 = -56461.6551619465;
 	doub = -0;
 	doub6 /= doub;
 	doub4 *= doub;
 	doub2 = 165456.561165;
-
-	//ft_print_bits(-0.0);
-	ft_printf("\nFt_Printf : | %-20.5lf |", 0.0);
-	printf("\nPrintf :    | %-20.5lf |\n", 0.0);
+	str = (char*)malloc(sizeof(char) * 50);
+	while (i < 49)
+		str[i++] = 'A';
+	str[i] = 0;
+	/*
+	** TEST DE %f
+	*/
+	printf("\nTEST DE f\n");
+	/*ft_printf("\nFt_Printf : | %1000.505lf |", doub);
+	printf("\nPrintf :    | %1000.505lf |\n", doub);
+	ft_printf("\nFt_Printf : | %50.600lf |", doub);
+	printf("\nPrintf :    | %50.600lf |\n", doub);*/
+	ft_printf("\nFt_Printf : | %.700lf |", doub3);
+	printf("\nPrintf :    | %.700lf |\n", doub3);
+	/*ft_printf("\nFt_Printf : | %70.50lf |", doub2);
+	printf("\nPrintf :    | %70.50lf |\n", doub2);
+	ft_printf("\nFt_Printf : | %f |", doub);
+	printf("\nPrintf :    | %f |\n", doub);
+	ft_printf("\nFt_Printf : | %-5.1f |", doub3);
+	printf("\nPrintf :    | %-5.1f |\n", doub3);
+	ft_printf("\nFt_Printf : | %+012.1f |", doub2);
+	printf("\nPrintf :    | %+012.1f |\n", doub2);
+	ft_printf("\nFt_Printf : | %012.7lf |", doub);
+	printf("\nPrintf :    | %012.7lf |\n", doub);
+	ft_printf("\nFt_Printf : | %#.f |", doub);
+	printf("\nPrintf :    | %#.f |\n", doub);
+	ft_printf("\nFt_Printf : | %027.3f |", doub3);
+	printf("\nPrintf :    | %027.3f |\n", doub3);
+	ft_printf("\nFt_Printf : | %#2f |", doub2);
+	printf("\nPrintf :    | %#2f |\n", doub2);
+	ft_printf("\nFt_Printf : | %#60.30f |", doub4);
+	printf("\nPrintf :    | %#60.30f |\n", doub4);
+	ft_printf("\nFt_Printf : | %#+60.30f |", doub5);
+	printf("\nPrintf :    | %#+60.30f |\n", doub5);
+	ft_printf("\nFt_Printf : | %#.30F |", doub6);
+	printf("\nPrintf :    | %#.30F |\n", doub6);
+	doub2 *= doub2 * doub2 *doub2 *doub2;
+	ft_printf("\nFt_Printf : | %#.30F |", doub2);
+	printf("\nPrintf :    | %#.30F |\n", doub2);
+	ft_printf("\nft_printf : %50v\n");
+	ft_printf("\nft_printf : %50d\n", 50);*/
+	free(str);
 	return (0);
 }

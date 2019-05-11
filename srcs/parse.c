@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 13:51:03 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/05/11 17:11:56 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/05/11 18:32:19 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_get_conversion(t_printf *v_printf)
 	if (v_printf->flags & PLUS && v_printf->flags & SP)
 		v_printf->flags &= ~SP;
 	if (v_printf->flags & ZERO && v_printf->flags & DOT && tmp >= 2 && tmp <= 7)
-			v_printf->flags &= ~ZERO;
+		v_printf->flags &= ~ZERO;
 }
 
 void	ft_dispatch(t_printf *v_printf, t_funptr funptr[14])
@@ -58,7 +58,14 @@ void	ft_dispatch(t_printf *v_printf, t_funptr funptr[14])
 void	ft_get_width(t_printf *v_printf)
 {
 	if (*(v_printf->str) == '*' && v_printf->str++)
+	{
 		v_printf->width = va_arg(v_printf->ap, int);
+		if (v_printf->width < 0)
+		{
+			v_printf->flags |= MINUS;
+			v_printf->width = -v_printf->width;
+		}
+	}
 	else
 	{
 		if (*(v_printf->str) >= '0' && *(v_printf->str) <= '9')
@@ -78,14 +85,14 @@ void	ft_get_info(t_printf *v_printf, t_funptr funptr[14])
 	ft_get_width(v_printf);
 	if (*(v_printf->str) == '.' && v_printf->str++ && (v_printf->flags |= DOT))
 	{
-		if (*(v_printf->str) == '*' && v_printf->str++)
+		if (*(v_printf->str) == '*' && v_printf->str++
+				&& (v_printf->flags |= STAR))
 			v_printf->prec = va_arg(v_printf->ap, int);
-		else
-			if (*(v_printf->str) >= '0' && *(v_printf->str) <= '9')
-			{
-				v_printf->prec = ft_atoi(v_printf->str);
-				v_printf->str += (int)ft_log(v_printf->prec, 10);
-			}
+		else if (*(v_printf->str) >= '0' && *(v_printf->str) <= '9')
+		{
+			v_printf->prec = ft_atoi(v_printf->str);
+			v_printf->str += (int)ft_log(v_printf->prec, 10);
+		}
 	}
 	ft_dispatch(v_printf, funptr);
 }
