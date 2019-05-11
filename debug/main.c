@@ -2,6 +2,10 @@
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
+#include <stdlib.h>
+#include "../libft/includes/libft.h"
+#include <limits.h>
+
 // For printf
 
 static double PRECISION = 0.000001;
@@ -82,12 +86,52 @@ char * dtoa(char *s, double n) {
     return s;
 }
 
-int main() 
+void	ft_print_bits(long double n) 
+{ 
+
+	unsigned char *test = (unsigned char *)&n;
+	unsigned i = CHAR_BIT * sizeof(n);
+	while (--i + 1 > 0)
+	{
+		if (test[i/CHAR_BIT] & (1U << (i % CHAR_BIT)))
+		{
+			printf("i = %u\n", i);
+			ft_putstr("1");
+		}
+		else
+			ft_putstr("0");
+		if (i % 8 == 0)
+			ft_putstr(" ");
+	}
+	ft_putstr("\n");
+}
+int		main(void)
 {
-    char s[MAX_NUMBER_STRING_SIZE];
-	float f = 0.032;
-	int	ret, ret2;
-	ret = ft_printf("%.4f\n", f);
-	ret2 = printf("%.4f\n", f);
-	printf("%d || %d\n", ret, ret2);
+	unsigned long long int lon = 1234567890123456789;
+	double	doub;
+	double	doub2;
+	double	doub3;
+	double	doub4;
+	double	doub5 = 1000000;
+	char *str2 = NULL;
+	double	doub6;
+
+	doub6 = 0;
+	doub5 *= doub5 * doub5;
+	doub5 *= doub5 * doub5;
+	doub5 *= doub5 * doub5;
+	doub5 *= doub5 * doub5;
+	doub5 *= doub5 * doub5;
+	doub5 *= doub5 * doub5;
+	doub4 = -10;
+	doub3 = -56461.6551616465;
+	doub = -0;
+	doub6 /= doub;
+	doub4 *= doub;
+	doub2 = 165456.561165;
+
+	//ft_print_bits(-0.0);
+	ft_printf("\nFt_Printf : | %-20.5lf |", 0.0);
+	printf("\nPrintf :    | %-20.5lf |\n", 0.0);
+	return (0);
 }

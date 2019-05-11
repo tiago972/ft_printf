@@ -1,0 +1,1163 @@
+
+TEST DE f
+m = 1
+weight 10.000000, m = 1
+arg avant = 0.000000, weight 10.000000, nbr = -1
+arg apres = 10.000000
+weight 1.000000, m = 0
+arg avant = 10.000000, weight 1.000000, nbr = 10
+arg apres = 0.000000
+weight 0.100000, m = -1
+arg avant = 0.000000, weight 0.100000, nbr = -1
+arg apres = 0.100000
+weight 0.010000, m = -2
+arg avant = 0.100000, weight 0.010000, nbr = 10
+arg apres = 0.000000
+weight 0.001000, m = -3
+arg avant = 0.000000, weight 0.001000, nbr = -1
+arg apres = 0.001000
+weight 0.000100, m = -4
+arg avant = 0.001000, weight 0.000100, nbr = 9
+arg apres = 0.000100
+weight 0.000010, m = -5
+arg avant = 0.000100, weight 0.000010, nbr = 9
+arg apres = 0.000010
+weight 0.000001, m = -6
+arg avant = 0.000010, weight 0.000001, nbr = 9
+arg apres = 0.000001
+weight 0.000000, m = -7
+arg avant = 0.000001, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -8
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -9
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -10
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -11
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -12
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -13
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -14
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -15
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -16
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -17
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -18
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -19
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -20
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -21
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -22
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -23
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -24
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -25
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -26
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -27
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -28
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -29
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -30
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -31
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -32
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -33
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -34
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -35
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -36
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -37
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -38
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -39
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -40
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -41
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -42
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -43
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -44
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -45
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -46
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -47
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -48
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -49
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -50
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -51
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -52
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -53
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -54
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -55
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -56
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -57
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -58
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -59
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -60
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -61
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -62
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -63
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -64
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -65
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -66
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -67
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -68
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -69
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -70
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -71
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -72
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -73
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -74
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -75
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -76
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -77
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -78
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -79
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -80
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -81
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -82
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -83
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -84
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -85
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -86
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -87
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -88
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -89
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -90
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -91
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -92
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -93
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -94
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -95
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -96
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -97
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -98
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -99
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -100
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -101
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -102
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -103
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -104
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -105
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -106
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -107
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -108
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -109
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -110
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -111
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -112
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -113
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -114
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -115
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -116
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -117
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -118
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -119
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -120
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -121
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -122
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -123
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -124
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -125
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -126
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -127
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -128
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -129
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -130
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -131
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -132
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -133
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -134
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -135
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -136
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -137
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -138
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -139
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -140
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -141
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -142
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -143
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -144
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -145
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -146
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -147
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -148
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -149
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -150
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -151
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -152
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -153
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -154
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -155
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -156
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -157
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -158
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -159
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -160
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -161
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -162
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -163
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -164
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -165
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -166
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -167
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -168
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -169
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -170
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -171
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -172
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -173
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -174
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -175
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -176
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -177
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -178
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -179
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -180
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -181
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -182
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -183
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -184
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -185
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -186
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -187
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -188
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -189
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -190
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -191
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -192
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -193
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -194
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -195
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -196
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -197
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -198
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -199
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -200
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -201
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -202
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -203
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -204
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -205
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -206
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -207
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -208
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -209
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -210
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -211
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -212
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -213
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -214
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -215
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -216
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -217
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -218
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -219
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -220
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -221
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -222
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -223
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -224
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -225
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -226
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -227
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -228
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -229
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -230
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -231
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -232
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -233
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -234
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -235
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -236
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -237
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -238
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -239
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -240
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -241
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -242
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -243
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -244
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -245
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -246
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -247
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -248
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -249
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -250
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -251
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -252
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -253
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -254
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -255
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -256
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -257
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -258
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -259
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -260
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -261
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -262
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -263
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -264
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -265
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -266
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -267
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -268
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -269
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -270
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -271
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -272
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -273
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -274
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -275
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -276
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -277
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -278
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -279
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -280
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -281
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -282
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -283
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -284
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -285
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -286
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -287
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -288
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -289
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -290
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -291
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -292
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -293
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -294
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -295
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -296
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -297
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -298
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -299
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -300
+arg avant = 0.000000, weight 0.000000, nbr = 4
+arg apres = 0.000000
+weight 0.000000, m = -301
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -302
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -303
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -304
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -305
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -306
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -307
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -308
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -309
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -310
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -311
+arg avant = 0.000000, weight 0.000000, nbr = 8
+arg apres = 0.000000
+weight 0.000000, m = -312
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -313
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -314
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -315
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -316
+arg avant = 0.000000, weight 0.000000, nbr = 2
+arg apres = 0.000000
+weight 0.000000, m = -317
+arg avant = 0.000000, weight 0.000000, nbr = 5
+arg apres = 0.000000
+weight 0.000000, m = -318
+arg avant = 0.000000, weight 0.000000, nbr = 9
+arg apres = 0.000000
+weight 0.000000, m = -319
+arg avant = 0.000000, weight 0.000000, nbr = 6
+arg apres = 0.000000
+weight 0.000000, m = -320
+arg avant = 0.000000, weight 0.000000, nbr = 0
+arg apres = 0.000000
+weight 0.000000, m = -321
+arg avant = 0.000000, weight 0.000000, nbr = 1
+arg apres = 0.000000
+weight 0.000000, m = -322
+arg avant = 0.000000, weight 0.000000, nbr = 7
+arg apres = 0.000000
+weight 0.000000, m = -323
+arg avant = 0.000000, weight 0.000000, nbr = 3
+arg apres = 0.000000
+weight 0.000000, m = -324
+weight 0.000000, m = -325
+weight 0.000000, m = -326
+weight 0.000000, m = -327
+weight 0.000000, m = -328
+weight 0.000000, m = -329
+weight 0.000000, m = -330
+weight 0.000000, m = -331
+weight 0.000000, m = -332
+weight 0.000000, m = -333
+weight 0.000000, m = -334
+weight 0.000000, m = -335
+weight 0.000000, m = -336
+weight 0.000000, m = -337
+weight 0.000000, m = -338
+weight 0.000000, m = -339
+weight 0.000000, m = -340
+weight 0.000000, m = -341
+weight 0.000000, m = -342
+weight 0.000000, m = -343
+weight 0.000000, m = -344
+weight 0.000000, m = -345
+weight 0.000000, m = -346
+weight 0.000000, m = -347
+weight 0.000000, m = -348
+weight 0.000000, m = -349
+weight 0.000000, m = -350
+weight 0.000000, m = -351
+weight 0.000000, m = -352
+weight 0.000000, m = -353
+weight 0.000000, m = -354
+weight 0.000000, m = -355
+weight 0.000000, m = -356
+weight 0.000000, m = -357
+weight 0.000000, m = -358
+weight 0.000000, m = -359
+weight 0.000000, m = -360
+weight 0.000000, m = -361
+weight 0.000000, m = -362
+weight 0.000000, m = -363
+weight 0.000000, m = -364
+weight 0.000000, m = -365
+weight 0.000000, m = -366
+weight 0.000000, m = -367
+weight 0.000000, m = -368
+weight 0.000000, m = -369
+weight 0.000000, m = -370
+weight 0.000000, m = -371
+weight 0.000000, m = -372
+weight 0.000000, m = -373
+weight 0.000000, m = -374
+weight 0.000000, m = -375
+weight 0.000000, m = -376
+weight 0.000000, m = -377
+weight 0.000000, m = -378
+weight 0.000000, m = -379
+weight 0.000000, m = -380
+weight 0.000000, m = -381
+weight 0.000000, m = -382
+weight 0.000000, m = -383
+weight 0.000000, m = -384
+weight 0.000000, m = -385
+weight 0.000000, m = -386
+weight 0.000000, m = -387
+weight 0.000000, m = -388
+weight 0.000000, m = -389
+weight 0.000000, m = -390
+weight 0.000000, m = -391
+weight 0.000000, m = -392
+weight 0.000000, m = -393
+weight 0.000000, m = -394
+weight 0.000000, m = -395
+weight 0.000000, m = -396
+weight 0.000000, m = -397
+weight 0.000000, m = -398
+weight 0.000000, m = -399
+weight 0.000000, m = -400
+weight 0.000000, m = -401
+weight 0.000000, m = -402
+weight 0.000000, m = -403
+weight 0.000000, m = -404
+weight 0.000000, m = -405
+weight 0.000000, m = -406
+weight 0.000000, m = -407
+weight 0.000000, m = -408
+weight 0.000000, m = -409
+weight 0.000000, m = -410
+weight 0.000000, m = -411
+weight 0.000000, m
+Ft_Printf : | /:./:/9999999999999999311742995871701255683049485363611971700719060070973055581581608414476944031593325263958838516500428266532966439616582955448309442325952556034529230530618936178279294165288039841380632765255138137090092670501807210596817712293465773180906687404080974428854881179824503895539137277142097582338801652596017 | = -412
+weight 0.000000, m = -413
+weight 0.000000, m = -414
+weight 0.000000, m = -415
+weight 0.000000, m = -416
+weight 0.000000, m = -417
+weight 0.000000, m = -418
+weight 0.000000, m = -419
+weight 0.000000, m = -420
+weight 0.000000, m = -421
+weight 0.000000, m = -422
+weight 0.000000, m = -423
+weight 0.000000, m = -424
+weight 0.000000, m = -425
+weight 0.000000, m = -426
+weight 0.000000, m = -427
+weight 0.000000, m = -428
+weight 0.000000, m = -429
+weight 0.000000, m = -430
+weight 0.000000, m = -431
+weight 0.000000, m = -432
+weight 0.000000, m = -433
+weight 0.000000, m = -434
+weight 0.000000, m = -435
+weight 0.000000, m = -436
+weight 0.000000, m = -437
+weight 0.000000, m = -438
+weight 0.000000, m = -439
+weight 0.000000, m = -440
+weight 0.000000, m = -441
+weight 0.000000, m = -442
+weight 0.000000, m = -443
+weight 0.000000, m = -444
+weight 0.000000, m = -445
+weight 0.000000, m = -446
+weight 0.000000, m = -447
+weight 0.000000, m = -448
+weight 0.000000, m = -449
+weight 0.000000, m = -450
+weight 0.000000, m = -451
+weight 0.000000, m = -452
+weight 0.000000, m = -453
+weight 0.000000, m = -454
+weight 0.000000, m = -455
+weight 0.000000, m = -456
+weight 0.000000, m = -457
+weight 0.000000, m = -458
+weight 0.000000, m = -459
+weight 0.000000, m = -460
+weight 0.000000, m = -461
+weight 0.000000, m = -462
+weight 0.000000, m = -463
+weight 0.000000, m = -464
+weight 0.000000, m = -465
+weight 0.000000, m = -466
+weight 0.000000, m = -467
+weight 0.000000, m = -468
+weight 0.000000, m = -469
+weight 0.000000, m = -470
+weight 0.000000, m = -471
+weight 0.000000, m = -472
+weight 0.000000, m = -473
+weight 0.000000, m = -474
+weight 0.000000, m = -475
+weight 0.000000, m = -476
+weight 0.000000, m = -477
+weight 0.000000, m = -478
+weight 0.000000, m = -479
+weight 0.000000, m = -480
+weight 0.000000, m = -481
+weight 0.000000, m = -482
+weight 0.000000, m = -483
+weight 0.000000, m = -484
+weight 0.000000, m = -485
+weight 0.000000, m = -486
+weight 0.000000, m = -487
+weight 0.000000, m = -488
+weight 0.000000, m = -489
+weight 0.000000, m = -490
+weight 0.000000, m = -491
+weight 0.000000, m = -492
+weight 0.000000, m = -493
+weight 0.000000, m = -494
+weight 0.000000, m = -495
+weight 0.000000, m = -496
+weight 0.000000, m = -497
+weight 0.000000, m = -498
+weight 0.000000, m = -499
+weight 0.000000, m = -500
+weight 0.000000, m = -501
+weight 0.000000, m = -502
+weight 0.000000, m = -503
+weight 0.000000, m = -504
+weight 0.000000, m = -505
+
+Printf :    | 0.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 |

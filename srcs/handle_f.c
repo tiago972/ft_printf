@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 12:07:51 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/30 18:10:23 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/05/11 17:25:47 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,13 @@ void		ft_ftoa_2(t_float *f)
 {
 	double		weight;
 	int			nbr;
-
-	while (f->f_arg > f->prec || f->m >= 0)
+	
+	if (f->f_arg == 0)
+		f->m--;
+	while (f->prec < 1 || f->m >= 0)
 	{
 		weight = ft_iterative_power_f(f->m, 10.0);
-		if (weight > 0 && weight != INFINITY)
+		if (weight >= 0 && weight != INFINITY)
 		{
 			nbr = ft_floor(f->f_arg / weight);
 			f->f_arg -= (nbr * weight);
@@ -42,13 +44,15 @@ void		ft_ftoa_2(t_float *f)
 		if (f->m == 0)
 			*(f->res++) = '.';
 		f->m--;
+		f->prec *= 10;
 	}
 }
 void		ft_ftoa(t_float *f, t_printf *v_printf)
 {
 	f->prec = ft_iterative_power_f(-(v_printf->prec + 1), 10.0);
 	f->sign = ft_sign_f(f);
-	f->m = (int)ft_magnitude(f);
+	while ((v_printf->flags & ZERO) && --(v_printf->width) > 0)
+		*(f->res++) = '0';
 	if (f->m >= 14 || (f->sign && f->m >= 9) || f->m <= -9)
 	{
 		f->exp = 1;
@@ -91,8 +95,26 @@ void		ft_pad_f(t_printf *v_printf)
 	cpy_res = f.res;
 	if (!(v_printf->flags & DOT) || v_printf->prec == -2)
 		v_printf->prec = 6;
+	f.m = (int)ft_magnitude(&f);
+	v_printf->width -= (v_printf->prec + f.m);
+	if (f.sign == 1)
+		v_printf->width--;
+	if (f.prec != 0)
+		v_printf->width--;
 	ft_ftoa(&f, v_printf);
 	ft_round(&f, v_printf);
+	if (!(v_printf->flags & MINUS) && !(v_printf->flags & ZERO))
+	{
+		if ((v_printf->flags & PLUS || v_printf->flags & SP) && f.sign == 0)
+			v_printf->width--;
+		while (--(v_printf->width) > 0)
+			ft_buff(v_printf, " ", 1);
+	}
+	if ((v_printf->flags & PLUS || v_printf->flags & SP) && f.sign == 0)
+		v_printf->flags & PLUS ? ft_buff(v_printf, "+", 1)
+				: ft_buff(v_printf, " ", 1);
 	ft_buff(v_printf, cpy_res, ft_strlen(cpy_res) - 1);
+	while ((v_printf->flags & MINUS) && --(v_printf->width) > 0)
+		ft_buff(v_printf, " ", 1);
 	ft_strdel(&cpy_res);
 }

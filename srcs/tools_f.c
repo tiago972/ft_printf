@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 12:23:26 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/30 18:21:10 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/05/11 16:09:26 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 int				ft_sign_f(t_float *f)
 {
-	long	tmp;
-	long	i;
-
-	tmp = (long)(f->f_arg);
-	i = CHAR_BIT * sizeof(tmp) - 1;
-	if (tmp & (1LU << i))
+	unsigned char *ptr;
+	unsigned i; 
+	
+	i = 79;
+	ptr = (unsigned char *)&(f->f_arg);
+	if (ptr[i/CHAR_BIT] & (1U << (i % CHAR_BIT)))
 	{
 		*(f->res)++ = '-';
 		f->f_arg = -(f->f_arg);
@@ -32,7 +32,7 @@ int				ft_sign_f(t_float *f)
 
 long double		ft_floor(long double n)
 {
-	if (n > 0)
+	if (n >= 0)
 		return ((int)n);
 	return ((int)n - 0.9999999999999999999999999999999999999);
 }
@@ -80,7 +80,7 @@ long double		ft_magnitude(t_float *f)
 	mag = 0;
 	if (n < 1)
 	{
-		while (n < 1)
+		while (n < 1 && n != 0)
 		{
 			n *= 10.0;
 			mag++;
