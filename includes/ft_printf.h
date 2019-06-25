@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 11:59:30 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/05/11 18:33:21 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/06/25 18:46:46 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct	s_printf
 	int				tmp;
 	uintmax_t		power;
 }				t_printf;
+
 typedef struct	s_float
 {
 	int			m;

@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 17:36:00 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/05/11 18:29:21 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/06/25 21:43:04 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,14 @@ void		ft_fill_nb_i(t_printf *v_printf, intmax_t int_arg, int opt)
 {
 	uintmax_t	len;
 
-	if (!opt)
-		v_printf->power = 20;
+	opt ? 0 : (v_printf->power = 20);
 	v_printf->power = ft_log(ft_abs(int_arg), 10);
-	if (v_printf->flags & DOT)
-		len = ft_max(v_printf->power, v_printf->prec);
-	else
-		len = v_printf->power;
+	len =  v_printf->flags & DOT ? ft_max(v_printf->power, v_printf->prec)
+		: v_printf->power;
 	if (int_arg != 0 || v_printf->prec > 0)
 		v_printf->width -= len;
 	v_printf->prec -= v_printf->power;
-	if (int_arg < 0)
+	if (int_arg < 0 || (int_arg == 0 && !(v_printf->flags & DOT)))
 		v_printf->width--;
 	if (!(v_printf->flags & MINUS) && !(v_printf->flags & ZERO))
 	{
@@ -53,8 +50,10 @@ void		ft_fill_nb_i(t_printf *v_printf, intmax_t int_arg, int opt)
 		while (--(v_printf->width) >= 0)
 			ft_buff(v_printf, " ", 1);
 	}
-	if ((v_printf->flags & PLUS || v_printf->flags & SP) && int_arg >= 0
-			&& v_printf->width--)
+	if ((v_printf->flags & PLUS || v_printf->flags & SP) && int_arg >= 0)
+	{
 			v_printf->flags & PLUS ? ft_buff(v_printf, "+", 1)
 				: ft_buff(v_printf, " ", 1);
+			v_printf->width--;
+	}
 }

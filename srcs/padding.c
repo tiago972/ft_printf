@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 15:14:29 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/05/11 18:59:00 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/06/25 21:24:40 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,8 @@ void	ft_pad_i(t_printf *v_printf)
 		ft_buff(v_printf, "0", 1);
 	while ((v_printf->flags & ZERO) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, "0", 1);
-	if (v_printf->prec <= -2 && int_arg == 0 && (v_printf->flags & DOT))
-		return ;
-	ft_putnbr_pf(v_printf, ft_abs(int_arg), v_printf->power);
+	if (!(v_printf->prec <= -2 && int_arg == 0 && (v_printf->flags & DOT)))
+		ft_putnbr_pf(v_printf, ft_abs(int_arg), v_printf->power);
 	while ((v_printf->flags & MINUS) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, " ", 1);
 }
