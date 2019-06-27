@@ -7,8 +7,8 @@
 
 int		main(void)
 {
-	printf("%.5hho|%-.5hho|%#.5hho|%0.5hho", ULLONG_MAX, ULLONG_MAX, ULLONG_MAX, ULLONG_MAX);
+	printf("%f|", 0.);
 	printf("\n");
-	ft_printf("%.5hho|%-.5hho|%#.5hho|%0.5hho", ULLONG_MAX, ULLONG_MAX, ULLONG_MAX, ULLONG_MAX);
+	ft_printf("%f|", 0.);
 	return (0);
 }
