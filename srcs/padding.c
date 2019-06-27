@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 15:14:29 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/06/25 21:24:40 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/06/27 19:39:11 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,6 @@ void	ft_pad_u(t_printf *v_printf)
 	uintmax_t	len;
 
 	uintarg = ft_get_arg_u(v_printf);
-	if (ft_particular_octal(v_printf) == 1)
-		return ;
 	power = ft_log_dispatch(v_printf, uintarg);
 	if ((v_printf->flags & DOT) && v_printf->prec == -2 && uintarg > 0)
 		v_printf->prec = 1;
@@ -112,13 +110,15 @@ void	ft_pad_u(t_printf *v_printf)
 		v_printf->width = v_printf->conv & O ? v_printf->width - 1
 			: v_printf->width - 2;
 	len = v_printf->flags & DOT ? ft_max(power, v_printf->prec) : power;
-	if (v_printf->prec != 0)
+	if (v_printf->prec != 0)	
 		v_printf->width -= len;
+	if (uintarg == 0 && v_printf->prec == -2 && v_printf->flags & DOT)
+		v_printf->width++;
 	v_printf->prec -= power;
-	ft_pad_nbr(v_printf, uintarg);
-	if (v_printf->prec <= -2 && uintarg == 0 && (v_printf->flags & DOT))
-		return ;
-	ft_print_u(v_printf, uintarg, power);
+	if (!(ft_particular_octal(v_printf, uintarg)))
+		ft_pad_nbr(v_printf, uintarg);
+	if (!(v_printf->prec <= -2 && uintarg == 0 && (v_printf->flags & DOT)))
+		ft_print_u(v_printf, uintarg, power);
 	while ((v_printf->flags & MINUS) && --(v_printf->width) >= 0)
 		ft_buff(v_printf, " ", 1);
 }

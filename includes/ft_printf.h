@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 11:59:30 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/06/25 18:46:46 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/06/27 19:38:38 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void			ft_print_u(t_printf *v_printf, uintmax_t uintarg,
 				uintmax_t power);
 void			ft_get_width(t_printf *v_printf);
 uintmax_t		ft_leading_zero(uintmax_t nb);
-int				ft_particular_octal(t_printf *v_printf);
+int				ft_particular_octal(t_printf *v_printf, uintmax_t uintarg);
 long double		ft_get_arg_f(t_printf *v_printf);
 long double		ft_iterative_power_f(long double power, long double n);
 long double		ft_magnitude(t_float *f);
