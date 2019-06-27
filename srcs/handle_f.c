@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 12:07:51 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/06/27 21:34:53 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/06/27 22:25:22 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,11 +119,16 @@ void		ft_pad_f(t_printf *v_printf)
 	if ((v_printf->flags & PLUS || v_printf->flags & SP) && f.sign == 0)
 		v_printf->flags & PLUS ? ft_buff(v_printf, "+", 1)
 				: ft_buff(v_printf, " ", 1);
-	printf("prec = %d\n", v_printf->prec);
-	if (v_printf->prec == 0 || !(v_printf->flags & DOT))
-		ft_buff(v_printf, cpy_res, ft_strlen(cpy_res) - 2);
-	else
-		ft_buff(v_printf, cpy_res, v_printf->prec);
+	int i = 0;
+	while (cpy_res[i] && cpy_res[i] != '.')
+	{
+		ft_buff(v_printf, cpy_res + i, 1);
+		i++;
+	}
+	if (cpy_res[i] == '.' && v_printf->prec != 0 && i++)
+		ft_buff(v_printf, ".", 1);
+	if (i < v_printf->prec)
+		ft_buff(v_printf, cpy_res + i, v_printf->prec);
 	if (v_printf->flags & POUND && v_printf->prec == 0)
 		ft_buff(v_printf, ".", 1);
 	while ((v_printf->flags & MINUS) && --(v_printf->width) > 0)
