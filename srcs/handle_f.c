@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 12:07:51 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/06/27 19:59:01 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/06/27 21:34:53 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,9 @@ void		ft_pad_f(t_printf *v_printf)
 	if (!(f.res = ft_strnew(F_SIZE)))
 		return ;
 	cpy_res = f.res;
-	if (!(v_printf->flags & DOT) || v_printf->prec == -2)
+	if ((v_printf->flags & DOT) && v_printf->prec == -2)
+		v_printf->prec = 0;
+	else if (!(v_printf->flags & DOT) || v_printf->prec == -2)
 		v_printf->prec = 6;
 	f.sign = ft_sign_f(&f);
 	f.m = (int)ft_magnitude(&f);
@@ -117,7 +119,13 @@ void		ft_pad_f(t_printf *v_printf)
 	if ((v_printf->flags & PLUS || v_printf->flags & SP) && f.sign == 0)
 		v_printf->flags & PLUS ? ft_buff(v_printf, "+", 1)
 				: ft_buff(v_printf, " ", 1);
-	ft_buff(v_printf, cpy_res, ft_strlen(cpy_res) - 1);
+	printf("prec = %d\n", v_printf->prec);
+	if (v_printf->prec == 0 || !(v_printf->flags & DOT))
+		ft_buff(v_printf, cpy_res, ft_strlen(cpy_res) - 2);
+	else
+		ft_buff(v_printf, cpy_res, v_printf->prec);
+	if (v_printf->flags & POUND && v_printf->prec == 0)
+		ft_buff(v_printf, ".", 1);
 	while ((v_printf->flags & MINUS) && --(v_printf->width) > 0)
 		ft_buff(v_printf, " ", 1);
 	ft_strdel(&cpy_res);

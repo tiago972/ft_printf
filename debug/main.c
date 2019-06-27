@@ -7,8 +7,8 @@
 
 int		main(void)
 {
-	printf("%f|", 0.);
+	printf("%.8f|%-.8f|%+.8f|% .8f|%#.8f|%0.8f", 6., 0., 0., 0., 0., 0.);
 	printf("\n");
-	ft_printf("%f|", 0.);
+	ft_printf("%.8f|%-.8f|%+.8f|% .8f|%#.8f|%0.8f", 6., 0., 0., 0., 0., 0.);
 	return (0);
 }
