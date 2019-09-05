@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 11:59:30 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/05 13:00:54 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/05 20:12:03 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,11 @@
 # define POURCENT (1 << 11)
 # define UU (1 << 12)
 # define F (1 << 13)
+# define BIN (1 << 14)
+# define RED (1 << 0)
+# define BLUE (1 << 1)
+# define GREEN (1 << 2)
+# define YELLOW (1 << 3)
 
 typedef struct	s_printf
 {
@@ -58,6 +63,7 @@ typedef struct	s_printf
 	va_list			ap;
 	int				tmp;
 	uintmax_t		power;
+	int				col;
 }				t_printf;
 
 typedef struct	s_float
@@ -70,11 +76,25 @@ typedef struct	s_float
 	long double f_arg;
 	long double	prec;
 }				t_float;
+
 typedef struct	s_funptr
 {
 	int		conv;
 	void	(*f)(t_printf *);
 }				t_funptr;
+
+typedef struct	s_funtprb
+{
+	int		conv;
+	void	(*f)(t_printf *);
+}				t_funptrb;
+
+typedef struct	s_col
+{
+	int		nb;
+	char	col[6];
+}				t_col;
+
 int				ft_printf(const char *str, ...);
 void			ft_buff(t_printf *v_printf, char *str, int n);
 void			ft_inifunptr(t_funptr funptr[14]);
@@ -87,7 +107,7 @@ uintmax_t		ft_log(uintmax_t nb, uintmax_t base);
 void			ft_pad_c(t_printf *v_printf);
 void			ft_pad_s(t_printf *v_printf);
 void			ft_pad_s2(int *tmp, char *str_arg,
-		t_printf *v_printf, int *len);
+				t_printf *v_printf, int *len);
 void			ft_pad_i(t_printf *v_printf);
 void			ft_pad_p(t_printf *v_printf);
 void			ft_pad_u(t_printf *v_printf);
@@ -123,6 +143,16 @@ void			ft_ftoa(t_float *f, t_printf *v_printf);
 void			ft_ftoa_2(t_float *f);
 int				ft_isna(t_float *f, t_printf *v_printf);
 int				ft_isinf(t_float *f, t_printf *v_printf);
-
+void			ft_getcol(t_printf *v_printf);
+void			ft_inicol(t_col col[4]);
+void			ft_printcol(t_printf *v_printf);
+void			ft_inifunptrb(t_funptrb[4]);
+void			ft_funptrb_dispatch(t_printf *v_printf);
+void			ft_bin_c(t_printf *vprintf);
+void			ft_bin_s(t_printf *vprintf);
+unsigned		ft_size_i_b(t_printf *v_printf);
+void			ft_bin_i(t_printf *v_printf);
+unsigned		ft_size_b_f(t_printf *v_printf);
+void			ft_bin_f(t_printf *v_printf);
 # include <stdio.h>
 # endif

@@ -7,7 +7,6 @@
 
 int		main(void)
 {
-//	printf("%lu", sizeof(long long  unsigned));
-	ft_printf("%bi", -42);
+	ft_printf("%bf", (float)42.2);
 	return (0);
 }
