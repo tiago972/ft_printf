@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 20:13:52 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/06/27 19:38:42 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/05 12:59:19 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ intmax_t	ft_get_arg_i(t_printf *v_printf)
 
 uintmax_t	ft_get_arg_u(t_printf *v_printf)
 {
-	if (v_printf-> conv & UU)
+	if (v_printf->conv & UU)
 		return (va_arg(v_printf->ap, unsigned long int));
 	else if (v_printf->flags & H)
 		return ((unsigned short)va_arg(v_printf->ap, unsigned int));
 	else if (v_printf->flags & HH)
-		return ((unsigned char)va_arg(v_printf->ap,  unsigned int));
+		return ((unsigned char)va_arg(v_printf->ap, unsigned int));
 	else if (v_printf->flags & L)
 		return (va_arg(v_printf->ap, unsigned long int));
 	else if (v_printf->flags & LL)
@@ -66,21 +66,21 @@ void		ft_llong_min(t_printf *v_printf, intmax_t int_arg)
 		ft_buff(v_printf, " ", 1);
 }
 
-void	ft_print_u(t_printf *v_printf, uintmax_t uintarg, uintmax_t power)
+void		ft_print_u(t_printf *v_printf, uintmax_t uintarg, uintmax_t power)
 {
 	if (v_printf->conv & X)
-		ft_putnbr_pf_u(v_printf, uintarg, "0123456789abcdef", 16, power);
+		ft_putnbr_pf_u(v_printf, uintarg, "0123456789abcdef", power);
 	else if (v_printf->conv & XX)
-		ft_putnbr_pf_u(v_printf, uintarg, "0123456789ABCDEF", 16, power);
+		ft_putnbr_pf_u(v_printf, uintarg, "0123456789ABCDEF", power);
 	else if (v_printf->conv & O)
-		ft_putnbr_pf_u(v_printf, uintarg, "01234567", 8, power);
+		ft_putnbr_pf_u(v_printf, uintarg, "01234567", power);
 	else if (v_printf->conv & U)
-		ft_putnbr_pf_u(v_printf, uintarg, "0123456789", 10, power);
+		ft_putnbr_pf_u(v_printf, uintarg, "0123456789", power);
 	else if (v_printf->conv & UU)
-		ft_putnbr_pf_u(v_printf, uintarg, "0123456789", 10, power);
+		ft_putnbr_pf_u(v_printf, uintarg, "0123456789", power);
 }
 
-int		ft_particular_octal(t_printf *v_printf, uintmax_t uintarg)
+int			ft_particular_octal(t_printf *v_printf, uintmax_t uintarg)
 {
 	if ((v_printf->conv & O) && (v_printf->flags & DOT)
 			&& (v_printf->prec <= -2 || v_printf->prec == 0)

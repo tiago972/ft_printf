@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 11:59:30 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/06/27 19:38:38 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/05 13:00:54 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,17 @@ typedef struct	s_funptr
 }				t_funptr;
 int				ft_printf(const char *str, ...);
 void			ft_buff(t_printf *v_printf, char *str, int n);
-void			ft_inifunptr(t_funptr funptr[13]);
+void			ft_inifunptr(t_funptr funptr[14]);
+void			ft_inifunptr2(t_funptr funptr[14]);
+void			ft_inivprintf(t_printf *v_printf, const char *str);
 void			ft_get_info(t_printf *v_printf, t_funptr funptr[13]);
 void			ft_get_size(t_printf *v_printf);
 void			ft_dispatch(t_printf *v_printf, t_funptr funptr[13]);
 uintmax_t		ft_log(uintmax_t nb, uintmax_t base);
 void			ft_pad_c(t_printf *v_printf);
 void			ft_pad_s(t_printf *v_printf);
+void			ft_pad_s2(int *tmp, char *str_arg,
+		t_printf *v_printf, int *len);
 void			ft_pad_i(t_printf *v_printf);
 void			ft_pad_p(t_printf *v_printf);
 void			ft_pad_u(t_printf *v_printf);
@@ -101,7 +105,7 @@ void			ft_llong_min(t_printf *v_printf, intmax_t int_arg);
 void			ft_fill_nb_i(t_printf *v_printf, intmax_t int_arg, int opt);
 uintmax_t		ft_get_arg_u(t_printf *v_printf);
 void			ft_putnbr_pf_u(t_printf *v_printf, uintmax_t nb, char *base,
-				uintmax_t size_b, uintmax_t power);
+				uintmax_t power);
 void			ft_pad_nbr(t_printf *v_printf, uintmax_t uintarg);
 void			ft_print_u(t_printf *v_printf, uintmax_t uintarg,
 				uintmax_t power);

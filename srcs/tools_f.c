@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 12:23:26 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/05/11 19:45:36 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/05 13:08:31 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 int				ft_sign_f(t_float *f)
 {
-	unsigned char *ptr;
-	unsigned i; 
-	
+	unsigned char	*ptr;
+	unsigned		i;
+
 	i = 79;
 	ptr = (unsigned char *)&(f->f_arg);
-	if (ptr[i/CHAR_BIT] & (1U << (i % CHAR_BIT)))
+	if (ptr[i / CHAR_BIT] & (1U << (i % CHAR_BIT)))
 	{
 		*(f->res)++ = '-';
 		f->f_arg = -(f->f_arg);
@@ -39,10 +39,10 @@ long double		ft_floor(long double n)
 
 int				ft_isna(t_float *f, t_printf *v_printf)
 {
-	if (f->f_arg !=  f->f_arg)
+	if (f->f_arg != f->f_arg)
 	{
 		v_printf->width -= 3;
-		while (--v_printf->width >=0)
+		while (--v_printf->width >= 0)
 			ft_buff(v_printf, " ", 1);
 		ft_buff(v_printf, "nan", 3);
 		return (1);
@@ -55,7 +55,7 @@ int				ft_isinf(t_float *f, t_printf *v_printf)
 	if (f->f_arg == INFINITY)
 	{
 		v_printf->width -= 3;
-		while (--v_printf->width >=0)
+		while (--v_printf->width >= 0)
 			ft_buff(v_printf, " ", 1);
 		ft_buff(v_printf, "inf", 3);
 		return (1);
@@ -63,7 +63,7 @@ int				ft_isinf(t_float *f, t_printf *v_printf)
 	else if (f->f_arg == -INFINITY)
 	{
 		v_printf->width -= 4;
-		while (--v_printf->width >=0)
+		while (--v_printf->width >= 0)
 			ft_buff(v_printf, " ", 1);
 		ft_buff(v_printf, "-inf", 4);
 		return (1);
@@ -88,25 +88,8 @@ long double		ft_magnitude(t_float *f)
 		mag--;
 		return (-mag);
 	}
-	else 
+	else
 		mag = ft_log(n, 10);
 	mag--;
 	return (mag);
-}
-
-long double		ft_iterative_power_f(long double power, long double n)
-{
-	long double res;
-
-	res = 1;
-	if (power < 0)
-	{
-		power = -power;
-		while (--power + 1 > 0)
-			res = res * 1/n;
-		return (res);
-	}
-	else
-		res = ft_iterative_power(n, power);
-	return (res);
 }

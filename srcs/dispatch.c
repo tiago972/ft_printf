@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 13:28:40 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/04/30 13:09:28 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/05 12:27:03 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,20 @@ void			ft_inifunptr(t_funptr funptr[14])
 	funptr[9].f = &ft_dispatch_jz;
 	funptr[10].conv |= Z;
 	funptr[10].f = &ft_dispatch_jz;
+	ft_inifunptr2(funptr);
+}
+
+void			ft_inifunptr2(t_funptr funptr[14])
+{
 	funptr[11].conv |= POURCENT;
 	funptr[11].f = &ft_pad_c;
 	funptr[12].conv |= UU;
 	funptr[12].f = &ft_pad_u;
 	funptr[13].conv |= F;
-	funptr[13].f = &ft_pad_f;/*
-	  funptr[10].conv = 'z';
-	  funptr[10].f = &ft_pad_i;*/
+	funptr[13].f = &ft_pad_f;
 }
 
-uintmax_t	ft_log_dispatch(t_printf *v_printf, uintmax_t uintarg)
+uintmax_t		ft_log_dispatch(t_printf *v_printf, uintmax_t uintarg)
 {
 	if (v_printf->conv & X || v_printf->conv & XX)
 		return (ft_log(uintarg, 16));
@@ -57,14 +60,17 @@ uintmax_t	ft_log_dispatch(t_printf *v_printf, uintmax_t uintarg)
 	return (0);
 }
 
-void	ft_dispatch_jz(t_printf *v_printf)
+void			ft_dispatch_jz(t_printf *v_printf)
 {
 	if (*(v_printf->str) == 'u' && v_printf->str++ && (v_printf->conv |= U))
 		ft_pad_u(v_printf);
-	else if (*(v_printf->str) == 'x' && v_printf->str++ && (v_printf->conv |= X))
+	else if (*(v_printf->str) == 'x' &&
+			v_printf->str++ && (v_printf->conv |= X))
 		ft_pad_u(v_printf);
-	else if (*(v_printf->str) == 'd' && v_printf->str++ && (v_printf->conv |= D))
+	else if (*(v_printf->str) == 'd' &&
+			v_printf->str++ && (v_printf->conv |= D))
 		ft_pad_i(v_printf);
-	else if (*(v_printf->str) == 'i' && v_printf->str++ && (v_printf->conv |= D))
+	else if (*(v_printf->str) == 'i' &&
+			v_printf->str++ && (v_printf->conv |= D))
 		ft_pad_i(v_printf);
 }

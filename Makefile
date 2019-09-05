@@ -12,7 +12,9 @@ SRC = ft_printf.c \
 	  putnbr_pf.c \
 	  math_tools.c \
 	  handle_f.c \
-	  tools_f.c
+	  tools_f.c \
+	  padding2.c \
+	  tools_f_2.c
 INCL = ./includes
 LIBCREATOR = $(addprefix $(LIBDIR)/, $(LIB))
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))

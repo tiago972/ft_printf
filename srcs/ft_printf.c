@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 13:00:09 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/05/11 17:57:02 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/05 13:09:57 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,18 @@ void			ft_buff(t_printf *v_printf, char *str, int n)
 
 static void		ft_reinit_struct(t_printf *v_printf)
 {
-
 	v_printf->flags = 0;
 	v_printf->width = 0;
 	v_printf->prec = -2;
 	v_printf->conv = 0;
 	v_printf->tmp = 0;
 	v_printf->power = 0;
+}
+
+void			ft_inivprintf(t_printf *v_printf, const char *str)
+{
+	v_printf->prec = -2;
+	v_printf->str = (char *)str;
 }
 
 int				ft_printf(const char *str, ...)
@@ -60,17 +65,15 @@ int				ft_printf(const char *str, ...)
 
 	ft_memset(&v_printf, 0, sizeof(t_printf));
 	ft_bzero(&(v_printf.buff), BUFF_SIZE);
-	v_printf.prec = -2;
 	ft_inifunptr(funptr);
+	ft_inivprintf(&v_printf, str);
 	va_start(v_printf.ap, str);
-	v_printf.str = (char *)str;
 	while (*(v_printf.str))
 	{
-		if (*(v_printf.str) == '%' && v_printf.str++)
+		if (*(v_printf.str) && *(v_printf.str) == '%' && v_printf.str++)
 		{
 			ft_reinit_struct(&v_printf);
-			if (*(v_printf.str))
-				ft_get_info(&v_printf, funptr);
+			ft_get_info(&v_printf, funptr);
 		}
 		else
 		{
