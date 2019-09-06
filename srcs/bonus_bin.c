@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 16:35:58 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/05 20:28:46 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/06 13:49:52 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,105 +14,72 @@
 #include "../libft/includes/libft.h"
 #include <limits.h>
 
-void	ft_bin_c(t_printf *v_printf)
+void	*ft_malloc_tmp(t_printf *v_printf)
 {
-	char			l;
-	unsigned char	*res;
-	unsigned		i; 
+	void	*tmp;
 
-	l = (char)va_arg(v_printf->ap, int);
-	res = (unsigned char *)&l;
-	i = CHAR_BIT * sizeof(l);
-	while (--i + 1 > 0)
-	{
-		(res[i / CHAR_BIT] & (1U << (i % CHAR_BIT))) ?
-			ft_buff(v_printf, "1", 1) : ft_buff(v_printf, "0", 1);
-		if (i % 8 == 0 && i != 0)
-			ft_buff(v_printf, " ", 1);
-	}
+	tmp = NULL;
+	if (v_printf->conv & C)
+		if (!(tmp = malloc(sizeof(char))))
+			return (0);
+	if (v_printf->conv & D || v_printf->conv & U)
+		if (!(tmp = malloc(sizeof(intmax_t))))
+			return (0);
+	if (v_printf->conv & F)
+		if (!(tmp = malloc(sizeof(long double))))
+			return (0);
+	return (tmp);
 }
 
-void	ft_bin_s(t_printf *v_printf)
+void	*ft_get_arg_b(t_printf *v_printf)
 {
-	unsigned char	*res;
-	unsigned		i; 
+	void		*tmp;
 
-	res = (unsigned char *)va_arg(v_printf->ap, char *);
-	i = CHAR_BIT * sizeof(res);
-	while (--i + 1 > 0)
-	{
-		(res[i / CHAR_BIT] & (1U << (i % CHAR_BIT))) ?
-			ft_buff(v_printf, "1", 1) : ft_buff(v_printf, "0", 1);
-		if (i % 8 == 0 && i != 0)
-			ft_buff(v_printf, " ", 1);
-	}
+	tmp = ft_malloc_tmp(v_printf);
+	if (v_printf->conv & C)
+		*(char *)tmp = (char)va_arg(v_printf->ap, int);
+	else if (v_printf->conv & D)
+		*(intmax_t *)tmp = (intmax_t)va_arg(v_printf->ap, intmax_t);
+	else if (v_printf->conv & U)
+		*(uintmax_t *)tmp = (uintmax_t)va_arg(v_printf->ap, uintmax_t);
+	else if (v_printf->conv & F)
+		*(float *)tmp = (float)va_arg(v_printf->ap, double);
+	return (tmp);
 }
 
-void	ft_bin_i(t_printf *v_printf)
+unsigned	ft_i_size(t_printf *v_printf)
 {
-	char			*res;
-	unsigned		i; 
-	intmax_t		int_arg;
-
-	int_arg = ft_get_arg_i(v_printf);
-	res = (char *)&int_arg;
-	i = CHAR_BIT * ft_size_i_b(v_printf);
-	while (--i + 1 > 0)
-	{
-		(res[i / CHAR_BIT] & (1U << (i % CHAR_BIT))) ?
-			ft_buff(v_printf, "1", 1) : ft_buff(v_printf, "0", 1);
-		if (i % 8 == 0 && i != 0)
-			ft_buff(v_printf, " ", 1);
-	}
+	if (v_printf->conv & C)
+		return (CHAR_BIT * sizeof(unsigned char));
+	else if ((v_printf->conv & D || v_printf->conv & U) && v_printf->flags & H)
+		return (CHAR_BIT * sizeof(short));
+	else if ((v_printf->conv & D || v_printf->conv & U) &&
+			(v_printf->flags & L || v_printf->flags & LL))
+		return (CHAR_BIT * sizeof(long));
+	else if (v_printf->conv & D || v_printf->conv & U)
+		return (CHAR_BIT * sizeof(int));
+	else if (v_printf->conv & F)
+		return (CHAR_BIT * sizeof(float));
+	return (0);
 }
-
-void	ft_bin_f(t_printf *v_printf)
+void	ft_bin(t_printf *v_printf)
 {
 	unsigned char	*res;
-	unsigned		i; 
-	float		f_arg;
-
-	f_arg = (float)va_arg(v_printf->ap, double);
-	res = (unsigned char *)&f_arg;
-	i = CHAR_BIT * sizeof(float);
+	unsigned		i;
+	void			*tmp;
+	
+	i = ft_i_size(v_printf);
+	res = NULL;
+	tmp = NULL;
+	if (!(tmp = ft_get_arg_b(v_printf)))
+		return ;
+	res = (unsigned char *)tmp;
 	while (--i + 1 > 0)
 	{
-		(res[i / CHAR_BIT] & (1U << (i % CHAR_BIT))) ?
-			ft_buff(v_printf, "1", 1) : ft_buff(v_printf, "0", 1);
+		res[i / CHAR_BIT] & (1U << (i % CHAR_BIT)) ? ft_buff(v_printf, "1", 1):
+			ft_buff(v_printf, "0", 1);
 		if (i % 8 == 0 && i != 0)
 			ft_buff(v_printf, " ", 1);
 	}
-}
-void	ft_inifunptrb(t_funptrb funptrb[5])
-{
-	funptrb[0].conv |= C;
-	funptrb[0].f = &ft_bin_c;
-	funptrb[1].conv |= S;
-	funptrb[1].f = &ft_bin_s;
-	funptrb[2].conv |= I;
-	funptrb[2].f = &ft_bin_i;
-	funptrb[3].conv |= D;
-	funptrb[3].f = &ft_bin_i;
-	funptrb[4].conv |= F;
-	funptrb[4].f = &ft_bin_f;
-}
-
-void	ft_funptrb_dispatch(t_printf *v_printf)
-{
-	int			i;
-	t_funptrb funptrb[5];
-
-	i = -1;
-	ft_get_size(v_printf);
-	ft_get_conversion(v_printf);
-	ft_inifunptrb(funptrb);
-	v_printf->flags |= BIN;
-	while (++i < 5)
-		if (funptrb[i].conv & v_printf->conv)
-		{
-			funptrb[i].f(v_printf);
-			return;
-		}
-	if (i == 5)
-		ft_putstr("not supported\n");
+	ft_memdel(&res);
 }

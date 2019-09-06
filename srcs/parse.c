@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 13:51:03 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/05 19:21:26 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/06 10:36:49 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,14 @@ void	ft_dispatch(t_printf *v_printf, t_funptr funptr[14])
 	i = -1;
 	ft_get_size(v_printf);
 	ft_get_conversion(v_printf);
-	while (++i < 14)
-		if (funptr[i].conv & v_printf->conv)
-			funptr[i].f(v_printf);
+	if (v_printf->flags & B)
+		ft_bin(v_printf);
+	else
+	{
+		while (++i < 14)
+			if (funptr[i].conv & v_printf->conv)
+				funptr[i].f(v_printf);
+	}
 }
 
 void	ft_get_width(t_printf *v_printf)
@@ -79,12 +84,7 @@ void	ft_get_info(t_printf *v_printf, t_funptr funptr[14])
 {
 	if (*(v_printf->str) == '{' && v_printf->str++)
 		ft_getcol(v_printf);
-	if (*(v_printf->str) == 'b' && v_printf->str++)
-	{
-		ft_funptrb_dispatch(v_printf);
-		return ;
-	}
-	while ((v_printf->tmp = ft_strlen_c("-+0 #", *(v_printf->str))) > -1
+	while ((v_printf->tmp = ft_strlen_c("-+0 #b", *(v_printf->str))) > -1
 			&& v_printf->str++)
 		v_printf->flags |= (1 << v_printf->tmp);
 	ft_get_width(v_printf);
