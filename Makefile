@@ -16,8 +16,7 @@ SRC = ft_printf.c \
 	  padding2.c \
 	  tools_f_2.c \
 	  bonus_col.c \
-	  bonus_bin.c \
-	  bonus_bin2.c
+	  bonus_bin.c 
 INCL = ./includes
 LIBCREATOR = $(addprefix $(LIBDIR)/, $(LIB))
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))

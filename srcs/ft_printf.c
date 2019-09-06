@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 13:00:09 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/05 20:15:25 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/06 14:37:32 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void		ft_flush(t_printf *v_printf)
 	v_printf->ret_tot += v_printf->ret_progress;
 	v_printf->ret_progress = 0;
 	if (v_printf->col > 0)
-		write(1, "\033[m", 3); 
+		write(1, "\033[m", 3);
 }
 
 void			ft_buff(t_printf *v_printf, char *str, int n)

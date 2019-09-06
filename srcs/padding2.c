@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/05 12:44:38 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/05 13:14:06 by edbaudou         ###   ########.fr       */
+/*   Created: 2019/09/06 14:39:59 by edbaudou          #+#    #+#             */
+/*   Updated: 2019/09/06 14:40:01 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include  "../includes/ft_printf.h"
+#include "../includes/ft_printf.h"
 #include "../libft/includes/libft.h"
 
 void	ft_pad_s2(int *tmp, char *str_arg, t_printf *v_printf, int *len)
