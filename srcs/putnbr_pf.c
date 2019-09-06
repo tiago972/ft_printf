@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 12:53:29 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/05 13:11:36 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/06 15:31:55 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,13 @@
 void		ft_putnbr_pf_u(t_printf *v_printf, uintmax_t nb, char *base,
 			uintmax_t power)
 {
-	uintmax_t	power_cpy;
-	uintmax_t	nb_cpy;
-	uintmax_t	size_b;
+	uintmax_t size_b;
 
-	size_b = (uintmax_t)ft_strlen(base);
-	while (power > 0)
-	{
-		power_cpy = power;
-		nb_cpy = nb;
-		while (--power_cpy > 0)
-			nb_cpy /= size_b;
-		ft_buff(v_printf, &base[nb_cpy % size_b], 1);
-		power--;
-	}
+	size_b = ft_strlen(base);
+	(void)power;
+	if (nb >= size_b)
+		ft_putnbr_pf_u(v_printf, nb / size_b, base, power);
+	ft_buff(v_printf, &base[nb % size_b], 1);
 }
 
 void		ft_putnbr_pf(t_printf *v_printf, intmax_t nb, uintmax_t power)
