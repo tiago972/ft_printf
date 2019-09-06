@@ -6,19 +6,19 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 14:39:59 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/06 14:40:01 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/06 15:46:12 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include "../libft/includes/libft.h"
 
-void	ft_pad_s2(int *tmp, char *str_arg, t_printf *v_printf, int *len)
+char	*ft_pad_s2(int *tmp, char *str_arg, t_printf *v_printf, int *len)
 {
 	if (!str_arg)
 	{
 		if (!(str_arg = ft_strnew(6)))
-			return ;
+			return (0);
 		ft_memmove(str_arg, "(null)", 6);
 		*tmp = 1;
 	}
@@ -32,4 +32,5 @@ void	ft_pad_s2(int *tmp, char *str_arg, t_printf *v_printf, int *len)
 	}
 	else
 		*len = ft_strlen(str_arg);
+	return (str_arg);
 }

@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 15:14:29 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/05 13:10:44 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/06 15:44:20 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_pad_s(t_printf *v_printf)
 
 	tmp = 0;
 	str_arg = (char *)va_arg(v_printf->ap, char *);
-	ft_pad_s2(&tmp, str_arg, v_printf, &len);
+	str_arg = ft_pad_s2(&tmp, str_arg, v_printf, &len);
 	v_printf->width -= len;
 	if (!(v_printf->flags & MINUS))
 		while (--(v_printf->width) >= 0)

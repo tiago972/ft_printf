@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 11:59:30 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/06 15:31:52 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/06 16:04:40 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void			ft_dispatch(t_printf *v_printf, t_funptr funptr[13]);
 uintmax_t		ft_log(uintmax_t nb, uintmax_t base);
 void			ft_pad_c(t_printf *v_printf);
 void			ft_pad_s(t_printf *v_printf);
-void			ft_pad_s2(int *tmp, char *str_arg,
+char			*ft_pad_s2(int *tmp, char *str_arg,
 				t_printf *v_printf, int *len);
 void			ft_pad_i(t_printf *v_printf);
 void			ft_pad_p(t_printf *v_printf);
@@ -144,5 +144,6 @@ void			ft_bin(t_printf *vprintf);
 void			*ft_get_arg_b(t_printf *v_printf);
 void			*ft_malloc_tmp(t_printf *v_printf);
 unsigned		ft_i_size_i(t_printf *v_printf);
+void			ft_pad_f_str(t_printf *v_printf, char *str);
 # include <stdio.h>
 # endif

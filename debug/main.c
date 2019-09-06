@@ -7,6 +7,8 @@
 
 int		main(void)
 {
-	ft_printf("%bf", 42.2);
+	printf("%f|%-f|%+f|% f|%#f|%0f", INFINITY, INFINITY, INFINITY, INFINITY, INFINITY, INFINITY);
+	printf("\n");
+	ft_printf("%f|%-f|%+f|% f|%#f|%0f", INFINITY, INFINITY, INFINITY, INFINITY, INFINITY, INFINITY);
 	return (0);
 }
