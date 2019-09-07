@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 12:23:26 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/06 16:18:03 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/07 09:56:54 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,33 +38,30 @@ long double		ft_floor(long double n)
 	return ((int)n - 0.9999999999999999999999999999999999999);
 }
 
-int				ft_isna(t_float *f, t_printf *v_printf)
+int				ft_isna(t_float *f, t_printf *v_printf, char **res)
 {
 	if (f->f_arg != f->f_arg)
 	{
 		v_printf->width -= 3;
-		while (--v_printf->width >= 0)
-			ft_buff(v_printf, " ", 1);
-		ft_buff(v_printf, "nan", 3);
+		ft_memcpy(*res, "nan", 3);
 		return (1);
 	}
 	return (0);
 }
 
-int				ft_isinf(t_float *f, t_printf *v_printf)
+int				ft_isinf(t_float *f, t_printf *v_printf, char **res)
 {
 	if (f->f_arg == INFINITY)
 	{
 		v_printf->width -= 3;
-		ft_pad_f_str(v_printf, "inf");
+		ft_memcpy(*res, "inf", 3);
 		return (1);
 	}
 	else if (f->f_arg == -INFINITY)
 	{
 		v_printf->width -= 4;
-		while (--v_printf->width >= 0)
-			ft_buff(v_printf, " ", 1);
-		ft_buff(v_printf, "-inf", 4);
+		f->sign = 1;
+		ft_memcpy(*res, "-inf", 4);
 		return (1);
 	}
 	return (0);
@@ -91,29 +88,4 @@ long double		ft_magnitude(t_float *f)
 		mag = ft_log(n, 10);
 	mag--;
 	return (mag);
-}
-
-void	ft_pad_f_str(t_printf *v_printf, char *str)
-{
-	int		len;
-
-	v_printf->power = ft_strlen(str);
-	len = v_printf->flags & DOT ? ft_max(v_printf->power, v_printf->prec)
-		: v_printf->power;
-	v_printf->width -= len;
-	v_printf->prec -= v_printf->power;
-	if (!(v_printf->flags & MINUS) && !(v_printf->flags & ZERO))
-	{
-		if ((v_printf->flags & PLUS || v_printf->flags & SP))
-			v_printf->width--;
-		while (--(v_printf->width) >= 0)
-			ft_buff(v_printf, " ", 1);
-	}
-	if ((v_printf->flags & PLUS || v_printf->flags & SP))
-	{
-		v_printf->flags & PLUS ? ft_buff(v_printf, "+", 1)
-			: ft_buff(v_printf, " ", 1);
-		v_printf->width--;
-	}
-	ft_buff(v_printf, str, ft_strlen(str));
 }

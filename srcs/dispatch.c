@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 13:28:40 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/05 17:30:48 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/07 09:08:41 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void			ft_inifunptr2(t_funptr funptr[14])
 	funptr[12].conv |= UU;
 	funptr[12].f = &ft_pad_u;
 	funptr[13].conv |= F;
-	funptr[13].f = &ft_pad_f;
+	funptr[13].f = &ft_handle_f;
 }
 
 uintmax_t		ft_log_dispatch(t_printf *v_printf, uintmax_t uintarg)

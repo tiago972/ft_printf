@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 12:07:51 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/05 12:39:12 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/07 11:20:16 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,6 @@
 #include <limits.h>
 #include "../libft/includes/libft.h"
 #include <math.h>
-
-long double	ft_get_arg_f(t_printf *v_printf)
-{
-	if (v_printf->flags & LF)
-		return ((long double)va_arg(v_printf->ap, long double));
-	else if (v_printf->flags & L)
-		return ((double)va_arg(v_printf->ap, double));
-	else 
-		return ((float)va_arg(v_printf->ap, double));
-}
 
 void		ft_ftoa_2(t_float *f)
 {
@@ -48,6 +38,7 @@ void		ft_ftoa_2(t_float *f)
 		f->m--;
 	}
 }
+
 void		ft_ftoa(t_float *f, t_printf *v_printf)
 {
 	f->prec = ft_iterative_power_f(-(v_printf->prec + 1), 10.0);
@@ -84,54 +75,39 @@ void		ft_round(t_float *f, t_printf *v_printf)
 	}
 }
 
-void		ft_pad_f(t_printf *v_printf)
+void		ft_handle_f2(t_printf *v_printf, t_float *f, char *cpy_res)
+{
+	if ((v_printf->flags & DOT) && v_printf->prec == -2)
+		v_printf->prec = 0;
+	else if (!(v_printf->flags & DOT) || v_printf->prec == -2)
+		v_printf->prec = 6;
+	f->sign = ft_sign_f(f);
+	f->m = (int)ft_magnitude(f);
+	v_printf->width -= (v_printf->prec + f->m);
+	if (f->sign == 1)
+		v_printf->width--;
+	if (f->prec != 0)
+		v_printf->width--;
+	ft_ftoa(f, v_printf);
+	ft_round(f, v_printf);
+	ft_pad_f(v_printf, cpy_res, 0, *f);
+}
+
+void		ft_handle_f(t_printf *v_printf)
 {
 	t_float		f;
 	char		*cpy_res;
 
 	ft_memset(&f, 0, sizeof(t_float));
 	f.f_arg = ft_get_arg_f(v_printf);
-	if (ft_isinf(&f, v_printf) || ft_isna(&f, v_printf))
-		return ;
 	if (!(f.res = ft_strnew(F_SIZE)))
 		return ;
 	cpy_res = f.res;
-	if ((v_printf->flags & DOT) && v_printf->prec == -2)
-		v_printf->prec = 0;
-	else if (!(v_printf->flags & DOT) || v_printf->prec == -2)
-		v_printf->prec = 6;
-	f.sign = ft_sign_f(&f);
-	f.m = (int)ft_magnitude(&f);
-	v_printf->width -= (v_printf->prec + f.m);
-	if (f.sign == 1)
-		v_printf->width--;
-	if (f.prec != 0)
-		v_printf->width--;
-	ft_ftoa(&f, v_printf);
-	ft_round(&f, v_printf);
-	if (!(v_printf->flags & MINUS) && !(v_printf->flags & ZERO))
+	if (ft_isinf(&f, v_printf, &cpy_res) || ft_isna(&f, v_printf, &cpy_res))
 	{
-		if ((v_printf->flags & PLUS || v_printf->flags & SP) && f.sign == 0)
-			v_printf->width--;
-		while (--(v_printf->width) > 0)
-			ft_buff(v_printf, " ", 1);
+		ft_pad_f(v_printf, cpy_res, 1, f);
+		return ;
 	}
-	if ((v_printf->flags & PLUS || v_printf->flags & SP) && f.sign == 0)
-		v_printf->flags & PLUS ? ft_buff(v_printf, "+", 1)
-				: ft_buff(v_printf, " ", 1);
-	int i = 0;
-	while (cpy_res[i] && cpy_res[i] != '.')
-	{
-		ft_buff(v_printf, cpy_res + i, 1);
-		i++;
-	}
-	if (cpy_res[i] == '.' && v_printf->prec != 0 && i++)
-		ft_buff(v_printf, ".", 1);
-	if (i < v_printf->prec)
-		ft_buff(v_printf, cpy_res + i, v_printf->prec);
-	if (v_printf->flags & POUND && v_printf->prec == 0)
-		ft_buff(v_printf, ".", 1);
-	while ((v_printf->flags & MINUS) && --(v_printf->width) > 0)
-		ft_buff(v_printf, " ", 1);
+	ft_handle_f2(v_printf, &f, cpy_res);
 	ft_strdel(&cpy_res);
 }

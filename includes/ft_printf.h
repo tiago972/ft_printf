@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 11:59:30 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/06 16:04:40 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/07 11:15:48 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,8 @@ char			*ft_pad_s2(int *tmp, char *str_arg,
 void			ft_pad_i(t_printf *v_printf);
 void			ft_pad_p(t_printf *v_printf);
 void			ft_pad_u(t_printf *v_printf);
-void			ft_pad_f(t_printf *v_printf);
+void			ft_handle_f(t_printf *v_printf);
+void			ft_handle_f2(t_printf *v_printf, t_float *f, char *cpy_str);
 void			ft_pad_escape(t_printf *v_printf);
 void			ft_dispatch_jz(t_printf *v_printf);
 uintmax_t		ft_log_dispatch(t_printf *v_printf, uintmax_t uintarg);
@@ -127,6 +128,8 @@ void			ft_get_width(t_printf *v_printf);
 uintmax_t		ft_leading_zero(uintmax_t nb);
 int				ft_particular_octal(t_printf *v_printf, uintmax_t uintarg);
 long double		ft_get_arg_f(t_printf *v_printf);
+void			ft_pad_f(t_printf *v_printf, char *res, int opt, t_float f);
+void			ft_opt_pad_f(t_printf *v_printf, char *res, int opt, int i);
 long double		ft_iterative_power_f(long double power, long double n);
 long double		ft_magnitude(t_float *f);
 int				ft_sign_f(t_float *f);
@@ -135,8 +138,8 @@ intmax_t		ft_iterative_power(intmax_t nb, int power);
 void			ft_round(t_float *f, t_printf *v_printf);
 void			ft_ftoa(t_float *f, t_printf *v_printf);
 void			ft_ftoa_2(t_float *f);
-int				ft_isna(t_float *f, t_printf *v_printf);
-int				ft_isinf(t_float *f, t_printf *v_printf);
+int				ft_isna(t_float *f, t_printf *v_printf, char **res);
+int				ft_isinf(t_float *f, t_printf *v_printf, char **res);
 void			ft_getcol(t_printf *v_printf);
 void			ft_inicol(t_col col[4]);
 void			ft_printcol(t_printf *v_printf);
@@ -144,6 +147,5 @@ void			ft_bin(t_printf *vprintf);
 void			*ft_get_arg_b(t_printf *v_printf);
 void			*ft_malloc_tmp(t_printf *v_printf);
 unsigned		ft_i_size_i(t_printf *v_printf);
-void			ft_pad_f_str(t_printf *v_printf, char *str);
 # include <stdio.h>
 # endif
