@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 17:36:00 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/07 17:05:38 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/07 18:44:45 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 void		ft_pad_nbr(t_printf *v_printf, uintmax_t uintarg)
 {
-	if (v_printf->flags & DOT && !(v_printf->flags & ZERO)
-			&& v_printf->conv & O && uintarg > 0 && v_printf->flags & POUND)
+	if (v_printf->flags & DOT && v_printf->flags & POUND && v_printf->conv & O
+			&& uintarg > 0)
+	{
 		v_printf->width++;
+		v_printf->prec--;
+	}
 	while (!(v_printf->flags & ZERO) && !(v_printf->flags & MINUS)
 			&& --(v_printf->width) >= 0)
 		ft_buff(v_printf, " ", 1);
@@ -24,14 +27,19 @@ void		ft_pad_nbr(t_printf *v_printf, uintmax_t uintarg)
 		ft_buff(v_printf, "0x", 2);
 	else if (uintarg > 0 && (v_printf->flags & POUND) && (v_printf->conv & XX))
 		ft_buff(v_printf, "0X", 2);
-	else if (uintarg > 0 && (v_printf->flags & POUND) && (v_printf->conv & O)
-			&& (!(v_printf->flags & DOT)
-				|| ((v_printf->flags & DOT) && v_printf->prec < 0)))
+	else if (uintarg > 0 && (v_printf->flags & POUND) && (v_printf->conv & O))
+	{
+		//printf("hash_me \n");
 		ft_buff(v_printf, "0", 1);
-	while ((v_printf->flags & ZERO) && --(v_printf->width) >= 0)
+	}
+	while ((v_printf->flags & ZERO)
+			&& --(v_printf->width) >= 0)
 		ft_buff(v_printf, "0", 1);
 	while (--(v_printf->prec) >= 0)
+	{
+		//printf("0 prec \n");
 		ft_buff(v_printf, "0", 1);
+	}
 }
 
 void		ft_fill_nb_i(t_printf *v_printf, intmax_t int_arg, int opt)
