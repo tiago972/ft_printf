@@ -39,8 +39,8 @@ void		ft_fill_nb_i(t_printf *v_printf, intmax_t int_arg, int opt)
 
 	opt ? 0 : (v_printf->power = 20);
 	v_printf->power = ft_log(ft_abs(int_arg), 10);
-	len = v_printf->flags & DOT ? ft_max(v_printf->power, v_printf->prec)
-		: v_printf->power;
+	len = v_printf->flags & DOT ? ft_max((int)v_printf->power, v_printf->prec)
+		: (int)v_printf->power;
 	if (int_arg != 0 || v_printf->prec > 0)
 		v_printf->width -= len;
 	v_printf->prec -= v_printf->power;

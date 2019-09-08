@@ -93,7 +93,7 @@ void	ft_pad_u(t_printf *v_printf)
 	if (v_printf->flags & POUND && uintarg > 0)
 		v_printf->width = v_printf->conv & O ? v_printf->width - 1
 			: v_printf->width - 2;
-	len = v_printf->flags & DOT ? ft_max(power, v_printf->prec) : power;
+	len = v_printf->flags & DOT ? ft_max((int)power, v_printf->prec) : (int)power;
 	v_printf->width -= len;
 	if (uintarg == 0 && v_printf->flags & DOT
 			&& (v_printf->prec == -2 || v_printf->prec == 0))
