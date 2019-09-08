@@ -98,7 +98,8 @@ void	ft_pad_u(t_printf *v_printf)
 		v_printf->width -= len;
 	if (uintarg == 0 && v_printf->prec == -2 && v_printf->flags & DOT)
 		v_printf->width++;
-	v_printf->prec -= power;
+	if (!(v_printf->conv & O && v_printf->flags & DOT && uintarg == 0))
+		v_printf->prec -= power;
 	if (!(ft_particular_octal(v_printf, uintarg)))
 	{
 		//printf("putnbr\n");
