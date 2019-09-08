@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 11:59:30 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/08 16:10:25 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/08 16:23:15 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,10 @@ typedef struct	s_printf
 
 typedef struct	s_float
 {
-	int			m;
-	int			new_mag;
-	int			exp;
 	int			sign;
 	char		*res;
 	long double f_arg;
-	long double	prec;
+	int			prec;
 }				t_float;
 
 typedef struct	s_funptr
@@ -128,16 +125,9 @@ void			ft_get_width(t_printf *v_printf);
 uintmax_t		ft_leading_zero(uintmax_t nb);
 void			ft_particular_octal(t_printf *v_printf, uintmax_t uintarg);
 long double		ft_get_arg_f(t_printf *v_printf);
-void			ft_pad_f(t_printf *v_printf, char *res, int opt, t_float f);
-void			ft_opt_pad_f(t_printf *v_printf, char *res, int opt, int i);
-long double		ft_iterative_power_f(long double power, long double n);
-long double		ft_magnitude(t_float *f);
 int				ft_sign_f(t_float *f);
-long double		ft_floor(long double n);
 intmax_t		ft_iterative_power(intmax_t nb, int power);
 void			ft_round(t_float *f, t_printf *v_printf);
-void			ft_ftoa(t_float *f, t_printf *v_printf);
-void			ft_ftoa_2(t_float *f);
 int				ft_isna(t_float *f, t_printf *v_printf, char **res);
 int				ft_isinf(t_float *f, t_printf *v_printf, char **res);
 void			ft_getcol(t_printf *v_printf);

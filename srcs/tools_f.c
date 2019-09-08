@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 12:23:26 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/07 09:56:54 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/08 16:18:07 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,6 @@ int				ft_sign_f(t_float *f)
 		return (1);
 	}
 	return (0);
-}
-
-long double		ft_floor(long double n)
-{
-	if (n >= 0)
-		return ((int)n);
-	return ((int)n - 0.9999999999999999999999999999999999999);
 }
 
 int				ft_isna(t_float *f, t_printf *v_printf, char **res)
@@ -65,27 +58,4 @@ int				ft_isinf(t_float *f, t_printf *v_printf, char **res)
 		return (1);
 	}
 	return (0);
-}
-
-long double		ft_magnitude(t_float *f)
-{
-	long double		mag;
-	long double		n;
-
-	n = f->f_arg;
-	mag = 0;
-	if (n < 1)
-	{
-		while (n < 1 && n != 0)
-		{
-			n *= 10.0;
-			mag++;
-		}
-		mag--;
-		return (-mag);
-	}
-	else
-		mag = ft_log(n, 10);
-	mag--;
-	return (mag);
 }
