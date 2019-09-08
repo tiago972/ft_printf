@@ -35,6 +35,9 @@ void		ft_pad_nbr(t_printf *v_printf, uintmax_t uintarg)
 	while ((v_printf->flags & ZERO)
 			&& --(v_printf->width) >= 0)
 		ft_buff(v_printf, "0", 1);
+	//printf("prec = %d\n", v_printf->prec);
+//	if (v_printf->conv & O && v_printf->prec == -2 && v_printf->flags & DOT && uintarg == 0 && v_printf->flags & POUND)
+//		v_printf->prec = 0;
 	while (--(v_printf->prec) >= 0)
 	{
 		//printf("0 prec \n");

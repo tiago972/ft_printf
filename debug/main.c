@@ -123,7 +123,7 @@ int		main(void)
 
 	nb = 0;
 
-	printf("null prec : %.0x\n", nb);
+	/*printf("null prec : %.0x\n", nb);
 	ft_printf("null prec : %.0x\n", nb);
 	printf("null prec : %.x\n", nb);
 	ft_printf("null prec : %.x\n", nb);
@@ -154,7 +154,7 @@ int		main(void)
 	printf("null prec : %#12.0X\n", nb);
 	ft_printf("null prec : %#12.0X\n", nb);
 	printf("null prec : %#-5.X\n", nb);
-	ft_printf("null prec : %#-5.X\n", nb);
+	ft_printf("null prec : %#-5.X\n", nb);*/
 	printf("null prec : %.0o\n", nb);
 	ft_printf("null prec : %.0o\n", nb);
 	printf("null prec : %.o\n", nb);
@@ -163,6 +163,7 @@ int		main(void)
 	ft_printf("null prec : %12.0o\n", nb);
 	printf( "null prec : %-5.o\n", nb);
 	ft_printf( "null prec : %-5.o\n", nb);
+	/*
 	printf("null prec : %#.0o\n", nb);
 	ft_printf("null prec : %#.0o\n", nb);
 	printf("null prec : %#.o\n", nb);
@@ -172,6 +173,8 @@ int		main(void)
 	printf("null prec : %#-5.o\n", nb);
 	ft_printf("null prec : %#-5.o\n", nb);
 
+	
+	//printf("null prec : %12.15o\n", nb);
 	nb = 21;
 	printf("null prec : %.0x\n", nb);
 	ft_printf("null prec : %.0x\n", nb);
@@ -222,6 +225,6 @@ int		main(void)
 	printf("null prec : %12.0o\n", nb);
 	ft_printf("null prec : %12.0o\n", nb);
 	printf( "null prec : %-5.o\n", nb);
-	ft_printf( "null prec : %-5.o\n", nb);
+	ft_printf( "null prec : %-5.o\n", nb);*/
 	return (0);
 }

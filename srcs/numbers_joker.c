@@ -86,9 +86,9 @@ int			ft_particular_octal(t_printf *v_printf, uintmax_t uintarg)
 			&& (v_printf->prec <= -2 || v_printf->prec == 0)
 			&& (v_printf->flags & POUND))
 	{
-	//	printf("particular\n");
-		if (uintarg == 0)
-			v_printf->width--;
+//		printf("particular\n");
+		//if (uintarg == 0)
+		//	v_printf->width--;
 		ft_pad_nbr(v_printf, uintarg);
 		//ft_buff(v_printf, "0", 1);
 		return (1);
