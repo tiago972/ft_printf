@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 17:36:00 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/08 16:03:05 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/08 16:10:55 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void		ft_pad_nbr(t_printf *v_printf, uintmax_t uintarg)
 {
-	if (uintarg == 0 && v_printf->flags & POUND && v_printf->conv & O
-			&& v_printf->prec < 0 && v_printf->flags & DOT)
-		v_printf->width--;
 	while (!(v_printf->flags & ZERO) && !(v_printf->flags & MINUS)
 			&& --(v_printf->width) >= 0)
 		ft_buff(v_printf, " ", 1);

@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 20:13:52 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/08 13:45:03 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/08 16:12:10 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,17 @@ void		ft_print_u(t_printf *v_printf, uintmax_t uintarg, uintmax_t power)
 		ft_putnbr_pf_u(v_printf, uintarg, "0123456789", power);
 	else if (v_printf->conv & UU)
 		ft_putnbr_pf_u(v_printf, uintarg, "0123456789", power);
+}
+
+void		ft_particular_octal(t_printf *v_printf, uintmax_t uintarg)
+{
+	if (v_printf->conv & O && v_printf->prec > 0 && v_printf->flags & POUND
+			&& uintarg > 0)
+	{
+		v_printf->width++;
+		v_printf->prec--;
+	}
+	if (uintarg == 0 && v_printf->flags & POUND && v_printf->conv & O
+			&& v_printf->prec < 0 && v_printf->flags & DOT)
+		v_printf->width--;
 }

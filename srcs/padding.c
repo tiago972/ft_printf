@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 15:14:29 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/08 15:57:30 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/08 16:10:21 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,12 +99,7 @@ void	ft_pad_u(t_printf *v_printf)
 			&& (v_printf->prec == -2 || v_printf->prec == 0))
 		v_printf->width++;
 	v_printf->prec -= power;
-	if (v_printf->conv & O && v_printf->prec > 0 && v_printf->flags & POUND
-			&& uintarg > 0)
-	{
-		v_printf->width++;
-		v_printf->prec--;
-	}
+	ft_particular_octal(v_printf, uintarg);
 	ft_pad_nbr(v_printf, uintarg);
 	if (!(v_printf->prec <= -2 && uintarg == 0 && (v_printf->flags & DOT)))
 		ft_print_u(v_printf, uintarg, power);

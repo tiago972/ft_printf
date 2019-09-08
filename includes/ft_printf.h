@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 11:59:30 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/07 11:15:48 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/08 16:10:25 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ void			ft_print_u(t_printf *v_printf, uintmax_t uintarg,
 				uintmax_t power);
 void			ft_get_width(t_printf *v_printf);
 uintmax_t		ft_leading_zero(uintmax_t nb);
-int				ft_particular_octal(t_printf *v_printf, uintmax_t uintarg);
+void			ft_particular_octal(t_printf *v_printf, uintmax_t uintarg);
 long double		ft_get_arg_f(t_printf *v_printf);
 void			ft_pad_f(t_printf *v_printf, char *res, int opt, t_float f);
 void			ft_opt_pad_f(t_printf *v_printf, char *res, int opt, int i);
