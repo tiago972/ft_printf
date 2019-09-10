@@ -68,10 +68,13 @@ typedef struct	s_printf
 
 typedef struct	s_float
 {
-	int			sign;
 	char		*res;
-	long double f_arg;
-	int			prec;
+	long double	f_arg;
+	char		*mant;
+	int		exp;
+	int		sign;
+	char		*tmp;
+	char		*ptr;
 }				t_float;
 
 typedef struct	s_funptr

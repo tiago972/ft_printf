@@ -15,20 +15,16 @@
 #include <math.h>
 #include "../libft/includes/libft.h"
 
-int				ft_sign_f(t_float *f)
+void				ft_sign_f(t_float *f)
 {
 	unsigned char	*ptr;
 	unsigned		i;
 
 	i = 79;
-	ptr = (unsigned char *)&(f->f_arg);
-	if (ptr[i / CHAR_BIT] & (1U << (i % CHAR_BIT)))
-	{
-		*(f->res)++ = '-';
-		f->f_arg = -(f->f_arg);
-		return (1);
-	}
-	return (0);
+	if (f->ptr[i / CHAR_BIT] & (1U << (i % CHAR_BIT)))
+	    f.sign = -1;
+	else
+	    f.sign = 1;
 }
 
 int				ft_isna(t_float *f, t_printf *v_printf, char **res)
@@ -36,6 +32,7 @@ int				ft_isna(t_float *f, t_printf *v_printf, char **res)
 	if (f->f_arg != f->f_arg)
 	{
 		v_printf->width -= 3;
+		f->sign = 1;
 		ft_memcpy(*res, "nan", 3);
 		return (1);
 	}
@@ -47,15 +44,25 @@ int				ft_isinf(t_float *f, t_printf *v_printf, char **res)
 	if (f->f_arg == INFINITY)
 	{
 		v_printf->width -= 3;
+		f->sign = 1;
 		ft_memcpy(*res, "inf", 3);
 		return (1);
 	}
 	else if (f->f_arg == -INFINITY)
 	{
 		v_printf->width -= 4;
-		f->sign = 1;
+		f->sign = -1;
 		ft_memcpy(*res, "-inf", 4);
 		return (1);
 	}
 	return (0);
 }
+
+void			    ft_get_exp(t_float *f)
+{
+    int	    i;
+
+    i = 80;
+    while (
+}
+

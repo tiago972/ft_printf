@@ -37,9 +37,17 @@ void		ft_handle_f(t_printf *v_printf)
 
 	ft_memset(&f, 0, sizeof(t_float));
 	f.f_arg = ft_get_arg_f(v_printf);
+	f.ptr = (unsigned char *)&(f.f_arg);
 	if (!(f.res = ft_strnew(F_SIZE)))
-		return ;
-	cpy_res = f.res;
-	if (ft_isinf(&f, v_printf, &cpy_res) || ft_isna(&f, v_printf, &cpy_res))
-	ft_strdel(&cpy_res);
+	    return ;
+	if (!(f.mant = ft_strnew(F_SIZE)))
+	    return;
+	if (!(f.tmp = ft_strnew(F_SIZE)))
+	    return ;
+	ft_sign_f(f);
+	/*
+	if (ft_isinf(&f, v_printf, &cpy_res) || ft_isna(&f, v_printf, &cpy_res))*/
+	ft_strdel(&(f.res));
+	ft_strdel(&(f.mant);
+	ft_strdel(&(f.tmp));
 }
