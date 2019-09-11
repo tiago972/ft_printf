@@ -2,10 +2,8 @@
 #include "../libft/includes/libft.h"
 #include <limits.h>
 #include <math.h>
-
-int		main()
+void	bit(long double f)
 {
-	long double f = -0.073;
 	unsigned char *test = (unsigned char *)&f;
 	unsigned i = CHAR_BIT * sizeof(f);
 	long int t = (long int)f;
@@ -18,14 +16,14 @@ int		main()
 			printf("0");
 		if (i % 8 == 0)
 			printf(" ");
-	}/*
-	i =  CHAR_BIT * sizeof(f) - 8 * 8;
-	while (--i + 1 > 80)
-	{
-		if (test[i/CHAR_BIT] & (1U << (i % CHAR_BIT)))
-			count++;
 	}
-	printf("\n%d\n", count);
-	printf("%100.200Lf\n", f);*/
+}
+int		main()
+{
+	long double f1 = 0;
+	long double f2 = 4;
+	bit(f1);
+	printf("\n");
+	bit(f2);
 	return (0);
 }

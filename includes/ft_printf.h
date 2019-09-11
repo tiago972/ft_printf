@@ -68,13 +68,13 @@ typedef struct	s_printf
 
 typedef struct	s_float
 {
-	char		*res;
-	long double	f_arg;
-	char		*mant;
-	int		exp;
-	int		sign;
-	char		*tmp;
-	char		*ptr;
+	char			*res;
+	long double		f_arg;
+	char			*mant;
+	int				exp;
+	int				sign;
+	char			*tmp;
+	unsigned char	*ptr;
 }				t_float;
 
 typedef struct	s_funptr
@@ -128,11 +128,15 @@ void			ft_get_width(t_printf *v_printf);
 uintmax_t		ft_leading_zero(uintmax_t nb);
 void			ft_particular_octal(t_printf *v_printf, uintmax_t uintarg);
 long double		ft_get_arg_f(t_printf *v_printf);
-int				ft_sign_f(t_float *f);
+void			ft_sign_f(t_float *f);
+void			ft_get_exp(t_float *f);
 intmax_t		ft_iterative_power(intmax_t nb, int power);
 void			ft_round(t_float *f, t_printf *v_printf);
 int				ft_isna(t_float *f, t_printf *v_printf, char **res);
 int				ft_isinf(t_float *f, t_printf *v_printf, char **res);
+void			ft_initialize_f_char(t_float *f_float);
+void			ft_get_mant(t_float *f_float);
+void			ft_expand_mant(t_float *f_float);
 void			ft_getcol(t_printf *v_printf);
 void			ft_inicol(t_col col[4]);
 void			ft_printcol(t_printf *v_printf);

@@ -5,10 +5,29 @@
 #include <stdlib.h>
 #include <limits.h>
 
+void	bit(long double f)
+{
+	unsigned char *test = (unsigned char *)&f;
+	unsigned i = CHAR_BIT * sizeof(f);
+	long int t = (long int)f;
+	int count = 0;
+	while (--i + 1 > 0)
+	{
+		if (test[i/CHAR_BIT] & (1U << (i % CHAR_BIT)))
+			printf("1");
+		else
+			printf("0");
+		if (i % 8 == 0)
+			printf(" ");
+	}
+}
+
 int		main(void)
 {
-    float nb = -77.2;
+    long double nb = 4;
 
-    ft_printf("%bf\n", nb);
+	bit(nb);
+	printf("\n");
+	ft_printf("%Lf\n", nb);
 	return (0);
 }

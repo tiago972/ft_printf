@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include <limits.h>
 
 uintmax_t		ft_log(uintmax_t nb, uintmax_t base)
 {
@@ -43,13 +44,15 @@ uintmax_t		ft_abs(intmax_t a)
 
 intmax_t		ft_iterative_power(intmax_t nb, int power)
 {
-	int		res;
+	intmax_t	res;
 
 	res = 1;
 	if (power == 0)
 		return (1);
 	while (power > 0)
 	{
+		if (res > LLONG_MAX / nb)
+			return (-1);
 		res = res * nb;
 		power--;
 	}
