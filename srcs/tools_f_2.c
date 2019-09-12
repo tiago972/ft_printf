@@ -60,19 +60,63 @@ void		ft_expand_mant(t_float *f)
 	}
 	//else don't forget to do something
 }
-/*
-void		ft_to_char(char *res, uintmax_t)
-{
 
+void		ft_power_to_char(t_float *f, int power, int mant_index)
+{
+    int	    ret;
+    int	    tmp_index;
+    int	    res_tmp;
+
+    ret = 0;
+    tmp_index = ft_strlen(f->tmp) - 1;
+    if (power == 0)
+    {
+	f->tmp[tmp_index] = 1 * f->mant[mant_index] + '0';
+	return ;
+    }
+    if (f->mant[mant_index] == '0')
+    {	
+	ft_memset(f->tmp, '0', F_SIZE);
+	return;
+    }
+    //printf("power = %d\n", power);
+    /*(void)power;
+    //(void)mant_index;
+    (void)ret;
+    (void)tmp_index;
+    (void)res_tmp;
+    printf("%s\n", f->tmp);*/
+    //printf("va rentrer\n");
+    while (power >= 0)
+    {
+	printf("c = %c, tmp_index %d\n", f->tmp[tmp_index], tmp_index);
+	res_tmp = ((f->tmp[tmp_index] - '0') * 2 + ret);
+	ret = res_tmp / 10;
+	printf("ret = %d\n", ret);
+	f->tmp[tmp_index] = res_tmp % 10 + '0';
+	if (f->tmp[tmp_index] == '9' || ret > 0)
+	{
+	    printf("true\n");
+	    tmp_index--;
+	}
+	power--;
+    }
+    printf("tmp = %s\n", f->tmp);
 }
 
 void		ft_calc_int(t_float *f)
 {
-	int		i;
+	int	    mant_index;
+	int	    i;
 
-	i = ft_strlen_c(f->mant, '.');
+	mant_index = ft_strlen_c(f->mant, '.') - 1;
+	i = mant_index;
 	while (i >= 0)
 	{
-
+	    ft_memset(f->tmp, '0', F_SIZE);
+	    f->tmp[ft_strlen(f->tmp) - 1] = '1';
+	    ft_power_to_char(f, mant_index - i, i);
+	    //ft_add_in_char(f->res, f->tmp);
+	    i--;
 	}
-}*/
+}

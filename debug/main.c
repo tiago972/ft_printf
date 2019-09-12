@@ -24,7 +24,7 @@ void	bit(long double f)
 
 int		main(void)
 {
-    long double nb = 4;
+    long double nb = 16;
 
 	bit(nb);
 	printf("\n");
