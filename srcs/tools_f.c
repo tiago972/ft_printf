@@ -15,24 +15,33 @@
 #include <math.h>
 #include "../libft/includes/libft.h"
 
-void				ft_initialize_f_char(t_float *f)
+int					ft_initialize_f_char(t_float *f)
 {
 	if (!(f->res = ft_strnew(F_SIZE)))
-	    return ;
+	    return (0);
 	if (!(f->mant = ft_strnew(F_SIZE)))
 	{
 		ft_strdel(&(f->res));
-	    return;
+	    return (0);
 	}
 	if (!(f->tmp = ft_strnew(F_SIZE)))
 	{
 		ft_strdel(&(f->res));
 		ft_strdel(&(f->mant));
-	    return ;
+	    return (0);
+	}
+	if (!(f->dec = ft_strnew(F_SIZE)))
+	{	
+		ft_strdel(&(f->res));
+		ft_strdel(&(f->mant));
+		ft_strdel(&(f->tmp));
+	    return (0);
 	}
 	ft_memset(f->res, '0', F_SIZE);
 	ft_memset(f->mant, '0', F_SIZE);
 	ft_memset(f->tmp, '0', F_SIZE);
+	ft_memset(f->dec, '0', F_SIZE);
+	return (1);
 }
 
 void				ft_sign_f(t_float *f)

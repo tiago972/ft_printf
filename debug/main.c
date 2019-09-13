@@ -25,10 +25,11 @@ void	bit(long double f)
 
 int		main(void)
 {
-    long double nb = 1073741824;
+    long double nb = 0;
 
 	bit(nb);
 	printf("\n");
 	ft_printf("\n%Lf\n", nb);
+	printf("\n%.53Lf\n", nb);
 	return (0);
 }

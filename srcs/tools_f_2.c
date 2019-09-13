@@ -63,23 +63,23 @@ void		ft_expand_mant(t_float *f)
 
 void		ft_power_to_char(t_float *f, int power, int mant_firstnbr)
 {
-    int	    ret;
-    int	    res_tmp;
-    int	    tmp_index;
+	int	    ret;
+	int	    res_tmp;
+	int	    tmp_index;
 
-    ret = 0;
-    while (power > 0)
-    {
-	tmp_index = F_SIZE - 1;
-	while (mant_firstnbr <= tmp_index)
+	ret = 0;
+	while (power > 0)
 	{
-	    res_tmp = ((f->tmp[tmp_index] - '0') * 2 + ret);
-	    ret = res_tmp / 10;
-	    f->tmp[tmp_index] = res_tmp % 10 + '0';
-	    tmp_index--;
+		tmp_index = F_SIZE - 1;
+		while (mant_firstnbr <= tmp_index)
+		{
+			res_tmp = ((f->tmp[tmp_index] - '0') * 2 + ret);
+			ret = res_tmp / 10;
+			f->tmp[tmp_index] = res_tmp % 10 + '0';
+			tmp_index--;
+		}
+		power--;
 	}
-	power--;
-    }
 }
 
 void		ft_calc_int(t_float *f)
@@ -93,18 +93,18 @@ void		ft_calc_int(t_float *f)
 	mant_firstnbr = ft_where_is_not_0(f->mant, mant_index);
 	while (i >= 0)
 	{
-	    ft_memset(f->tmp, '0', F_SIZE);
-	    if (mant_index - i > 0 && f->mant[i] != '0')
-	    {
-		f->tmp[F_SIZE - 1] = '1';
-		ft_power_to_char(f, mant_index - i, mant_firstnbr);
-		ft_add_in_char(f);
-	    }
-	    else if (mant_index - i == 0 && f->mant[i] != '0')
-	    {
-		f->tmp[i] = '1';	
-		ft_add_in_char(f);
-	    }
-	    i--;
+		ft_memset(f->tmp, '0', F_SIZE);
+		if (mant_index - i > 0 && f->mant[i] != '0')
+		{
+			f->tmp[F_SIZE - 1] = '1';
+			ft_power_to_char(f, mant_index - i, mant_firstnbr);
+			ft_add_in_char(f);
+		}
+		else if (mant_index - i == 0 && f->mant[i] != '0')
+		{
+			f->tmp[i] = '1';	
+			ft_add_in_char(f);
+		}
+		i--;
 	}
 }

@@ -37,16 +37,19 @@ void		ft_handle_f(t_printf *v_printf)
 	ft_memset(&f, 0, sizeof(t_float));
 	f.f_arg = ft_get_arg_f(v_printf);
 	f.ptr = (unsigned char *)&(f.f_arg);
-	ft_initialize_f_char(&f);
+	if (!(ft_initialize_f_char(&f)))
+		return ;
 	ft_sign_f(&f);
 	ft_get_exp(&f);
 	ft_get_mant(&f);
 	ft_expand_mant(&f);
 	ft_calc_int(&f);
 	ft_calc_dec(&f);
+	printf("int = %s\n dec = %s\n", f.res, f.dec);
 	/*
 	if (ft_isinf(&f, v_printf, &cpy_res) || ft_isna(&f, v_printf, &cpy_res))*/
 	ft_strdel(&(f.res));
 	ft_strdel(&(f.mant));
+	ft_strdel(&(f.dec));
 	ft_strdel(&(f.tmp));
 }
