@@ -61,62 +61,50 @@ void		ft_expand_mant(t_float *f)
 	//else don't forget to do something
 }
 
-void		ft_power_to_char(t_float *f, int power, int mant_index)
+void		ft_power_to_char(t_float *f, int power, int mant_firstnbr)
 {
     int	    ret;
-    int	    tmp_index;
     int	    res_tmp;
+    int	    tmp_index;
 
     ret = 0;
-    tmp_index = ft_strlen(f->tmp) - 1;
-    if (power == 0)
+    while (power > 0)
     {
-	f->tmp[tmp_index] = 1 * f->mant[mant_index] + '0';
-	return ;
-    }
-    if (f->mant[mant_index] == '0')
-    {	
-	ft_memset(f->tmp, '0', F_SIZE);
-	return;
-    }
-    //printf("power = %d\n", power);
-    /*(void)power;
-    //(void)mant_index;
-    (void)ret;
-    (void)tmp_index;
-    (void)res_tmp;
-    printf("%s\n", f->tmp);*/
-    //printf("va rentrer\n");
-    while (power >= 0)
-    {
-	printf("c = %c, tmp_index %d\n", f->tmp[tmp_index], tmp_index);
-	res_tmp = ((f->tmp[tmp_index] - '0') * 2 + ret);
-	ret = res_tmp / 10;
-	printf("ret = %d\n", ret);
-	f->tmp[tmp_index] = res_tmp % 10 + '0';
-	if (f->tmp[tmp_index] == '9' || ret > 0)
+	tmp_index = F_SIZE - 1;
+	while (mant_firstnbr <= tmp_index)
 	{
-	    printf("true\n");
+	    res_tmp = ((f->tmp[tmp_index] - '0') * 2 + ret);
+	    ret = res_tmp / 10;
+	    f->tmp[tmp_index] = res_tmp % 10 + '0';
 	    tmp_index--;
 	}
 	power--;
     }
-    printf("tmp = %s\n", f->tmp);
 }
 
 void		ft_calc_int(t_float *f)
 {
 	int	    mant_index;
 	int	    i;
+	int	    mant_firstnbr;
 
 	mant_index = ft_strlen_c(f->mant, '.') - 1;
 	i = mant_index;
+	mant_firstnbr = ft_where_is_not_0(f->mant, mant_index);
 	while (i >= 0)
 	{
 	    ft_memset(f->tmp, '0', F_SIZE);
-	    f->tmp[ft_strlen(f->tmp) - 1] = '1';
-	    ft_power_to_char(f, mant_index - i, i);
-	    //ft_add_in_char(f->res, f->tmp);
+	    if (mant_index - i > 0 && f->mant[i] != '0')
+	    {
+		f->tmp[F_SIZE - 1] = '1';
+		ft_power_to_char(f, mant_index - i, mant_firstnbr);
+		ft_add_in_char(f);
+	    }
+	    else if (mant_index - i == 0 && f->mant[i] != '0')
+	    {
+		f->tmp[i] = '1';	
+		ft_add_in_char(f);
+	    }
 	    i--;
 	}
 }

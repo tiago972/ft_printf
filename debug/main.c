@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <float.h>
 
 void	bit(long double f)
 {
@@ -24,10 +25,10 @@ void	bit(long double f)
 
 int		main(void)
 {
-    long double nb = 16;
+    long double nb = 1073741824;
 
 	bit(nb);
 	printf("\n");
-	ft_printf("%Lf\n", nb);
+	ft_printf("\n%Lf\n", nb);
 	return (0);
 }

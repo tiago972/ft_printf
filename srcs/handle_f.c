@@ -43,6 +43,7 @@ void		ft_handle_f(t_printf *v_printf)
 	ft_get_mant(&f);
 	ft_expand_mant(&f);
 	ft_calc_int(&f);
+	ft_calc_dec(&f);
 	/*
 	if (ft_isinf(&f, v_printf, &cpy_res) || ft_isna(&f, v_printf, &cpy_res))*/
 	ft_strdel(&(f.res));
