@@ -102,7 +102,7 @@ void		ft_calc_int(t_float *f)
 		}
 		else if (mant_index - i == 0 && f->mant[i] != '0')
 		{
-			f->tmp[i] = '1';	
+			f->tmp[F_SIZE - 1] = '1';	
 			ft_add_in_char(f);
 		}
 		i--;
