@@ -28,8 +28,8 @@ int		main(void)
 	double		nb;
     nb = 45.123456789;
 
-    printf("space:%.8f|\n", nb);
-    ft_printf("space:%.8f|\n", nb);/*
+    printf("space:%.0f|\n", nb);
+    ft_printf("space:%.0f|\n", nb);/*
     ft_printf("plus:%+f\n", nb);
     ft_printf("hash:%#f\n", nb);
     ft_printf("precision:%.2f\n", nb);
