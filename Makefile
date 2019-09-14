@@ -16,6 +16,7 @@ SRC = ft_printf.c \
 	  padding2.c \
 	  tools_f_2.c \
 	  tools_f_3.c \
+	  tools_f_4.c \
 	  bonus_col.c \
 	  bonus_bin.c 
 INCL = ./includes

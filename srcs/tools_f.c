@@ -70,7 +70,8 @@ void			    ft_get_exp(t_float *f)
 		f->exp += (tmp * (ft_iterative_power(2, i - 64)));
 		i++;
 	}
-	f->exp = f->exp - 16383;
+	if (f->exp != 0)
+	    f->exp = f->exp - 16383;
 }
 int				ft_isna(t_float *f, t_printf *v_printf, char **res)
 {

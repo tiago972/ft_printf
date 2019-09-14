@@ -37,7 +37,8 @@ void			ft_get_mant(t_float *f)
 		i++;
 	}
 	f->mant[++f_size] = '.';
-	f->mant[--f_size] = '1';
+	if (f->exp != 0)
+	    f->mant[--f_size] = '1';
 }
 
 void		ft_expand_mant(t_float *f)
@@ -47,8 +48,8 @@ void		ft_expand_mant(t_float *f)
 
 	tmp = 0;
 	index = 938;
+	printf("mant avant exp = %s\n exp = %d\n", f->mant, f->exp);
 	if (f->exp > 0)
-	{
 		while (f->mant[index + 1] && f->exp > 0)
 		{
 			tmp = f->mant[index];
@@ -57,8 +58,14 @@ void		ft_expand_mant(t_float *f)
 			index++;
 			f->exp--;
 		}
-	}
-	//else don't forget to do something
+	else if (f->exp < 0)
+	    while (index - 1 >= 0 && f->exp < 0)
+	    {
+		tmp = f->mant[index];
+		f->mant[index] = f->mant[index - 1];
+		f->mant[index - 1] = tmp;
+		f->exp++;
+	    }
 }
 
 void		ft_power_to_char(t_float *f, int power, int mant_firstnbr)
@@ -107,4 +114,6 @@ void		ft_calc_int(t_float *f)
 		}
 		i--;
 	}
+	ft_to_front(f);
+	f->res[f->int_size] = '.';
 }

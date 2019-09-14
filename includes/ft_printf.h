@@ -75,7 +75,8 @@ typedef struct	s_float
 	int				sign;
 	char			*tmp;
 	char			*dec;
-	unsigned char	*ptr;
+	unsigned char	    *ptr;
+	int		    int_size;
 }				t_float;
 
 typedef struct	s_funptr
@@ -144,6 +145,7 @@ int			ft_where_is_not_0(char *str, int index);
 void			ft_add_in_char(t_float *f);
 void			ft_calc_dec(t_float *f);
 void			ft_add_dec_in_char(t_float *f);
+void			ft_to_front(t_float *f);
 void			ft_getcol(t_printf *v_printf);
 void			ft_inicol(t_col col[4]);
 void			ft_printcol(t_printf *v_printf);

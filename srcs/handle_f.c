@@ -46,6 +46,8 @@ void		ft_handle_f(t_printf *v_printf)
 	ft_calc_int(&f);
 	ft_calc_dec(&f);
 	printf("int = %s\n dec = %s\n", f.res, f.dec);
+	ft_memcpy(f.res + f.int_size + 1, f.dec, f.int_size + 1);
+	printf("res finale = %s\n", f.res);
 	/*
 	if (ft_isinf(&f, v_printf, &cpy_res) || ft_isna(&f, v_printf, &cpy_res))*/
 	ft_strdel(&(f.res));
