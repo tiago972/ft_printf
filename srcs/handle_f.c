@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 12:07:51 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/14 19:41:51 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/14 19:48:26 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ void		ft_round(t_printf *v_printf, t_float *f)
 		}
 
 	i = 0;
-	while (f->res[i] && f->res[i] == ':')
-	{
-		f->res[i] = '0';
+	while (f->res[i])
+	{ 
+		if (f->res[i] == ':')
+			f->res[i] = '0';
 		i++;
 	}
 }
