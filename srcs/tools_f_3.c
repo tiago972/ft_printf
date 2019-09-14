@@ -60,6 +60,7 @@ void	ft_negpower_to_char(t_float *f, int power)
 		num *= 10;
 		i++;
 	}
+	//printf("dec_tmp %s\n", f->tmp);
 }
 
 void		ft_add_dec_in_char(t_float *f)

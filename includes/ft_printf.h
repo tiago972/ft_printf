@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 11:59:30 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/08 16:23:15 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/14 16:33:06 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ typedef struct	s_float
 	int				sign;
 	char			*tmp;
 	char			*dec;
-	unsigned char	    *ptr;
+	unsigned char	*ptr;
 	int		    int_size;
 }				t_float;
 

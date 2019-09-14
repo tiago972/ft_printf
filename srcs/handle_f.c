@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 12:07:51 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/08 16:24:14 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/14 19:30:40 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,26 @@
 void		ft_round(t_printf *v_printf, t_float *f)
 {
 	int	    i;
+	int		prec_cpy;
 
-	i = v_printf-> prec;
+	i = v_printf->prec;
 	i += ft_strlen_c(f->res, '.');
-	if (v_printf->prec == 0)
-	    i++;
-	while (i >= 0 && f->res[i + 1] >= '5' && f->res[i] != '.')
-	{ 
-		if (f->res[i] == '9')
-			f->res[i] = '0';
-		else 
+	prec_cpy = v_printf->prec;
+	if (f->res[i + 1] >= '5')
+	{
+		while (i >= 0 && f->res[i + 1] >= '5' && --prec_cpy)
+		{ 
+			if (f->res[i] == '.')
+				i--;
 			f->res[i]++;
-		i--;
-		if (f->res[i] == '.')
-		    i--;
-		if (f->res[i] < '9')
-			f->res[i]++;
+			i--;
+			if (prec_cpy <= 0)
+				break;
 	}
+	i = -1;
+	while (++i < F_SIZE)
+		if (f->res[i] == ':')
+			f->res[i] = '0';
 }
 
 void		ft_del_f(t_float *f)
@@ -54,8 +57,8 @@ void		ft_handle_f(t_printf *v_printf)
 		return ;
 	if (ft_isinf(&f, v_printf) || ft_isna(&f, v_printf))
 	{
-	    ft_del_f(&f);
-	    return; 
+		ft_del_f(&f);
+		return; 
 	}
 	if ((v_printf->flags & DOT) && v_printf->prec == -2)
 		v_printf->prec = 0;
@@ -71,4 +74,4 @@ void		ft_handle_f(t_printf *v_printf)
 	ft_round(v_printf, &f);
 	ft_pad_f(v_printf, &f, 0);
 	ft_del_f(&f);
-    }
+}

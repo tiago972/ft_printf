@@ -25,15 +25,16 @@ void	bit(long double f)
 
 int		main(void)
 {
+ 
 	double		nb;
-    nb = 45.123456789;
+	nb = 0;
 
-    printf("space:%.8f|\n", nb);
-    ft_printf("space:%.8f|\n", nb);/*
+	ft_printf("test basique:");
+    ft_printf("space:% f\n", nb);
     ft_printf("plus:%+f\n", nb);
     ft_printf("hash:%#f\n", nb);
     ft_printf("precision:%.2f\n", nb);
-  	ft_printf("big prec:%.14f\n", nb);
+    ft_printf("big prec:%.14f\n", nb);
     ft_printf("precision + hash:%#.0f\n", nb);
     ft_printf("space + prec:% .5f\n", nb);
     ft_printf("space + prec + hash:%# .0f\n", nb);
@@ -62,6 +63,6 @@ int		main(void)
     ft_printf("size + espace + zero + prec:% 05.3f\n", nb);
     ft_printf("size + espace + zero + prec + hash:%#0 5.0f\n", nb);
     ft_printf("size + minus + plus + prec:%-+5.3f\n", nb);
-    ft_printf("size + minus + plus + prec + hash:%-#+5.0f\n", nb); 
-	*/return (0);
+    ft_printf("size + minus + plus + prec + hash:%-#+5.0f\n", nb);
+	return (0);
 }
