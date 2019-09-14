@@ -37,7 +37,7 @@ void			ft_get_mant(t_float *f)
 		i++;
 	}
 	f->mant[++f_size] = '.';
-	if (f->exp != 0)
+	if (f->f_arg != (long double)0)
 	    f->mant[--f_size] = '1';
 }
 
@@ -48,7 +48,6 @@ void		ft_expand_mant(t_float *f)
 
 	tmp = 0;
 	index = 938;
-	printf("mant avant exp = %s\n exp = %d\n", f->mant, f->exp);
 	if (f->exp > 0)
 		while (f->mant[index + 1] && f->exp > 0)
 		{
