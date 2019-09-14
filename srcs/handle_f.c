@@ -15,37 +15,23 @@
 
 void		ft_round(t_printf *v_printf, t_float *f)
 {
-    int	    i;
+	int	    i;
 
-	i = v_printf-> prec + 1;
-	while (i >= 0 && f->res[i] >= '5' && f->res[i] != '.')
+	i = v_printf-> prec;
+	i += ft_strlen_c(f->res, '.');
+	if (v_printf->prec == 0)
+	    i++;
+	while (i >= 0 && f->res[i + 1] >= '5' && f->res[i] != '.')
 	{ 
 		if (f->res[i] == '9')
 			f->res[i] = '0';
 		else 
 			f->res[i]++;
 		i--;
+		if (f->res[i] == '.')
+		    i--;
 		if (f->res[i] < '9')
 			f->res[i]++;
-	}
-	i = ft_strlen_c(f->res, '.');
-	if (v_printf->prec == 0)
-	{
-	    if (f->res[i + 1] >= '5')
-	    {
-		i--;
-		f->res[i]++;
-	    }
-	    while (i >= 0 && f->res[i] >= '5')
-	    {
-	    	if (f->res[i] == '9')
-			f->res[i] = '0';
-		else 
-			f->res[i]++;
-		i--;
-		if (f->res[i] < '9')
-			f->res[i]++;
-	    }
 	}
 }
 
@@ -83,7 +69,6 @@ void		ft_handle_f(t_printf *v_printf)
 	ft_calc_dec(&f);
 	ft_memcpy(f.res + f.int_size + 1, f.dec, F_SIZE - (f.int_size + 1));
 	ft_round(v_printf, &f);
-	printf("res après arrondi %s\n", f.res);
 	ft_pad_f(v_printf, &f, 0);
 	ft_del_f(&f);
     }

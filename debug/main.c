@@ -25,11 +25,11 @@ void	bit(long double f)
 
 int		main(void)
 {
-    long double nb = 13.956;
+    long double nb = 0;
 
 	bit(nb);
 	printf("\n");
-	ft_printf("\n%.1Lf\n", nb);
-	printf("\n%.1Lf\n", nb);
+	ft_printf("\n%+.0Lf\n", nb);
+	printf("\n%+.0Lf\n", nb);
 	return (0);
 }
