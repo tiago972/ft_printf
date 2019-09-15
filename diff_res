@@ -1,0 +1,12 @@
+27c27
+< size#+#minus#+#prec#+#hash:45.##|
+---
+> size#+#minus#+#prec#+#hash:45.##
+29c29
+< size#+#plus#+#0#+#prec#+#hash:+0045.
+---
+> size#+#plus#+#0#+#prec#+#hash:+045.
+32c32
+< size#+#espace#+#zero#+#prec#+#hash:#0045.
+---
+> size#+#espace#+#zero#+#prec#+#hash:#045.
