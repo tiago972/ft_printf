@@ -68,6 +68,8 @@ int				ft_printf(const char *str, ...)
 	t_printf		v_printf;
 	static t_funptr	funptr[14];
 
+	if (!str)
+		return (0);
 	ft_memset(&v_printf, 0, sizeof(t_printf));
 	ft_bzero(&(v_printf.buff), BUFF_SIZE);
 	ft_inifunptr(funptr);

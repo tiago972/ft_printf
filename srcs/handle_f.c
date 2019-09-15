@@ -22,7 +22,7 @@ void		ft_round(t_printf *v_printf, t_float *f)
 	if (v_printf->prec == 0)
 	{
 		i--;
-		if (f->res[i + 2] >= '5')
+		if (f->res[i + 2] >= '5' && f->res[i + 3] != '0')
 			f->res[i]++;	
 	}
 	else if (f->res[i + 1] >= '5')

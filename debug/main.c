@@ -25,37 +25,7 @@ void	bit(long double f)
 
 int		main(void)
 {
- 
-	double		nb;
 
- nb = 1.0/0.0;
-	/*printf("%f|\n", nb);
-	ft_printf("%f|\n", nb);
-	printf("%12f\n", nb);
-	ft_printf("%12f\n", nb);
-	printf("%-12f|\n", nb);
-	ft_printf("%-12f|\n", nb);
-	printf("%5.9f\n", nb);
-	ft_printf("%5.9f\n", nb);*/
-
-    nb = -1.0/0.0;
-	printf("%f\n", nb);
-	ft_printf("%f\n", nb);
-	printf("%12f\n", nb);
-	ft_printf("%12f\n", nb);
-	printf("%-12f|\n", nb);
-	ft_printf("%-12f|\n", nb);
-	printf("%5.9f\n", nb);
-	ft_printf("%5.9f\n", nb);
-/*
-	nb = 0.0/0.0;
-	printf("%f\n", nb);
-	ft_printf("%f\n", nb);
-	printf("%12f\n", nb);
-	ft_printf("%12f\n", nb);
-	printf("%-12f|\n", nb);
-	ft_printf("%-12f|\n", nb);
-	printf("%5.9f\n", nb);
-	ft_printf("%5.9f\n", nb);*/
+	ft_printf(NULL, 123, 'A', 1235.123);
 	return (0);
 }

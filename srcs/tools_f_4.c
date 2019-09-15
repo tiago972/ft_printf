@@ -58,6 +58,11 @@ void			ft_pad_f(t_printf *v_printf, t_float *f, int opt)
 		v_printf->flags &= ~ZERO;
 	if (f->sign == -1)
 		v_printf->width--;
+	if (f->sign == -1 && !(v_printf->flags & POUND) && f->f_arg == (long double)0)
+		v_printf->width++;
+	if (f->sign == -1 && v_printf->flags & POUND && (v_printf->flags & SP || v_printf->flags & PLUS)
+			&& !(v_printf->flags & MINUS))
+		v_printf->width++;
 	if (f->sign == 1 && f->f_arg != (long double)0 && v_printf->flags & POUND
 			&& (v_printf->flags & SP || v_printf->flags & PLUS)
 			&& v_printf->width - (int)ft_strlen_c(f->res, '.') - 1 > v_printf->prec
@@ -65,7 +70,7 @@ void			ft_pad_f(t_printf *v_printf, t_float *f, int opt)
 			v_printf->width--;
 	if (f->f_arg == (long double)0 && !(v_printf->flags & ZERO) && !(v_printf->flags & MINUS))
 		v_printf->width++;
-	if (f->f_arg == (long double)0 && v_printf->flags & POUND && v_printf->flags & ZERO && (v_printf->flags & PLUS || v_printf->flags & SP))
+	if (f->f_arg == (long double)0  && v_printf->flags & POUND && v_printf->flags & ZERO && (v_printf->flags & PLUS || v_printf->flags & SP))
 		v_printf->width--;
 	if (opt == 0)
 		v_printf->width -= (v_printf->prec + ft_strlen_c(f->res, '.') + 1);
