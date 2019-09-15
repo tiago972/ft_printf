@@ -73,6 +73,7 @@ void			    ft_get_exp(t_float *f)
 	if (f->exp != 0)
 	    f->exp = f->exp - 16383;
 }
+
 int				ft_isna(t_float *f, t_printf *v_printf)
 {
 	if (f->f_arg != f->f_arg)
@@ -98,7 +99,7 @@ int				ft_isinf(t_float *f, t_printf *v_printf)
 	}
 	else if (f->f_arg == -INFINITY)
 	{
-		v_printf->width -= 4;
+		v_printf->width -= 3;
 		f->sign = -1;
 		ft_memcpy(f->res, "-inf", 4);
 		ft_pad_f(v_printf, f, 1);
