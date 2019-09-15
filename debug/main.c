@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <float.h>
+#include "../libft/includes/libft.h"
 
 void	bit(long double f)
 {
@@ -25,10 +26,9 @@ void	bit(long double f)
 
 int		main(void)
 {
- 
-	long double		nb = LDBL_MAX;
-//	printf("%Lf", nb);
-	ft_printf("%Lf", nb);
+	double f = 42.42;
+
+	ft_printf("%Lf", f);
 
 
 	return (0);

@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tools_f_3.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/15 16:39:40 by edbaudou          #+#    #+#             */
+/*   Updated: 2019/09/15 16:40:52 by edbaudou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 #include "../libft/includes/libft.h"
 
-int	ft_where_is_not_0(char *str, int index)
+int			ft_where_is_not_0(char *str, int index)
 {
-	int	    i;
+	int	i;
 
 	i = 0;
 	while (str[i] && i < index)
@@ -15,14 +27,15 @@ int	ft_where_is_not_0(char *str, int index)
 	return (F_SIZE);
 }
 
-void	ft_add_in_char(t_float *f)
+void		ft_add_in_char(t_float *f)
 {
-	int	    i;
-	int	    ret;
-	int	    tmp;
-	int	    lim;
+	int		i;
+	int		ret;
+	int		tmp;
+	int		lim;
 
-	lim = ft_min(ft_where_is_not_0(f->tmp, F_SIZE), ft_where_is_not_0(f->res, F_SIZE));
+	lim = ft_min(ft_where_is_not_0(f->tmp, F_SIZE),
+			ft_where_is_not_0(f->res, F_SIZE));
 	i = 1;
 	ret = 0;
 	while (i <= lim)
@@ -34,7 +47,7 @@ void	ft_add_in_char(t_float *f)
 	}
 }
 
-void	ft_negpower_to_char(t_float *f, int power)
+void		ft_negpower_to_char(t_float *f, int power)
 {
 	intmax_t	den;
 	intmax_t	num;
@@ -60,14 +73,13 @@ void	ft_negpower_to_char(t_float *f, int power)
 		num *= 10;
 		i++;
 	}
-	//printf("dec_tmp %s\n", f->tmp);
 }
 
 void		ft_add_dec_in_char(t_float *f)
 {
-	int	    i;
-	int	    ret;
-	int	    tmp;
+	int		i;
+	int		ret;
+	int		tmp;
 
 	i = 1;
 	ret = 0;
@@ -80,10 +92,10 @@ void		ft_add_dec_in_char(t_float *f)
 	}
 }
 
-void	ft_calc_dec(t_float *f)
+void		ft_calc_dec(t_float *f)
 {
-	int	    mant_index;
-	int	    i;
+	int		mant_index;
+	int		i;
 
 	mant_index = ft_strlen_c(f->mant, '.') + 1;
 	i = 1;

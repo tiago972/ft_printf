@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 11:59:30 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/14 16:33:06 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/15 16:50:42 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ typedef struct	s_float
 	char			*tmp;
 	char			*dec;
 	unsigned char	*ptr;
-	int		    int_size;
+	int				int_size;
 }				t_float;
 
 typedef struct	s_funptr
@@ -92,13 +92,15 @@ typedef struct	s_col
 }				t_col;
 
 int				ft_printf(const char *str, ...);
+void			ft_begin(t_printf *v_printf, const char *str,
+				t_funptr funptr[14]);
 void			ft_buff(t_printf *v_printf, char *str, int n);
 void			ft_inifunptr(t_funptr funptr[14]);
 void			ft_inifunptr2(t_funptr funptr[14]);
 void			ft_inivprintf(t_printf *v_printf, const char *str);
-void			ft_get_info(t_printf *v_printf, t_funptr funptr[13]);
+void			ft_get_info(t_printf *v_printf, t_funptr funptr[14]);
 void			ft_get_size(t_printf *v_printf);
-void			ft_dispatch(t_printf *v_printf, t_funptr funptr[13]);
+void			ft_dispatch(t_printf *v_printf, t_funptr funptr[14]);
 uintmax_t		ft_log(uintmax_t nb, uintmax_t base);
 void			ft_pad_c(t_printf *v_printf);
 void			ft_pad_s(t_printf *v_printf);
@@ -133,14 +135,15 @@ long double		ft_get_arg_f(t_printf *v_printf);
 void			ft_sign_f(t_float *f);
 void			ft_get_exp(t_float *f);
 intmax_t		ft_iterative_power(intmax_t nb, int power);
-int			ft_isna(t_float *f, t_printf *v_printf);
-int			ft_isinf(t_float *f, t_printf *v_printf);
+int				ft_isna(t_float *f, t_printf *v_printf);
+int				ft_isinf(t_float *f, t_printf *v_printf);
 int				ft_initialize_f_char(t_float *f_float);
 void			ft_get_mant(t_float *f_float);
 void			ft_expand_mant(t_float *f_float);
 void			ft_calc_int(t_float *f_float);
-void			ft_power_to_char(t_float *f_float, int power, int mant_firstnbr);
-int			ft_where_is_not_0(char *str, int index);
+void			ft_power_to_char(t_float *f_float,
+				int power, int mant_firstnbr);
+int				ft_where_is_not_0(char *str, int index);
 void			ft_add_in_char(t_float *f);
 void			ft_calc_dec(t_float *f);
 void			ft_add_dec_in_char(t_float *f);
@@ -156,5 +159,7 @@ void			ft_bin(t_printf *vprintf);
 void			*ft_get_arg_b(t_printf *v_printf);
 void			*ft_malloc_tmp(t_printf *v_printf);
 unsigned		ft_i_size_i(t_printf *v_printf);
-# include <stdio.h>
-# endif
+int				ft_begin_f(t_float *f, t_printf *v);
+void			ft_if_f(t_float *f, t_printf *v_printf, int opt);
+
+#endif
