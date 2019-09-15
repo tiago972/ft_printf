@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 13:01:54 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/14 16:58:23 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/15 16:38:09 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ long double		ft_get_arg_f(t_printf *v_printf)
 		return ((long double)va_arg(v_printf->ap, long double));
 	else if (v_printf->flags & L)
 		return ((long double)va_arg(v_printf->ap, double));
-	else 
+	else
 		return ((long double)va_arg(v_printf->ap, double));
 }
 
@@ -33,15 +33,16 @@ void			ft_get_mant(t_float *f)
 	i = 0;
 	while (i < 64)
 	{
-		f->mant[f_size--] = f->ptr[i / CHAR_BIT] & (1U << (i % CHAR_BIT)) ? '1' : '0';
+		f->mant[f_size--] = f->ptr[i / CHAR_BIT] & (1U << (i % CHAR_BIT)) ?
+			'1' : '0';
 		i++;
 	}
 	f->mant[++f_size] = '.';
 	if (f->f_arg != (long double)0)
-	    f->mant[--f_size] = '1';
+		f->mant[--f_size] = '1';
 }
 
-void		ft_expand_mant(t_float *f)
+void			ft_expand_mant(t_float *f)
 {
 	char	tmp;
 	int		index;
@@ -58,20 +59,20 @@ void		ft_expand_mant(t_float *f)
 			f->exp--;
 		}
 	else if (f->exp < 0)
-	    while (index - 1 >= 0 && f->exp < 0)
-	    {
-		tmp = f->mant[index];
-		f->mant[index] = f->mant[index - 1];
-		f->mant[index - 1] = tmp;
-		f->exp++;
-	    }
+		while (index - 1 >= 0 && f->exp < 0)
+		{
+			tmp = f->mant[index];
+			f->mant[index] = f->mant[index - 1];
+			f->mant[index - 1] = tmp;
+			f->exp++;
+		}
 }
 
-void		ft_power_to_char(t_float *f, int power, int mant_firstnbr)
+void			ft_power_to_char(t_float *f, int power, int mant_firstnbr)
 {
-	int	    ret;
-	int	    res_tmp;
-	int	    tmp_index;
+	int		ret;
+	int		res_tmp;
+	int		tmp_index;
 
 	ret = 0;
 	while (power > 0)
@@ -88,11 +89,11 @@ void		ft_power_to_char(t_float *f, int power, int mant_firstnbr)
 	}
 }
 
-void		ft_calc_int(t_float *f)
+void			ft_calc_int(t_float *f)
 {
-	int	    mant_index;
-	int	    i;
-	int	    mant_firstnbr;
+	int		mant_index;
+	int		i;
+	int		mant_firstnbr;
 
 	mant_index = ft_strlen_c(f->mant, '.') - 1;
 	i = mant_index;
@@ -108,7 +109,7 @@ void		ft_calc_int(t_float *f)
 		}
 		else if (mant_index - i == 0 && f->mant[i] != '0')
 		{
-			f->tmp[F_SIZE - 1] = '1';	
+			f->tmp[F_SIZE - 1] = '1';
 			ft_add_in_char(f);
 		}
 		i--;

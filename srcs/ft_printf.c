@@ -6,7 +6,7 @@
 /*   By: edbaudou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 13:00:09 by edbaudou          #+#    #+#             */
-/*   Updated: 2019/09/06 14:37:32 by edbaudou         ###   ########.fr       */
+/*   Updated: 2019/09/15 16:13:53 by edbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,12 @@ static void		ft_reinit_struct(t_printf *v_printf)
 	v_printf->col = 0;
 }
 
-void			ft_inivprintf(t_printf *v_printf, const char *str)
+void			ft_begin(t_printf *v_printf, const char *str,
+				t_funptr funptr[14])
 {
+	ft_memset(v_printf, 0, sizeof(t_printf));
+	ft_bzero(&(v_printf->buff), BUFF_SIZE);
+	ft_inifunptr(funptr);
 	v_printf->prec = -2;
 	v_printf->str = (char *)str;
 }
@@ -70,10 +74,7 @@ int				ft_printf(const char *str, ...)
 
 	if (!str)
 		return (0);
-	ft_memset(&v_printf, 0, sizeof(t_printf));
-	ft_bzero(&(v_printf.buff), BUFF_SIZE);
-	ft_inifunptr(funptr);
-	ft_inivprintf(&v_printf, str);
+	ft_begin(&v_printf, str, funptr);
 	va_start(v_printf.ap, str);
 	while (*(v_printf.str))
 	{
