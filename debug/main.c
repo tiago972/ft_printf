@@ -25,7 +25,11 @@ void	bit(long double f)
 
 int		main(void)
 {
+ 
+	long double		nb = LDBL_MAX;
+//	printf("%Lf", nb);
+	ft_printf("%Lf", nb);
 
-	ft_printf(NULL, 123, 'A', 1235.123);
+
 	return (0);
 }
